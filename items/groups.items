@@ -1,0 +1,104 @@
+
+// Casatenovo
+
+Group:Number:AVG gAvgTemperatura "Temp.media interna [%.1f °C]" <temperature>
+//Group:Switch:OR(ON, OFF) gMotion "Stato presenza [MAP(ir.map):%s]"
+Group:Number:AVG    gAvgUmidita      "Umidità [%.1f %%]"
+Group:Dimmer:EQUALITY gIkeaIngressoB "Ingresso Intesità [%d %%]"
+Group:Number:EQUALITY gIkeaIngressoCT "Ingresso Temperatura [%.0f K]"
+
+Group gAstroRadation "Astro" 
+Group gWeather "Che tempo che fa" [WebService]
+Group gMapDb
+Group gSystemInfo
+
+Group gIndoor "Interno"  ["Indoor"] 
+Group gOutdoor "Esterno"  ["Outdoor"] 
+
+Group gGroundFloor "Piano terra" <groundfloor> (gIndoor) ["GroundFloor"]
+Group gTerrace "Terrazzo" <terrace> (gOutdoor) ["Terrace"]
+
+
+Group gBedroom1 "Camera da letto" <bedroom> (gGroundFloor) ["Bedroom"]
+Group gBedroom1Sensor "Sensori Camera da Letto"  (gBedroom1) ["Sensor"]
+Group gBedroom1Condizionamento "Controllo condizionamento Camera da Letto" (gBedroom1) ["HVAC"]
+
+Group gBedroom2 "Cameretta" (gGroundFloor) ["Bedroom"]
+Group gBedroom2Sensor "Sensori Cameretta"  (gBedroom2) ["Sensor"]
+Group gBedroom2Condizionamento "Controllo condizionamento Cameretta" (gBedroom2) ["HVAC"]
+Group gBedroom2Light "Luce Cameretta" <lightbulb> (gBedroom2)  ["Lightbulb"]
+Group gBedroom2MotionDetector "IR Cameretta" (gBedroom2) ["MotionDetector"]
+
+Group gOffice "Studio" (gGroundFloor) ["Office"]
+Group gOfficeSensor "Sensori Studio"  (gOffice) ["Sensor"]
+Group gOfficeCondizionamento "Controllo condizionamento Studio" (gOffice) ["HVAC"]
+Group gOfficeLight "Luce Studio" <lightbulb> (gOffice)  ["Lightbulb"]
+Group gOfficeMotionDetector "IR Studio" (gOffice) ["MotionDetector"]
+
+Group gBagno "Bagno" (gGroundFloor) ["Bathroom"]
+Group gBagnoDoccia "Bagno doccia" (gGroundFloor) ["Bathroom"]
+Group gCucina "Cucina" (gGroundFloor) ["Kitchen"]
+
+Group gLivingroom "Soggiorno" (gGroundFloor) ["LivingRoom"]
+Group gLivingroomSensor "Sensori Soggiorno"  (gLivingroom) ["Sensor"]
+Group gLivingroomCondizionamento "Controllo condizionamento Soggiorno" (gLivingroom) ["HVAC"]
+
+Group gCorridoio "Corridoio" (gGroundFloor) ["Corridor"]
+Group gTermostatoCorridoio "Temp. Corridoio" (gCorridoio)["HVAC"] {ga="Thermostat" [ useFahrenheit=false ]} 
+
+Group gIngresso "Ingresso" (gGroundFloor) ["Corridor"]
+
+Group gGarage "Garage" (gGroundFloor) ["Garage"]
+Group gGarageOutlet "Prese Garage" (gGarage) ["PowerOutlet"]
+Group gGarageLight "Luce Garage" <lightbulb> (gGarage)  ["Lightbulb"]
+Group gGarageSensor "Sensori Garage" (gGarage) ["Sensor"]
+Group gGarageGarageDoor "Portone Garage" (gGarage) ["GarageDoor"]
+Group gGarageMotionDetector "IR Garage" (gGarage) ["MotionDetector"]
+
+
+//Group gSwitchCondizionamento "ON/OFF Condizionamento" (gCondizionamento) ["HVAC"]
+//Group gSetPointCondizionamento "SetPoint Condizionamento" (gCondizionamento) ["HVAC"]
+//Group gCondizionamento "SetPoint Condizionamento" (gCondizionamento) ["HVAC"]
+
+
+Group gAntifurto "Antifurto" (gIndoor)
+
+
+Group gInverter "Inverter" (gTerrace) ["Inverter"]
+Group gMeter "Meter" (gTerrace) ["Inverter"]
+
+
+
+Group gCaldaia "Caldaia" (gIndoor) ["HVAC"]
+Group gCaldaiaStato "Stato caldaia" (gCaldaia) ["HVAC"]
+
+Group gRiscaldamento "Riscaldamento" (gGroundFloor) ["HVAC"]
+
+Group gTemperatura
+Group gInfluxdb
+//Group gAll
+//Group gStudio (gAll)
+// Group gQuadroElettrico "Quadro elettrico" <settings> (gAll)
+// Group gPortone "Portone" <cellar> (gAll)
+// Group gGarage "Garage" <garage> (gAll)
+// Group gCameraCameretta (gAll)
+// Group gCameraMatrimoniale (gAll)
+// Group gCorridoio (gAll)
+// Group gAntifurto (gAll)
+// Group gCucina (gAll)
+// Group gGiardino "Giardino" <garden> (gAll)
+// Group gSalotto "Salotto" (gAll)
+// Group gCm3 (gAll)
+// Group gCaldaia
+// Group gTemperatura
+
+// Group gFotoVoltaico
+// Group gZwave
+
+// Group gUmidita
+
+
+
+
+
+

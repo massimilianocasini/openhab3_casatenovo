@@ -1,0 +1,22 @@
+Bridge mqtt:broker:mosquitto [ host="localhost", secure=false ]{
+    Thing topic prodino "Prodino" @ "Soggiorno" {
+      Channels:
+      //  Type number : temp_prodino "Temperatura prodino" [ stateTopic="/KMP/ProDinoWiFi/dhtt"]
+      //  Type number : umid_prodino "Umidità prodino" [ stateTopic="/KMP/ProDinoWiFi/dhth"]
+        //Type string : alarm-panel "Alarm system status" [ stateTopic = "ProDinoWiFi/optoin", transformationPattern = "MAP:prodino.map" ]
+        Type string : alarmIn1 "Alarm system status " [ stateTopic = "kmp/prodinowifi/info", transformationPattern = "REGEX:(.*in-0.*)∩MAP:prodino.map" ]
+     //   Type string : flusso1 "Flussometro" [ stateTopic = "kmp/prodinowifi/info"]
+       // Type switch : alarm-key "Alarm system key" [commandTopic = "ProDinoWiFi/Cmd", on = "rel-0-1", off = "rel-0-0"]
+       Type switch : alarmOut1 "Alarm system key" [commandTopic = "kmp/prodinowifi/cmd", on = "rel-0-1", off = "rel-0-0"]
+    }
+    
+    Thing topic cm3panel "CM3PANEL" @ "Cucina" {
+      Channels:
+        Type string : cm3panelStartx "Cm3Panel StartX" [ stateTopic = "cm3panel/cm3shell", commandTopic = "cm3panel/cm3shell"]
+    }
+     Thing topic flussometro "tasmota" @ "Garage" {
+      Channels:
+        Type number : flusso "Contatore Acqua" [ stateTopic = "tele/tasmota_026BB3/SENSOR", transformationPattern = "JSONPATH:$.COUNTER.C1"]
+        Type switch : resetFlusso "Reset contatore acqua" [commandTopic = "cmnd/tasmota_026BB3/counter1", on = "0"]
+    } 
+}

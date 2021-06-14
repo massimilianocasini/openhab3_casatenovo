@@ -1,0 +1,45 @@
+
+// //FGWP102 Metered Wall Plug Switch
+Number:Energy FGWP102_003_MeterKwh "Energia consumata presa scrivania [%.1f Kwh]" <energy> (gGarageSensor, gInfluxdb) ["Energy"] {channel="zwave:device:932abd2592:node3:meter_kwh"}
+// Number:Power FGWP102_003_ElectricMeter "Potenza istantanea Electricmeter " <energy> (gPowerOutlet1, gInfluxdb) ["Power"] {channel="zzwave:device:932abd2592:node3:meter_watts"}
+Number:Power FGWP102_003_SensorPower "Potenza istantanea presa scrivania [%.1f Kw]" <energy> (gGarageSensor,gInfluxdb) ["Power"] {channel="zwave:device:932abd2592:node3:sensor_power"}
+Switch FGWP102_003_SwitchBinary "Wall Plug Stato presa scrivania" <switch>  (gGarageOutlet)  ["Switch"] {channel="zwave:device:932abd2592:node3:switch_binary"}
+Switch FGWP102_003_ResetEnergy "Reset energia consumata presa scrivania" <switch> (gGarageOutlet) ["Switch"] {channel="zwave:device:932abd2592:node3:meter_reset"}
+
+//FGS222 Double relay Switch 2x1.5kW, Garage
+Switch FGS222_15_switch_binary "" {channel="zwave:device:932abd2592:node15:switch_binary"}
+Switch SwitchBinary1_Serranda_Garage_ZW15 "Apri Serranda Garage" <blinds> (gGarageGarageDoor) ["Switch"]  { ga="Switch" [roomHint="Garage"], channel="zwave:device:932abd2592:node15:switch_binary1"} 
+Switch SwitchBinary2_Luce_Garage_ZW15 "Luce Garage" <light> (gGarageLight) ["Switch"]  { ga="Light" [roomHint="Garage"], channel="zwave:device:932abd2592:node15:switch_binary2", expire="3600s,command=OFF"}
+
+//FGBS001 Universal Binary Sensor, Garage 
+Number  FGBS001_16_scene_number "Scene" {channel="zwave:device:932abd2592:node16:scene_number"}
+Switch  FGBS001_16_SensorBinary1 "Stato serranda Garage[MAP(serrande.map):%s]"  <blinds> {channel="zwave:device:932abd2592:node16:sensor_binary1"}
+Switch  FGBS001_16_alarm_general1 "Alarm1" {channel="zwave:device:932abd2592:node16:alarm_general1"}
+Switch  FGBS001_16_SensorBinary2  "IR Garage [MAP(ir.map):%s]" <motion> (gGarageMotionDetector) ["Status", "Presence"] {channel="zwave:device:932abd2592:node16:sensor_binary2"}
+Switch  FGBS001_16_alarm_general2 "Alarm2" {channel="zwave:device:932abd2592:node16:alarm_general2"}
+Number:Temperature  FGBS001_16_SensorTemperature3  "Temperatura Universal Bynary Garage[%.1f °C]" <temperature> (gGarageSensor, gInfluxdb) ["Measurement", "Temperature"] {channel="zwave:device:932abd2592:node16:sensor_temperature3"} 
+
+//FGBS001 Universal Binary Sensor, Camera Cameretta
+Number FGBS001_17_scene_number ""  {channel="zwave:device:932abd2592:node17:scene_number"}
+Switch SensorBinary1_IRMotion_Cameretta_ZW17 "IR Cameretta [MAP(ir.map):%s]" <motion> (gBedroom2MotionDetector) ["Status", "Presence"] {channel="zwave:device:932abd2592:node17:sensor_binary1"}
+Switch FGBS001_17_alarm_general1 "" {channel="zwave:device:932abd2592:node17:alarm_general1"}
+Switch SensorBinary2_IRTamper_Cameretta_ZW17 "Tamper [MAP(tamper.map):%s]" <shield>  {channel="zwave:device:932abd2592:node17:sensor_binary2"}
+Switch FGBS001_17_alarm_general2 "" {channel="zwave:device:932abd2592:node17:alarm_general2"}
+Number:Temperature SensorTemperature3_DS1820_Cameretta_ZW17 "Temperatura Cameretta [%.1f °C]" <temperature> {channel="zwave:device:932abd2592:node17:sensor_temperature3"}
+Number:Temperature OffSetTemperature3_DS1820_Cameretta_ZW17 "Temperatura Cameretta [%.1f °C]" <temperature> 
+
+//FGS222 Double relay Switch 2x1.5kW, Camera Cameretta porta
+Switch FGS222_18_switch_binary "" {channel="zwave:device:932abd2592:node18:switch_binary"}
+Switch SwitchBinary1_LuceLatoPorta_Cameretta_ZW18 "Luce centrale Cameretta" <light> (gBedroom2Light) ["Switch"] {ga="Light" [roomHint="Cameretta"], channel="zwave:device:932abd2592:node18:switch_binary1"}
+Switch SwitchBinary2_LumettiLatoPorta_Cameretta_ZW18 "Lumetti Cameretta" <light> (gBedroom2Light) ["Switch"] { ga="Light" [roomHint="Cameretta"],channel="zwave:device:932abd2592:node18:switch_binary2"}
+
+//FGS222 Double relay Switch 2x1.5kW Camera Cameretta lumetti
+Switch FGS222_19_switch_binary "" {channel="zwave:device:932abd2592:node19:switch_binary"}
+Switch SwitchBinary1_LuceLatoLetti_Cameretta_ZW19 "Luce centrale Cameretta"  {channel="zwave:device:932abd2592:node19:switch_binary1"}
+Switch SwitchBinary2_LumettiLatoLetti_Cameretta_ZW19 "Lumetti Caneretta " {channel="zwave:device:932abd2592:node19:switch_binary2"}
+
+//FGMS001 Motion Sensor, Studio
+Number:Temperature FGMS001_ZW10_Temp "Temperatura Studio[%.1f °C]" <temperature> (gOfficeSensor) ["Measurement", "Temperature"] {channel="zwave:device:932abd2592:node10:sensor_temperature"}
+Number:Illuminance FGMS001_ZW10_Lum "Luminosità [%.1f lx]" <rgb> (gOfficeSensor) ["Measurement", "Light"] {channel="zwave:device:932abd2592:node10:sensor_luminance"}
+Switch FGMS001_ZW10_All "Motion[MAP(ir.map):%s]" <motion> (gOfficeMotionDetector) ["Status", "Presence"] {channel="zwave:device:932abd2592:node10:alarm_motion"}
+Number FGMS001_ZW10_Batt "Stato batteria [%d %%]" <battery> {channel="zwave:device:932abd2592:node10:battery-level"}
