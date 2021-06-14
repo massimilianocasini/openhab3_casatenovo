@@ -1,1 +1,4 @@
 services/pushover.cfg
+services/weather.cfg.old
+things/pushover.things
+things/telegram.things
