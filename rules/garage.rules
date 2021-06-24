@@ -1,15 +1,15 @@
-val mailActions = getActions("mail","mail:smtp:gmail_service")
-val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-
 rule "Invia messaggio a BOT quando si apre/chiude la serranda"
-    when
-        Item FGBS001_16_SensorBinary1 changed
-    then
-        if(FGBS001_16_SensorBinary1.state == ON) {
-            telegramAction.sendTelegram("Garage Serranda Aperta") 
-        }
-        else 
-            telegramAction.sendTelegram("Garage Serranda Chiusa") 
+when
+    Item FGBS001_16_SensorBinary1 changed
+then
+    if(FGBS001_16_SensorBinary1.state == ON) {
+    val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramAction.sendTelegram("Garage Serranda Aperta") 
+    }
+else {
+    val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramAction.sendTelegram("Garage Serranda Chiusa") 
+    }
 end
 
 // rule "Accensione luce Garage"

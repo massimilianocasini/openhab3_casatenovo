@@ -1,17 +1,19 @@
 val mailActions = getActions("mail","mail:smtp:gmail_service")
 var Timer keyTimer = null
-val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+
 
 rule "Antifurto cambio stato"
 when 
     Item Prodino0_in1 changed
 then
     if(Prodino0_in1.state == "INSERITO") {
-       telegramAction.sendTelegram("Antifurto INSerito!") 
+      val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+      telegramAction.sendTelegram("Antifurto INSerito!") 
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
     }
-     if(Prodino0_in1.state == "DISINSERITO") {
-       telegramAction.sendTelegram("Antifurto DIsInserito!")
+    if(Prodino0_in1.state == "DISINSERITO") {
+      val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+      telegramAction.sendTelegram("Antifurto DIsInserito!")
      // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
     }
 end

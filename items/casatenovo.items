@@ -12,43 +12,24 @@ Switch Presence "Someone is Present" <presence> // master presence switch, repre
 Switch Presence_Timer { expire="15m,command=OFF" } // anti-flapping timer
 Switch Presence_Auto <switch>  //Presenza automatica o manuale
 
-
-
 //Energy Driven Switch C, Condizionamento
 Switch WPS104_11_switch_binary "Switch esterno"  {channel="zwave:device:932abd2592:node11:switch_binary"}
 Number SensorPower_R220P_QE_ZW11  "Sensore di potenza [%.0f]" <energy> {channel="zwave:device:932abd2592:node11:sensor_power"}
 Number:ElectricPotential MeterVoltage_R220P_QE_ZW11 "Tensione rete [%.1f V]" <energy> (gInfluxdb) {channel="zwave:device:932abd2592:node11:meter_voltage"}
 Number MeterPowerFactor_R220P_QE_ZW11 "Sfasamento rete [%.0f φ]" <energy> (gInfluxdb) {channel="zwave:device:932abd2592:node11:meter_powerfactor"}
-Number:ElectricCurrent MeterCurrent_R220P_QE_ZW11 "Corrente assorbita [%.1f A]" <energy> (ggInfluxdb) {channel="zwave:device:932abd2592:node11:meter_current"}
+Number:ElectricCurrent MeterCurrent_R220P_QE_ZW11 "Corrente assorbita [%.1f A]" <energy> (gInfluxdb) {channel="zwave:device:932abd2592:node11:meter_current"}
 Number:Power MeterWatts_R220P_QE_ZW11 "Assorbita [%.0f W]" <fan> ( gInfluxdb) {channel="zwave:device:932abd2592:node11:meter_watts"}
 Number:Energy MeterKwh_R220P_QE_ZW11 "Energia consumata [%.1f kWh]" <fan> (gInfluxdb) {channel="zwave:device:932abd2592:node11:meter_kwh"}
 String WPS104_tensione_potenza "Temp Aussen [%s]" 
 
-//FGS222 Double relay Switch 2x1.5kW, Portone
-Switch FGS222_13_switch_binary "Binary"  {channel="zwave:device:932abd2592:node13:switch_binary"}
-Switch SwitchBinary1_Luce_Portone_ZW13 "Luce Portone" <light> { ga="Light" [roomHint="Portone"], channel="zwave:device:932abd2592:node13:switch_binary1"}
-Switch SwitchBinary2_Luce_CancellettoEst_ZW13 "Luce Cancelletto" <light>  {channel="zwave:device:932abd2592:node13:switch_binary2"}
-
-//FGD211 Universal Dimmer 500W, Corridoio
-Dimmer    FGD211_ZW20_Dimmer    "Luce Corridoio [%d %%]"    <light>    {ga="Light" [roomHint="Corridoio"], channel="zwave:device:932abd2592:node20:switch_dimmer"}
-
-
 //FGRM223 Roller Shutter, Pergotenda
-Rollershutter BlindsControl_Pergotenda_Giardino_ZW24 "Pergotenda [%d %%]" <rollershutter> { ga="Awning" [roomHint="Giardino"],channel="zwave:device:932abd2592:node24:blinds_control1"}
+Rollershutter BlindsControl_Pergotenda_Giardino_ZW24 "Pergotenda [%d %%]" <rollershutter> { ga="Pergola" [roomHint="Giardino"],channel="zwave:device:932abd2592:node24:blinds_control1"}
 Number:Power MeterWatts_Pergotenda_Giardino_ZW24  "Potenza istantanea"{channel="zwave:device:932abd2592:node24:meter_watts1"}
 Number:Energy MeterKwh_Pergotenda_Giardino_ZW24  "Energia consumata"  {channel="zwave:device:932abd2592:node24:meter_kwh1"}
 
-//FGS221 Double Relay Switch 2x1.5kW, Soggiorno
-Switch FGS221_22_switch_binary ""  {channel="zwave:device:932abd2592:node22:switch_binary"}
-Switch SwitchBinary1_AlberoNatale_Salotto_ZW22 "Albero di Natale" { ga="Outlet" [roomHint="Soggiorno"], channel="zwave:device:932abd2592:node22:switch_binary1"}
-Switch SwitchBinary2_TV_Salotto_ZW22 "TV, Ampli" <cinema> { ga="Outlet",channel="zwave:device:932abd2592:node22:switch_binary2"}
+
 
 //FGS221 Double Relay Switch 2x1.5kW, Caldaia consenso
 Switch FGS221_23_switch_binary ""  {channel="zwave:device:932abd2592:node23:switch_binary"}
 Switch FGS221_23_switch_binary1 "Libero" <climate> {channel="zwave:device:932abd2592:node23:switch_binary1"}
 Switch SwitchBinary2_Caldaia_Tecnico_ZW22 "Caldaia [MAP(caldaia.map):%s]" <fire>  { ga="Outlet" [roomHint="Caldaia"], channel="zwave:device:932abd2592:node23:switch_binary2"}
-
-//FGS222 FGBS222 Smart Implant, IR Corridoio
-Number    FGS222_25_sensor_temperature    "Temperatura corridoio [%.1f °C]"    <temperature>   {channel="zwave:device:932abd2592:node25:sensor_temperature"}
-Switch    FGS222_25_input1    "IR Tamper [MAP(tamper.map):%s]"    <shield>      {channel="zwave:device:932abd2592:node25:alarm_burglar1"}
-Switch    FGS222_25_input2    "IR [MAP(ir.map):%s]"    <motion>    {channel="zwave:device:932abd2592:node25:alarm_burglar2"}

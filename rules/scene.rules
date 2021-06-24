@@ -36,6 +36,8 @@ when
     Time cron "0 30 22 1/1 * ? *"
 then
     FGD211_ZW20_Dimmer.sendCommand(5)
+    IkeaLed1B.sendCommand(1)
+    IkeaLed2B.sendCommand(1)
 end
 
 rule "Luce corridoio 07:00 OFF "
@@ -43,4 +45,6 @@ when
     Time cron "0 0 7 1/1 * ? *"
 then
     FGD211_ZW20_Dimmer.sendCommand(0)
+    IkeaLed1B.sendCommand(0)
+    IkeaLed2B.sendCommand(0)
 end

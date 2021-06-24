@@ -35,9 +35,11 @@ when
 then
     val host = triggeringItem
     if (host.state==ON) {
+        val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
         sendTelegram("bot1", host.name+" CONNESSO") 
     }
     else {
+        val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
         sendTelegram("bot1", host.name+" DISCONNESSO")
     }
 end
@@ -76,5 +78,3 @@ when Time cron "0 0 0 1/1 * ? *"
     then 
         ResetContatoreAcqua.sendCommand(ON)
 end
-
-

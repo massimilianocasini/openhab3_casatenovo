@@ -1,5 +1,4 @@
 sitemap Casatenovo label="Benvenuto a Casa" 
-
 { 
 	Frame label=Oggi{
 		Text item=Date icon="calendar"
@@ -60,28 +59,28 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	}
 	Frame label="Condizionamento" {
 		Default item=MeterWatts_R220P_QE_ZW11
-		Switch item=gORDaikinPower mappings=[ON="ON", OFF="OFF"]
-		Selection item=gEqualityDaikinMode mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"]
-		Setpoint item=gEqualityDaikinSetPoint minValue=18 maxValue=30 step=0.5
+		Switch item=gSwCondPower mappings=[ON="ON", OFF="OFF"]
+		Selection item=gEqCondMode mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"]
+		Setpoint item=gEqCondSetPoint minValue=21 maxValue=27 step=0.5
 		Text item=gAvgTemperatura
 		
 		Text label="Base" icon=climate {
-			Switch item=gORDaikinPower  mappings=[ON="ON", OFF="OFF"] 
-			Switch item=gEqualityDaikinMode mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"]
+			Switch item=gSwCondPower  mappings=[ON="ON", OFF="OFF"] 
+			Switch item=gEqCondMode mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"]
 			Switch item=DaikinACUnit_Power_Studio mappings=[ON="ON", OFF="OFF"]
-			Setpoint item=DaikinACUnit_SetPoint_Studio minValue=18 maxValue=30 step=0.5
+			Setpoint item=DaikinACUnit_SetPoint_Studio minValue=21 maxValue=27 step=0.5
 			Switch item=DaikinACUnit_Power_Letto  mappings=[ON="ON", OFF="OFF"]
-			Setpoint item=DaikinACUnit_SetPoint_Letto  minValue=18 maxValue=30 step=0.5
+			Setpoint item=DaikinACUnit_SetPoint_Letto  minValue=21 maxValue=27 step=0.5
 			Switch item=DaikinACUnit_Power_Cameretta  mappings=[ON="ON", OFF="OFF"]
-			Setpoint item=DaikinACUnit_SetPoint_Cameretta minValue=18 maxValue=30 step=0.5
-			Switch item=DaikinACUnit_Power_Salotto mappings=[ON="ON", OFF="OFF"]
-			Setpoint item=DaikinACUnit_SetPoint_Salotto  minValue=18 maxValue=30 step=0.5
+			Setpoint item=DaikinACUnit_SetPoint_Cameretta minValue=21 maxValue=27 step=0.5
+			Switch item=DaikinACUnit_Power_Soggiorno mappings=[ON="ON", OFF="OFF"]
+			Setpoint item=DaikinACUnit_SetPoint_Soggiorno  minValue=21 maxValue=27 step=0.5
 		}
 
 		Text label="Avanzate" icon=climate {
 			Text label="Studio" icon=climate {
 				Switch item=DaikinACUnit_Power_Studio mappings=[ON="ON", OFF="OFF"]
-				Setpoint item=DaikinACUnit_SetPoint_Studio visibility=[DaikinACUnit_Power_Studio==ON] minValue=16 maxValue=30 step=0.5
+				Setpoint item=DaikinACUnit_SetPoint_Studio visibility=[DaikinACUnit_Power_Studio==ON] minValue=21 maxValue=27 step=0.5
 				Selection item=DaikinACUnit_Mode_Studio mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"]
 			//	Selection item=DaikinACUnit_SpecialMode_Studio mappings=["OFF"="Off", "STREAMER"="Streamer", "ECO"="ECO", "POWERFUL"="PowerFull", "POWERFUL & STREAMER"="PowerFull e Streamer", "ECO & STREAMER"="ECO e Streamer"]
 				Selection item=DaikinACUnit_Fan_Studio mappings=["AUTO"="Auto", "SILENCE"="Silence", "LEVEL_1"="Level 1", "LEVEL_2"="Level 2", "LEVEL_3"="Level 3", "LEVEL_4"="Level 4", "LEVEL_5"="Level 5"] visibility=[DaikinACUnit_Power_Studio==ON]
@@ -92,7 +91,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 				}
 			Text label="Letto" icon=climate {
 				Switch item=DaikinACUnit_Power_Letto mappings=[ON="ON", OFF="OFF"]
-				Setpoint item=DaikinACUnit_SetPoint_Letto visibility=[DaikinACUnit_Power_Letto==ON] minValue=16 maxValue=30 step=0.5
+				Setpoint item=DaikinACUnit_SetPoint_Letto visibility=[DaikinACUnit_Power_Letto==ON] minValue=21 maxValue=27 step=0.5
 				Selection item=DaikinACUnit_Mode_Letto mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"] 
 				Selection item=DaikinACUnit_Fan_Letto mappings=["AUTO"="Auto", "SILENCE"="Silence", "LEVEL_1"="Level 1", "LEVEL_2"="Level 2", "LEVEL_3"="Level 3", "LEVEL_4"="Level 4", "LEVEL_5"="Level 5"] visibility=[DaikinACUnit_Power_Letto==ON]
 				Selection item=DaikinACUnit_Fan_Movement_Letto mappings=["STOPPED"="Ferma", "VERTICAL"="Verticale", "HORIZONTAL"="Orizzontale", "VERTICAL_AND_HORIZONTAL"="Verticale e orizzontale"] visibility=[DaikinACUnit_Power_Letto==ON]
@@ -101,7 +100,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			}
 			Text label="Cameretta" icon=climate {
 				Switch item=DaikinACUnit_Power_Cameretta mappings=[ON="ON", OFF="OFF"]
-				Setpoint item=DaikinACUnit_SetPoint_Cameretta visibility=[DaikinACUnit_Power_Cameretta==ON] minValue=16 maxValue=30 step=0.5
+				Setpoint item=DaikinACUnit_SetPoint_Cameretta visibility=[DaikinACUnit_Power_Cameretta==ON] minValue=21 maxValue=27 step=0.5
 				Selection item=DaikinACUnit_Mode_Cameretta mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"] 
 				Selection item=DaikinACUnit_Fan_Cameretta mappings=["AUTO"="Auto", "SILENCE"="Silence", "LEVEL_1"="Level 1", "LEVEL_2"="Level 2", "LEVEL_3"="Level 3", "LEVEL_4"="Level 4", "LEVEL_5"="Level 5"] visibility=[DaikinACUnit_Power_Cameretta==ON]
 				Selection item=DaikinACUnit_Fan_Movement_Cameretta mappings=["STOPPED"="Ferma", "VERTICAL"="Verticale", "HORIZONTAL"="Orizzontale", "VERTICAL_AND_HORIZONTAL"="Verticale e orizzontale"] visibility=[DaikinACUnit_Power_Cameretta==ON]
@@ -109,13 +108,13 @@ sitemap Casatenovo label="Benvenuto a Casa"
 				Text item=DaikinACUnit_OutdoorTemperature_Cameretta
 			}
 			Text label="Soggiorno" icon=climate {
-				Switch item=DaikinACUnit_Power_Salotto mappings=[ON="ON", OFF="OFF"]
-				Setpoint item=DaikinACUnit_SetPoint_Salotto visibility=[DaikinACUnit_Power_Salotto==ON] minValue=16 maxValue=30 step=0.5
-				Selection item=DaikinACUnit_Mode_Salotto mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"] 
-				Selection item=DaikinACUnit_Fan_Salotto mappings=["AUTO"="Auto", "SILENCE"="Silence", "LEVEL_1"="Level 1", "LEVEL_2"="Level 2", "LEVEL_3"="Level 3", "LEVEL_4"="Level 4", "LEVEL_5"="Level 5"] visibility=[DaikinACUnit_Power_Salotto==ON]
-				Selection item=DaikinACUnit_Fan_Movement_Salotto mappings=["STOPPED"="Ferma", "VERTICAL"="Verticale", "HORIZONTAL"="Orizzontale", "VERTICAL_AND_HORIZONTAL"="Verticale e orizzontale"] visibility=[DaikinACUnit_Power_Salotto==ON]
-				Text item=DaikinACUnit_IndoorTemperature_Salotto
-				Text item=DaikinACUnit_OutdoorTemperature_Salotto
+				Switch item=DaikinACUnit_Power_Soggiorno mappings=[ON="ON", OFF="OFF"]
+				Setpoint item=DaikinACUnit_SetPoint_Soggiorno visibility=[DaikinACUnit_Power_Soggiorno==ON] minValue=21 maxValue=27 step=0.5
+				Selection item=DaikinACUnit_Mode_Soggiorno mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"] 
+				Selection item=DaikinACUnit_Fan_Soggiorno mappings=["AUTO"="Auto", "SILENCE"="Silence", "LEVEL_1"="Level 1", "LEVEL_2"="Level 2", "LEVEL_3"="Level 3", "LEVEL_4"="Level 4", "LEVEL_5"="Level 5"] visibility=[DaikinACUnit_Power_Salotto==ON]
+				Selection item=DaikinACUnit_Fan_Movement_Soggiorno mappings=["STOPPED"="Ferma", "VERTICAL"="Verticale", "HORIZONTAL"="Orizzontale", "VERTICAL_AND_HORIZONTAL"="Verticale e orizzontale"] visibility=[DaikinACUnit_Power_Salotto==ON]
+				Text item=DaikinACUnit_IndoorTemperature_Soggiorno
+				Text item=DaikinACUnit_OutdoorTemperature_Soggiorno
 			}
 		}
 	}
@@ -164,8 +163,8 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			
 		}
 		Text label="Ingresso" icon="corridor" {
-			Switch item=gIkeaIngressoB mappings=[0="0", 20="20", 50="50", 100="100"]
-			Switch item=gIkeaIngressoCT mappings=[2202="CALDA", 3003="TIEPIDA", 4000="FREDDA"]
+			Switch item=gIkeaEqualityCorridorB mappings=[0="0", 20="20", 50="50", 100="100"]
+			Switch item=gIkeaEqualityCorridorCT mappings=[2202="CALDA", 3003="TIEPIDA", 4000="FREDDA"]
 			//Switch item=IkeaIngressoB mappings=[0="0", 20="20", 50="50", 100="100"]
 			//Switch item=IkeaIngressoCT mappings=[2202="CALDA", 3003="TIEPIDA", 4000="FREDDA"]
 			//Slider item=IkeaLed1B
@@ -205,7 +204,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Switch item=SwitchBinary2_Luce_Garage_ZW15 mappings=[ON="Premi"]
 			Text item=FGBS001_16_SensorBinary1 
 			Text  item=FGBS001_16_SensorBinary2
-			Text item=FGBS001_16_SensorTemperature3
+			Text item=FGBS001_16_SensorTemperature3 
 		}
 	}
 	Frame label="Accessori"	{
@@ -347,10 +346,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			}
 		}
 	}
-	Frame label="Gruppi" {
-			Group item=gTemperatura label="Temperature" icon="temperature"
-		//	Group item=gFritz label="Router" icon="settings"
-	}
+
 	Frame label="System"  {
 		Text label="Dispositivi IP" icon="network-off" {
 		Text item=CondSalottoIP icon="network" valuecolor=[ON="green",OFF="red"] labelcolor=[ON="green", OFF="red"]
@@ -423,22 +419,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
         // 	}
     	// }
 		}
-	
-	// Frame label="Grafici" {
-	// 	Text label="Grafici" {
-	// //	Image label="Room Temperatures" refresh=60000 url="http://192.168.178.90:3000/render/d-solo/gKNdSvRRk/temperatura?orgId=1&panelId=10&from=1546985283141&to=1547158083141&width=1000&height=500&tz=UTC%2B01%3A00"
-	// 	Chart item=gAvgTemperatura icon="chart" label="Grafico" refresh=60000 period=D legend=true
-	// 	}
-	
-	// }
-	// Frame label="FotoV"
-	// 	Text label="Autoconsumo"
-	// 	Image refresh=60000 url="http://192.168.178.90:3000/d/2WwJNPkRk/fotovoltaico?panelId=4&orgId=1&fullscreen"
-/* 	Frame label="Periferiche di rete" {
-		Switch item=RaspberryPI0_online mappings=[ON="ONLINE", OFF="OFFLINE"]
-		Default item=RaspberryPI0_latency
-		Text item=RaspberryPI0_datetime
-	} */
+
 	Frame label="Sensori allagamento"
 		{
 			Switch item=WaterSensor1A mappings=[ON="BAGNATO", OFF="ASCIUTTO"]

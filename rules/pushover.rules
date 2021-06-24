@@ -1,7 +1,7 @@
 
 rule "Sensore acqua"
 when
-    Member of gSensoreAcqua changed 
+    Member of gWaterSensors changed 
 then
     val actions = getActions("pushover", "pushover:pushover-account:account")
     val host = triggeringItem
