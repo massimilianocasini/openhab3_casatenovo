@@ -18,7 +18,8 @@ when
 then
     SwitchBinary2_TV_Salotto_ZW22.sendCommand(ON)
    // FGS221_22_switch_binary1.sendCommand(ON)
-    sendTelegram("bot1", "TV ON!")
+    val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramAction.sendTelegram("TV ON")
 end
 
 // rule "09:30 OFF lun-ven"
@@ -45,7 +46,8 @@ when
 then
     SwitchBinary2_TV_Salotto_ZW22.sendCommand(ON)
    // FGS221_22_switch_binary1.sendCommand(ON)
-    sendTelegram("bot1", "TV ON!")
+    val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramAction.sendTelegram("TV ON")
 end
 
 rule "02:00 OFF sabato"
@@ -54,5 +56,6 @@ when
 then
 //   SwitchBinary2_TV_Salotto_ZW22.sendCommand(OFF)
    // FGS221_22_switch_binary1.sendCommand(OFF)
-    sendTelegram("bot1", "TV OFF!")
+    val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramAction.sendTelegram("TV OFF")
 end

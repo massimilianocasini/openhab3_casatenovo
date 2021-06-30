@@ -18,5 +18,6 @@ Bridge mqtt:broker:mosquitto [ host="localhost", secure=false ]{
       Channels:
         Type number : flusso "Contatore Acqua" [ stateTopic = "tele/tasmota_026BB3/SENSOR", transformationPattern = "JSONPATH:$.COUNTER.C1"]
         Type switch : resetFlusso "Reset contatore acqua" [commandTopic = "cmnd/tasmota_026BB3/counter1", on = "0"]
+        Type switch : elettrovalvola "Elettrovalvola acqua" [commandTopic = "cmnd/tasmota_026BB3/POWER", on = "ON", off = "OFF"]
     } 
 }

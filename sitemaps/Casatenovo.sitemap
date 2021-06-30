@@ -227,9 +227,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		}
 	}
 	Frame label="Che tempo che fa" {
-		 //Group item=gWeather label=Meteo icon="sun_clouds"
-		 Default item=OneCallAPIweatherandforecast_Current_Pressure
-		 
+		 Group item=gWeather label=Meteo icon="sun_clouds"
 	}
 	Frame label="Astro" {
 			Text item=Sunrise_Time
@@ -383,7 +381,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 				Frame label="Statistiche"
 				{
 					Image label="Ultima misurazione" item=SpeedtestResultImage
-				//	Webview url="/static/chart.html" height=12 icon="speedtest_summary"
+				   // Webview url="/static/index.html" height=12 icon="speedtest_summary"
 				}
 			}
 	}
@@ -420,11 +418,13 @@ sitemap Casatenovo label="Benvenuto a Casa"
     	// }
 		}
 
-	Frame label="Sensori allagamento"
-		{
-			Switch item=WaterSensor1A mappings=[ON="BAGNATO", OFF="ASCIUTTO"]
-			Text item=WaterSensor1T
-			Text item=WaterSensor1B
-			Text item=WaterSensor1LastUp
-		}
+	Frame label="Irobot" {
+		Default item=Roomba_Cycle label="Current cycle"
+		Default item=Roomba_Phase label="Current phase"
+		Default item=Roomba_Battery label="Battery charge [%d %%]"
+		Default item=Roomba_Bin label="Bin status"
+		Default item=Roomba_Error label="Error"
+		Default item=Roomba_Rssi label="RSSI WIFI"
+		Default item=Roomba_snr label="SNR WIFI"
+	}
 }

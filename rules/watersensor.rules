@@ -1,0 +1,40 @@
+// define global vars at the top of the rules file!
+var int counter = 0
+rule "Reset contatore acqua"
+when Time cron "0 0 0 1/1 * ? *"
+    then 
+        ResetContatoreAcqua.sendCommand(ON)
+end
+
+rule "Chiusura Acqua in caso di allagamento"
+when 
+    Member of gWaterSensors changed
+then
+    val actions = getActions("pushover", "pushover:pushover-account:account")
+    logInfo("WaterSensor", "Cambio rilevato sul gruppo gWaterSensor")
+    val host = triggeringItem 
+    logInfo("WaterSensor", host.name + " " + host.state + " Cambio rilevato sul gruppo gWaterSensor")
+if (host.state==ON) {
+        var receipt = actions.sendPriorityMessage("Rilevato allagamento dal sensore "+ host.name, "openhab3", 2)
+        // wait for your cancel condition
+        if( receipt !== null ) {
+            actions.cancelPriorityMessage(receipt)
+            receipt = null
+        }
+        val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+        telegramAction.sendTelegram("Rilevata acqua sensore " + host.name)
+        ElettrovalvolaAcqua.sendCommand(ON)
+        logInfo("WaterSensor", "Elettrovalvola ON")
+    }
+else if (host.state==OFF) {
+        actions.sendMessage("Allagamento risolto "+ host.name , "openHAB3")
+    }
+end
+
+rule "resetCounter"
+when
+    Item ResetCounter changed
+then
+    counter = 0
+    Counter.postUpdate(counter)
+end

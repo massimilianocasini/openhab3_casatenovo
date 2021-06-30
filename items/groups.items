@@ -10,11 +10,12 @@ Group gAstroRadation "Astro"
 Group gWeather "Che tempo che fa" ["WeatherService"]
 Group gMapDb
 Group gSystemInfo
-Group gWaterSensors "Sensori acqua" ["Sensor"]
+//Group gWaterSensors "Sensori acqua" ["Sensor"]
 Group gGroundFloorSpeaker "Sonoro" ["Speaker"]
 Group gInverter "Inverter" ["Inverter"]
 Group gMeter "Meter" ["Inverter"]
 Group gBattery "Batterie" ["Battery"]
+Group gCleaningRobot "Roomba" ["CleaningRobot"] 
 
 
 Group gIndoor "Indoor" ["Indoor"]
