@@ -1,5 +1,5 @@
 # openhab3_casatenovo
-This is my actual configuration on my Home Automation in Openhab3
+This is actual configuration on my Home Automation in Openhab3
 The files with password should not be present. These are:
 ## pushover.cfg
 * defaultToken=xxxxxxxxxx
