@@ -1,6 +1,6 @@
 
 // Prodino
-String  Prodino0_in1 "Stato Antifurto [%s]" <alarm> (gAlarmSystem) ["Status"]  {channel="mqtt:topic:mosquitto:prodino:alarmIn1"}
+String  Prodino0_in1 "Stato Antifurto [%s]" <alarm> (gAlarmSystem) ["Lock", "Status"]  {channel="mqtt:topic:mosquitto:prodino:alarmIn1"}
 //Switch prodino0_in2 "In 2 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-1.*]"}
 //Switch prodino0_in3 "In 3 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-2.*]"}
 //String Flusso "In 4 Status [%.0f]"  	{channel="mqtt:topic:mosquitto:prodino:flusso1"}

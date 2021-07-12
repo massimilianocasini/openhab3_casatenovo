@@ -34,3 +34,8 @@ Switch WaterSensorGarageAcqua "Rilevazione acqua" (gGarageSensor) ["Status", "Wa
 Number:Temperature WaterSensorGarageTemp "Temperatura Water Sensor [%.1f °C]" (gGarageSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:temperature"}
 Number:Dimensionless WaterSensorGarageBatt "Livello batteria Water Sensor [%d %%]" <batterylevel> (gGarageBattery, gBattery, gInfluxdb) ["Status"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:battery_level"}
 DateTime WaterSensorGarageLastUpdate "Ultimo invio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gGarageSensor) ["Status", "Timestamp"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:last_seen"}
+
+Switch WaterSensorCucinaAcqua "Rilevazione acqua" (gKitchenSensor) ["Status", "Water"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:waterleakage", stateDescription="" [options="OFF=ASCIUTTO, ON=BAGNATO"]}
+Number:Temperature WaterSensorCucinaTemp "Temperatura Water Sensor [%.1f °C]" (gKitchenSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:temperature"}
+Number:Dimensionless WaterSensorCucinaBatt "Livello batteria Water Sensor [%d %%]" <batterylevel> (gKitchenBattery, gBattery, gInfluxdb) ["Status"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:battery_level"}
+DateTime WaterSensorCucinaLastUpdate "Ultimo invio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gKitchenSensor) ["Status", "Timestamp"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:last_seen"}

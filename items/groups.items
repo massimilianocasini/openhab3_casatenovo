@@ -52,6 +52,8 @@ Group gIndoor "Indoor" ["Indoor"]
             Group gLivingroomBattery "Livello batterie Soggiorno" (gLivingroom) 
         Group gKitchen "Cucina" (gGroundFloor) ["Kitchen"]
             Group gKitchenSpeaker "Speaker Cucina" (gKitchen) ["Speaker"]
+            Group gKitchenSensor "Sensori Cucina" (gKitchen) ["Sensor"]
+            Group gKitchenBattery "Livello batterie Cucina" (gKitchen)
 
 Group gBuilding "Building" ["Building"]
     Group gGarage "Garage" (gBuilding) ["Garage"]
@@ -63,4 +65,6 @@ Group gBuilding "Building" ["Building"]
         Group gGarageBattery "Livello batterie Garage" (gGarage)
     Group gPortone "Portone" (gBuilding) ["Entry"]
         Group gPortoneLight "Luce Portone" <lightbulb> (gPortone) ["Lightbulb"]
+        Group gPortoneLock "Apriportoni" <keyring> (gPortone) ["Lock"]
     Group gAlarmSystem "Antintrusione" (gBuilding) ["AlarmSystem"]
+

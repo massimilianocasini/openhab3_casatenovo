@@ -198,6 +198,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		}
 		Text label="Portone" icon="cellar" {
 			Switch item=SwitchBinary1_Luce_Portone_ZW13 mappings=[ON=ACCESO, OFF=SPENTO]
+			Switch item=SwitchBinary2_Luce_Apriporta_ZW13 mappings=[ON="Premi"]
 		}	
 		Text label="Garage" icon="garage" {
 			Switch item=SwitchBinary1_Serranda_Garage_ZW15 mappings=[ON="APRI"]

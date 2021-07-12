@@ -12,7 +12,7 @@ Number:Energy M_Total_Real_Energy_Imported "Energia importata reale [%.0f MWh]" 
 //Number:Energy M_Total_Apparent_Energy_Imported "Energia importata apparente [%.2f]" (gMeter) ["Measurement", "Energy"]  {channel="modbus:meter-wye-phase:bridge:40188:acGeneral#ac-total-imported-apparent-energy"}
 //Number:Energy M_Total_Reactive_Energy_Imported_Quadrant_1 "Energia importata reattiva Q1 [%.2f]" (gMeter) ["Measurement", "Energy"]  {channel="modbus:meter-wye-phase:bridge:40188:acGeneral#ac-total-imported-reactive-energy-q1"}
 
-Number:Power M_AC_Real_Power_Value_Fase_A "Potenza reale fase A [%.1f]" (gMeter) ["Measurement", "Power"]  {channel="modbus:meter-wye-phase:bridge:40188:acPhaseA#ac-real-power"}
+Number:Power M_AC_Real_Power_Value_Fase_A "Potenza reale fase A [%.1f kW]" (gMeter) ["Measurement", "Power"]  {channel="modbus:meter-wye-phase:bridge:40188:acPhaseA#ac-real-power"}
 //Number:Power M_AC_Real_Power_Value_Fase_B "Potenza reale fase B [%.2f]"(gMeter) ["Power"]  {channel="modbus:meter-wye-phase:bridge:40188:acPhaseB#ac-real-power"}
 //Number:Power M_AC_Real_Power_Value_Fase_C "Potenza reale fase C [%.2f]" (gMeter) ["Power"] {channel="modbus:meter-wye-phase:bridge:40188:acPhaseC#ac-real-power"}
 

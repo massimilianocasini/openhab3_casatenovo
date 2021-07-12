@@ -60,4 +60,4 @@ Switch SwitchBinary2_TV_Salotto_ZW22 "TV, Ampli" <cinema> (gLivingroomPowerOutle
 //FGS222 Double relay Switch 2x1.5kW, Portone
 Switch FGS222_13_switch_binary "Binary"  {channel="zwave:device:932abd2592:node13:switch_binary"}
 Switch SwitchBinary1_Luce_Portone_ZW13 "Luce Portone" <light> (gPortoneLight) ["Switch", "Light"]  { ga="Light" [roomHint="Portone"], channel="zwave:device:932abd2592:node13:switch_binary1"}
-Switch SwitchBinary2_Luce_CancellettoEst_ZW13 "Luce Cancelletto" <light> (gPortoneLight) ["Switch", "Light"]  {channel="zwave:device:932abd2592:node13:switch_binary2"}
+Switch SwitchBinary2_Luce_Apriporta_ZW13 "Apriporta portone e cancelletto" <door> (gPortoneLock) ["Switch"]  {channel="zwave:device:932abd2592:node13:switch_binary2"}
