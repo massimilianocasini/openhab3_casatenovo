@@ -1,8 +1,8 @@
 rule "Invia messaggio a BOT quando si apre/chiude la serranda"
 when
-    Item FGBS001_16_SensorBinary1 changed
+    Item FGBS001_007_SensorBinary1 changed
 then
-    if(FGBS001_16_SensorBinary1.state == ON) {
+    if(FGBS001_007_SensorBinary1.state == ON) {
     val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
     telegramAction.sendTelegram("Garage Serranda Aperta") 
     }

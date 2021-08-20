@@ -1,8 +1,8 @@
-rule "zwave:device:512:node3"
-when Thing "zwave:device:512:node3" changed
+rule "zwave:device:77c679d29e:node2"
+when Thing "zwave:device:77c679d29e:node2" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node3"
+val String thingUID = "zwave:device:77c679d29e:node2"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -12,11 +12,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node10"
-when Thing "zwave:device:512:node10" changed
+rule "zwave:device:77c679d29e:node3"
+when Thing "zwave:device:77c679d29e:node3" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node10"
+val String thingUID = "zwave:device:77c679d29e:node3"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -26,11 +26,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node11"
-when Thing "zwave:device:512:node11" changed
+rule "zwave:device:77c679d29e:node4"
+when Thing "zwave:device:77c679d29e:node4" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node11"
+val String thingUID = "zwave:device:77c679d29e:node4"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -40,11 +40,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node13"
-when Thing "zwave:device:512:node13" changed
+rule "zwave:device:77c679d29e:node6"
+when Thing "zwave:device:77c679d29e:node6" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node13"
+val String thingUID = "zwave:device:77c679d29e:node6"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -54,11 +54,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node15"
-when Thing "zwave:device:512:node15" changed
+rule "zwave:device:77c679d29e:node7"
+when Thing "zwave:device:77c679d29e:node7" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node15"
+val String thingUID = "zwave:device:77c679d29e:node7"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -82,11 +82,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node17"
-when Thing "zwave:device:512:node17" changed
+rule "zwave:device:77c679d29e:node8"
+when Thing "zwave:device:77c679d29e:node8" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node17"
+val String thingUID = "zwave:device:77c679d29e:node8"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -96,11 +96,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node18"
-when Thing "zwave:device:512:node18" changed
+rule "zwave:device:77c679d29e:node9"
+when Thing "zwave:device:77c679d29e:node9" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node18"
+val String thingUID = "zwave:device:77c679d29e:node9"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -110,11 +110,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node19"
-when Thing "zwave:device:512:node19" changed
+rule "zwave:device:77c679d29e:node10"
+when Thing "zwave:device:77c679d29e:node10" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node19"
+val String thingUID = "zwave:device:77c679d29e:node10"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -124,11 +124,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node20"
-when Thing "zwave:device:512:node20" changed
+rule "zwave:device:77c679d29e:node11"
+when Thing "zwave:device:77c679d29e:node11" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node20"
+val String thingUID = "zwave:device:77c679d29e:node11"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -138,11 +138,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node21"
-when Thing "zwave:device:512:node21" changed
+rule "zwave:device:77c679d29e:node12"
+when Thing "zwave:device:77c679d29e:node12" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node21"
+val String thingUID = "zwave:device:77c679d29e:node12"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -152,11 +152,11 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node22"
-when Thing "zwave:device:512:node22" changed
+rule "zwave:device:77c679d29e:node13"
+when Thing "zwave:device:77c679d29e:node13" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node22"
+val String thingUID = "zwave:device:77c679d29e:node13"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {
@@ -166,11 +166,39 @@ var thingStatusInfo = getThingStatusInfo(thingUID)
     } return
 end
 
-rule "zwave:device:512:node23"
-when Thing "zwave:device:512:node23" changed
+rule "zwave:device:77c679d29e:node14"
+when Thing "zwave:device:77c679d29e:node14" changed
 // to “OFFLINE (COMMUNICATION_ERROR)“
 then
-val String thingUID = "zwave:device:512:node23"
+val String thingUID = "zwave:device:77c679d29e:node14"
+var thingStatusInfo = getThingStatusInfo(thingUID)
+// && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
+    if (thingStatusInfo !== null) {
+        val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+        telegramAction.sendTelegram(thingUID + " " + thingStatusInfo.getStatus().toString())
+        logError("", "Thing status: " + thingUID + " " + thingStatusInfo.getStatus().toString() )
+    } return
+end
+
+rule "zwave:device:77c679d29e:node15"
+when Thing "zwave:device:77c679d29e:node15" changed
+// to “OFFLINE (COMMUNICATION_ERROR)“
+then
+val String thingUID = "zwave:device:77c679d29e:node15"
+var thingStatusInfo = getThingStatusInfo(thingUID)
+// && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
+    if (thingStatusInfo !== null) {
+        val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+        telegramAction.sendTelegram(thingUID + " " + thingStatusInfo.getStatus().toString())
+        logError("", "Thing status: " + thingUID + " " + thingStatusInfo.getStatus().toString() )
+    } return
+end
+
+rule "zwave:device:77c679d29e:node16"
+when Thing "zwave:device:77c679d29e:node16" changed
+// to “OFFLINE (COMMUNICATION_ERROR)“
+then
+val String thingUID = "zwave:device:77c679d29e:node16"
 var thingStatusInfo = getThingStatusInfo(thingUID)
 // && (thingStatusInfo.getStatus().toString() == "ONLINE")) {
     if (thingStatusInfo !== null) {

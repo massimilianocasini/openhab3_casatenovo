@@ -1,4 +1,3 @@
-
 // Prodino
 String  Prodino0_in1 "Stato Antifurto [%s]" <alarm> (gAlarmSystem) ["Lock", "Status"]  {channel="mqtt:topic:mosquitto:prodino:alarmIn1"}
 //Switch prodino0_in2 "In 2 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-1.*]"}

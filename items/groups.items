@@ -67,4 +67,3 @@ Group gBuilding "Building" ["Building"]
         Group gPortoneLight "Luce Portone" <lightbulb> (gPortone) ["Lightbulb"]
         Group gPortoneLock "Apriportoni" <keyring> (gPortone) ["Lock"]
     Group gAlarmSystem "Antintrusione" (gBuilding) ["AlarmSystem"]
-

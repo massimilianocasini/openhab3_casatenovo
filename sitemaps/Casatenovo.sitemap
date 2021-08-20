@@ -17,7 +17,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Default item=Aqara1T
 			Default item=Aqara2T
 			Default item=Lumi1T
-			Default item=SensorTemperature_MotionSensor_Studio_ZW10
+			Default item=FGMS001_008_Temp
 			Default item=Aqara1H
 			Default item=Aqara2H
 			Default item=Lumi1H
@@ -58,7 +58,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			}
 	}
 	Frame label="Condizionamento" {
-		Default item=MeterWatts_R220P_QE_ZW11
+		Default item=WPS104_015_MeterWatts
 		Switch item=gSwCondPower mappings=[ON="ON", OFF="OFF"]
 		Selection item=gEqCondMode mappings=["AUTO"="Auto", "DEHUMIDIFIER"="Dehumidifier", "COLD"="Cold", "HEAT"="Heat", "FAN"="Fan"]
 		Setpoint item=gEqCondSetPoint minValue=21 maxValue=27 step=0.5
@@ -120,7 +120,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	}
 	Frame label="Riscaldamento"	{
 		Text item=Lumi1T labelcolor=[>25="orange",>15="green",>5="orange",<=5="blue"] valuecolor=[>25="orange",>15="green",>5="orange",<=5="blue"] icon="temperature"
-		Text item=SwitchBinary2_Caldaia_Tecnico_ZW22 valuecolor=[ON="green", OFF="red"]
+		Text item=FGS221_002_SwitchBinary2 valuecolor=[ON="green", OFF="red"]
 		Switch item=Riscaldamento_Modo mappings=[3="Manuale", 1="Automatico", 2="Disattivato"]
 		Default item=Riscaldamento_Auto_SP visibility=[Riscaldamento_Modo==1]
 		Setpoint item=Riscaldamento_Man_SP minValue=15 maxValue=25 step=0.5 visibility=[Riscaldamento_Modo==3] //Set temperatura
@@ -140,21 +140,21 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		// 		Text item=SensorPower_Frigorifero_Cucina_ZW3 icon="energy"
 		// }
 		Text label="Cameretta" icon="bedroom" {
-			//Switch item=SwitchBinary1_LuceLatoPorta_Cameretta_ZW18 mappings=[ON="Premi"]
-			Switch item=SwitchBinary1_LuceLatoPorta_Cameretta_ZW18 icon=switch mappings=[ON="ACCENDI"] visibility=[SwitchBinary1_LuceLatoPorta_Cameretta_ZW18 == OFF]
-			Switch item=SwitchBinary1_LuceLatoPorta_Cameretta_ZW18 icon=switch mappings=[OFF="SPEGNI"] visibility=[SwitchBinary1_LuceLatoPorta_Cameretta_ZW18 == ON]
-			Switch item=SwitchBinary2_LumettiLatoPorta_Cameretta_ZW18 icon=switch mappings=[ON="ACCENDI"]  visibility=[SwitchBinary2_LumettiLatoPorta_Cameretta_ZW18 == OFF]
-			Switch item=SwitchBinary2_LumettiLatoPorta_Cameretta_ZW18 icon=switch  mappings=[OFF="SPEGNI"] visibility=[SwitchBinary2_LumettiLatoPorta_Cameretta_ZW18 == ON]
-			Text item=SensorBinary1_IRMotion_Cameretta_ZW17
-			Text item=SensorBinary2_IRTamper_Cameretta_ZW17
+			//Switch item=FGS221_010_SwitchBinary1 mappings=[ON="Premi"]
+			Switch item=FGS221_010_SwitchBinary1 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_010_SwitchBinary1 == OFF]
+			Switch item=FGS221_010_SwitchBinary1 icon=switch mappings=[ON="SPEGNI"] visibility=[FGS221_010_SwitchBinary1 == ON]
+			Switch item=FGS221_010_SwitchBinary2 icon=switch mappings=[OFF="ACCENDI"] visibility=[FGS221_010_SwitchBinary2 == OFF]
+			Switch item=FGS221_010_SwitchBinary2 icon=switch mappings=[OFF="SPEGNI"] visibility=[FGS221_010_SwitchBinary2 == ON]
+			Text item=FGBS001_012_SensorBinary1
+			Text item=FGBS001_012_SensorBinary2
 			//Text item=FGBS001_17_sensor_temperature3 icon="temperature"
-			Default item=OffSetTemperature3_DS1820_Cameretta_ZW17 icon="temperature"
+			Default item=OffSetTemperature3_DS1820 icon="temperature"
 		}
 		Text label="Soggiorno" icon="player" {
-			Switch item=SwitchBinary2_TV_Salotto_ZW22 icon=switch mappings=[ON="ACCENDI"] visibility=[SwitchBinary2_TV_Salotto_ZW22 == OFF]
-			Switch item=SwitchBinary2_TV_Salotto_ZW22 icon=switch mappings=[OFF="SPEGNI"]  visibility=[SwitchBinary2_TV_Salotto_ZW22 == ON]
-			Switch item=SwitchBinary1_AlberoNatale_Salotto_ZW22 icon=switch mappings=[ON="ACCENDI"] visibility=[SwitchBinary1_AlberoNatale_Salotto_ZW22 == OFF]
-			Switch item=SwitchBinary1_AlberoNatale_Salotto_ZW22 icon=switch mappings=[OFF="SPEGNI"] visibility=[SwitchBinary1_AlberoNatale_Salotto_ZW22 == ON]
+			Switch item=FGS221_016_SwitchBinary2 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_016_SwitchBinary2 == OFF]
+			Switch item=FGS221_016_SwitchBinary2 icon=switch mappings=[OFF="SPEGNI"]  visibility=[FGS221_016_SwitchBinary2 == ON]
+			Switch item=FGS221_016_SwitchBinary1 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_016_SwitchBinary1 == OFF]
+			Switch item=FGS221_016_SwitchBinary1 icon=switch mappings=[OFF="SPEGNI"] visibility=[FGS221_016_SwitchBinary1 == ON]
 			Default item=Prodino_temp
 			Default item=Prodino_umid
 			Default item=Aqara2T
@@ -175,7 +175,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 
 		Text label="Corridoio" icon="corridor" {
 			Slider item=FGD211_ZW20_Dimmer
-			Text item=FGS222_25_input2
+			Text item=FGBS222_013_Input2
 			Default item=Lumi1T
 		}
 		Text label="Studio" icon="office" {
@@ -193,31 +193,31 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	}
 	Frame label="Ambienti" {
 		Text label="Giardino" icon="garden" {
-			Default item=BlindsControl_Pergotenda_Giardino_ZW24
-			Switch item=BlindsControl_Pergotenda_Giardino_ZW24  mappings=[0="Aperta", 100="Chiusa"]
+			Default item=FGR223_014_BlindsControl
+			Switch item=FGR223_014_BlindsControl  mappings=[0="Aperta", 100="Chiusa"]
 		}
 		Text label="Portone" icon="cellar" {
-			Switch item=SwitchBinary1_Luce_Portone_ZW13 mappings=[ON=ACCESO, OFF=SPENTO]
-			Switch item=SwitchBinary2_Luce_Apriporta_ZW13 mappings=[ON="Premi"]
+			Switch item=FGS222_004_Switch_binary1_Luce_Portone mappings=[ON=ACCESO, OFF=SPENTO]
+			Switch item=FGS222_004_Switch_binary2_Apriporta mappings=[ON="Premi"]
 		}	
 		Text label="Garage" icon="garage" {
-			Switch item=SwitchBinary1_Serranda_Garage_ZW15 mappings=[ON="APRI"]
-			Switch item=SwitchBinary2_Luce_Garage_ZW15 mappings=[ON="Premi"]
-			Text item=FGBS001_16_SensorBinary1 
-			Text  item=FGBS001_16_SensorBinary2
-			Text item=FGBS001_16_SensorTemperature3 
+			Switch item=FGS222_006_Switch_binary1_Serranda_Garage mappings=[ON="APRI"]
+			Switch item=FGS222_006_Switch_binary2_Luce_Garage mappings=[ON="Premi"]
+			Text item=FGS222_004_SwitchBinary1 
+			Text  item=FGS222_004_SwitchBinary2
+			Text item=FGBS001_007_SensorTemperature3 
 		}
 	}
 	Frame label="Accessori"	{
 		Text label="Caldaia" icon="settings"{
-			Switch item=SwitchBinary2_Caldaia_Tecnico_ZW22 //mappings=[ON="Accesa", OFF="Spenta"]
+			Switch item=FGS221_002_SwitchBinary2 //mappings=[ON="Accesa", OFF="Spenta"]
 		}
 		Text label="Condizionamento" icon="settings" {
-			Text item=MeterVoltage_R220P_QE_ZW11
-			Text item=MeterWatts_R220P_QE_ZW11
-			Text item=MeterCurrent_R220P_QE_ZW11
-			Text item=MeterPowerFactor_R220P_QE_ZW11
-			Text item=MeterKwh_R220P_QE_ZW11
+			Text item=WPS104_015_MeterVoltage
+			Text item=WPS104_015_MeterWatts
+			Text item=WPS104_015_MeterCurrent
+			Text item=WPS104_015_MeterPowerFactor
+			Text item=WPS104_015_MeterKwh
 		}
 		Text label="CM3-Home" icon="settings" {
 			Text item=Owcm3home icon=temperature
@@ -225,6 +225,9 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Text label="Antifurto" icon="siren" {
 			Default item=Prodino0_in1
 			Switch item=Prodino0_out1
+		}
+		Text label="Controllo acqua" icon="water" {
+			Switch item=ElettrovalvolaAcqua
 		}
 	}
 	Frame label="Che tempo che fa" {
@@ -238,75 +241,69 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	Frame label="Dispositivi" {
 		Text label="Elenco" icon="settings" {
 			Text label="Double relay Switch 2x1.5kW, Salotto" icon="cellar" 	{
-				Switch item=FGS221_22_switch_binary
-				Switch item=SwitchBinary1_AlberoNatale_Salotto_ZW22
-				Switch item=SwitchBinary2_TV_Salotto_ZW22
+				Switch item=FGS221_016_SwitchBinary1
+				Switch item=FGS221_016_SwitchBinary2
 			}
 			Text label="MotionSensor" icon="cellar"	{
-				Text item=FGMS001_ZW10_Temp 
-				Text item=FGMS001_ZW10_Lum
-				Default item=FGMS001_ZW10_All
-				Default item=FGMS001_ZW10_Batt
+				Text item=FGMS001_008_Temp 
+				Text item=FGMS001_008_Lum
+				Default item=FGMS001_008_All
+				Default item=FGMS001_008_Batt
 			}
 			Text label="WallPlugOsram" icon="cellar"	{
 			 	Switch item=Osram01S
 				Default item=Osram01L 
 			 }
 			Text label="Energy Driven Switch C" icon="cellar"{
-				Text item=MeterVoltage_R220P_QE_ZW11
-				Text item=MeterCurrent_R220P_QE_ZW11
-				Text item=MeterKwh_R220P_QE_ZW11
-				Text item=MeterWatts_R220P_QE_ZW11
-				Text item=MeterPowerFactor_R220P_QE_ZW11
-				Text item=SensorPower_R220P_QE_ZW11
+				Text item=WPS104_015_MeterVoltage
+				Text item=WPS104_015_MeterCurrent
+				Text item=WPS104_015_MeterKwh
+				Text item=WPS104_015_MeterWatts
+				Text item=WPS104_015_MeterPowerFactor
+				Text item=WPS104_015_SensorPower
 				Switch item=WPS104_11_switch_binary
 			}
 			Text label="Double relay Switch 2x1.5kW, Portone" icon="cellar" {
-				Switch item=FGS222_13_switch_binary
-				Switch item=SwitchBinary1_Luce_Portone_ZW13
-				Switch item=SwitchBinary2_Luce_CancellettoEst_ZW13
+				Switch item=FGS222_004_SwitchBinary1
+				Switch item=FGS222_004_SwitchBinary2
 			}
 			Text label="Double relay Switch 2x1.5kW, Garage" icon="cellar" {
-				Switch item=FGS222_15_switch_binary
-				Switch item=SwitchBinary1_Serranda_Garage_ZW15
-				Switch item=SwitchBinary2_Luce_Garage_ZW15
+				Switch item=FGS222_006_SwitchBinary1
+				Switch item=FGS222_006_SwitchBinary2
 			}
 			Text label="Double relay Switch 2x1.5kW, Camera Cameretta porta" icon="cellar" {
-				Switch item=FGS222_18_switch_binary
-				Switch item=SwitchBinary1_LuceLatoPorta_Cameretta_ZW18
-				Switch item=SwitchBinary2_LumettiLatoPorta_Cameretta_ZW18
+				Switch item=FGS221_010_SwitchBinary1
+				Switch item=FGS221_010_SwitchBinary2
 			}
 			Text label="Double relay Switch 2x1.5kW, Camera Cameretta lumetti" icon="cellar" {
-				Switch item=FGS222_19_switch_binary
-				Switch item=SwitchBinary1_LuceLatoLetti_Cameretta_ZW19
-				Switch item=SwitchBinary2_LumettiLatoLetti_Cameretta_ZW19
+				Switch item=FGS221_011_SwitchBinary1
+				Switch item=FGS221_011_SwitchBinary2
 			}
 			Text label="WallPlug Switch," icon="cellar" {
-				Default item=FGWP102_003_MeterKwh
-				Default item=FGWP102_003_SensorPower
-				Default item=FGWP102_003_ElectricMeter 
-				Switch item=FGWP102_003_SwitchBinary
-				Switch item=FGWP102_003_ResetEnergy 
+				Default item=FGWP102_009_MeterKwh
+				Default item=FGWP102_009_SensorPower
+				Switch item=FGWP102_009_SwitchBinary
+				Switch item=FGWP102_009_ResetEnergy 
 			}
 			Text label="Universal Binary Sensor, Garage" icon="garage" {
-				Default item=SensorBinary1_Serranda_Garage_ZW16
-				Default item=SensorBinary2_IRMotion_Garage_ZW16
-				Text item=FGBS001_16_sensor_temperature3
+				Default item=FGBS001_007_SensorBinary1
+				Default item=FGBS001_007_SensorBinary2
+				Text item=FGBS001_007_SensorTemperature3
 			}
 			Text label="Universal Binary Sensor, Camera Cameretta" icon="cellar" {
-				Text item=SensorBinary1_IRMotion_Cameretta_ZW17
-				Text item=SensorBinary2_IRTamper_Cameretta_ZW17
-				Text item=OffSetTemperature3_DS1820_Cameretta_ZW17
+				Text item=FGBS001_012_SensorBinary1
+				Text item=FGBS001_012_SensorBinary2
+				Text item=OffSetTemperature3_DS1820
 			}
 			Text label="Roller Shutter, Pergotenda" icon="terrace" {
-				Default item=BlindsControl_Pergotenda_Giardino_ZW24
-				Text item=MeterWatts_Pergotenda_Giardino_ZW24
-				Text item=MeterKwh_Pergotenda_Giardino_ZW24
+				Default item=FGR223_014_BlindsControl
+				Text item=FGR223_014_MeterWatts
+				Text item=FGR223_014_MeterKwh
 			}
 			Text label="Smart Implant, Corridoio" icon="cellar" {
-				Switch item=FGS222_25_input1
-				Default	item=FGS222_25_input2
-				Default item=FGS222_25_sensor_temperature
+				Switch item=FGBS222_013_Input1
+				Default	item=FGBS222_013_Input2
+				Default item=FGBS222_013_SensorTemperature
 			}
 			Text label="Prodino WIFI MQTT, Sala da pranzo" icon="cellar" {
 				Switch item=Prodino0_in1
