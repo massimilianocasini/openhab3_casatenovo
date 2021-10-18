@@ -3,7 +3,7 @@ Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temper
 Group:Number:AVG gAvgUmidita "Umidità media interna [%.1f %%]" <humidity>
 Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> (gIndoor) ["Measurement", "Humidity"]
 Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch> 
-Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings>
+Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
 Group:Number:EQUALITY gEqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb)
 Number:Temperature EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb) ["Measurement", "Temperature"]
 Group:Number:AVG gAvgCondTemp "Temperatura media Daikin [%.1f °C]" <temperature>

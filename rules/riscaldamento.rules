@@ -33,7 +33,27 @@ end
 //      Riscaldamento_Modo.sendCommand(1)
 //  end
 
- 
+rule "Spegni condizionamento la notte se in HEAT"
+when 
+Time cron "0 30 23 ? * * *"
+then
+ if (DaikinACUnit_Mode_Studio.state=="HEAT"){
+     DaikinACUnit_Power_Studio.sendCommand(OFF)
+ }
+  if (DaikinACUnit_Mode_Soggiorno.state=="HEAT"){
+     DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
+ }
+  if (DaikinACUnit_Mode_Cameretta.state=="HEAT"){
+     DaikinACUnit_Power_Cameretta.sendCommand(OFF)
+ }
+  if (DaikinACUnit_Mode_Letto.state=="HEAT"){
+     DaikinACUnit_Power_Letto.sendCommand(OFF)
+ }
+end
+
+
+
+
 // rule "Set temperatura default condizionamento"
 // when
 //   Item DaikinACUnit_Mode_Studio changed to Cold or
