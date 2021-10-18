@@ -59,16 +59,16 @@ end
 // rule "Accendi luce ingresso "
 // when
         
-//         Item FGS222_25_input2 changed
+//         Item FGBS222_013_Input2 changed
 // then
 //         val IkeaIngressoB_state = IkeaIngressoB.state as Number
-//         val FGD211_ZW20_Dimmer_state = FGD211_ZW20_Dimmer.state as Number 
-//         if (IkeaIngressoB_state==0 && FGS222_25_input2.state==ON && FGD211_ZW20_Dimmer_state==0) {
+//         val FGD211_003_SwitchDimmer_state = FGD211_003_SwitchDimmer.state as Number 
+//         if (IkeaIngressoB_state==0 && FGBS222_013_Input2.state==ON && FGD211_003_SwitchDimmer_state==0) {
 //             IkeaIngressoB.sendCommand(15)
 //            // IkeaLed1B.sendCommand(15)
 //            // IkeaLed2B.sendCommand(15)
 //          }
-//          else if (IkeaIngressoB_state==15 && FGS222_25_input2.state==OFF) {
+//          else if (IkeaIngressoB_state==15 && FGBS222_013_Input2.state==OFF) {
 //              Thread::sleep(20000)
 //              IkeaIngressoB.sendCommand(0)
 //         //     IkeaLed1B.sendCommand(0)
@@ -81,18 +81,18 @@ end
 rule "Accendi luce corridoio "
 when
         
-        Item FGS222_25_input2 changed
+        Item FGBS222_013_Input2 changed
 then
-       // val FGD211_ZW20_Dimmer_state = FGD211_ZW20_Dimmer.state as Number
-        if (FGD211_ZW20_Dimmer.state==0 && FGS222_25_input2.state==ON) {
+       // val FGD211_003_SwitchDimmer_state = FGD211_003_SwitchDimmer.state as Number
+        if (FGD211_003_SwitchDimmer.state==0 && FGBS222_013_Input2.state==ON) {
             flag = 1
-            FGD211_ZW20_Dimmer.sendCommand(15)
+            FGD211_003_SwitchDimmer.sendCommand(15)
          }
-         else if (FGD211_ZW20_Dimmer.state==15 && FGS222_25_input2.state==OFF && flag==1) {
+         else if (FGD211_003_SwitchDimmer.state==15 && FGBS222_013_Input2.state==OFF && flag==1) {
              flag = 0
              Thread::sleep(20000)
-             if (FGD211_ZW20_Dimmer.state==15) {
-             FGD211_ZW20_Dimmer.sendCommand(0)
+             if (FGD211_003_SwitchDimmer.state==15) {
+             FGD211_003_SwitchDimmer.sendCommand(0)
              }
          }
 end

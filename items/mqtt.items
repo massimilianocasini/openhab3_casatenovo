@@ -4,7 +4,7 @@ String  Prodino0_in1 "Stato Antifurto [%s]" <alarm> (gAlarmSystem) ["Lock", "Sta
 //Switch prodino0_in3 "In 3 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-2.*]"}
 //String Flusso "In 4 Status [%.0f]"  	{channel="mqtt:topic:mosquitto:prodino:flusso1"}
 //Number prodino0_out1 "Key gAntifurto"    <switch>  {mqtt=">[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:ON:rel-0-1], >[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-0-0], <[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-0.*]"}
-Switch  Prodino0_out1  "Chiave" <switch> (gAlarmSystem) ["Alarm"] {channel="mqtt:topic:mosquitto:prodino:alarmOut1", expire="1s,command=OFF"}
+Switch  Prodino0_out1  "Chiave" <switch> (gAlarmSystem) ["Switch"] {channel="mqtt:topic:mosquitto:prodino:alarmOut1", expire="1s,command=OFF"}
 //Switch prodino0_out2 "Out 2"           (gAll, gAntifurto)      {mqtt=">[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:ON:rel-1-1], >[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-1-0]"}
 //Switch prodino0_out3 "Out 3"           (gAll, gAntifurto)     {mqtt=">[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:ON:rel-2-1], >[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-2-0]"}
 //Switch prodino0_out4 "Out 4"           (gAll, gAntifurto)     {mqtt=">[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:ON:rel-3-1], >[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-3-0]"}
@@ -20,4 +20,4 @@ String  Cm3panel    "CM3Panel"  <settings>  {channel="mqtt:topic:mosquitto:cm3pa
 // Tasmota Garage
 Number ContatoreAcqua "Contatore acqua [%.0f]" (gInfluxdb) ["Measurement"] {channel="mqtt:topic:mosquitto:flussometro:flusso"}
 Switch ResetContatoreAcqua "Reset contatore acqua []" ["Switch"] {channel="mqtt:topic:mosquitto:flussometro:resetFlusso", expire="1s,command=OFF"}
-Switch ElettrovalvolaAcqua "Elettrovalvola acqua []" ["Switch"] {channel="mqtt:topic:mosquitto:flussometro:elettrovalvola"}
+Switch ElettrovalvolaAcqua "Elettrovalvola acqua []" ["Switch"] {channel="mqtt:topic:mosquitto:flussometro:elettrovalvola"} 

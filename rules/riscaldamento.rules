@@ -26,9 +26,24 @@ then
     telegramAction.sendTelegram("Modo: " + riscaldamentomodo + " Termosifoni OFF Temp Attuale: " + tempint + " SetPointAuto:" + setpointauto + " SetPointManu:  " + setpointmanu )
 end 
 
-rule "imposta il riscaldamento in auto"
- when
-     Time cron "0	30	23	?	*	*	*"
- then
-     Riscaldamento_Modo.sendCommand(1)
- end
+// rule "imposta il riscaldamento in auto"
+//  when
+//      Time cron "0	30	23	?	*	*	*"
+//  then
+//      Riscaldamento_Modo.sendCommand(1)
+//  end
+
+ 
+// rule "Set temperatura default condizionamento"
+// when
+//   Item DaikinACUnit_Mode_Studio changed to Cold or
+//   Item DaikinACUnit_Mode_Soggiorno changed to Cold or
+//   Item DaikinACUnit_Mode_Cameretta changed to Cold or
+//   Item DaikinACUnit_Mode_Letto changed to Cold
+
+// then
+//     DaikinACUnit_SetPoint_Studio.sendCommand(27)
+//     DaikinACUnit_SetPoint_Soggiorno.sendCommand(27)
+//     DaikinACUnit_SetPoint_Cameretta.sendCommand(27)
+//     DaikinACUnit_SetPoint_Letto.sendCommand(27)
+// end

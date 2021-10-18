@@ -32,7 +32,7 @@ Number:Illuminance FGMS001_008_Lum "Luminosità Studio [%.1f Lx]" <rgb> (gOffice
 Switch FGMS001_008_All "IR Studio [MAP(ir.map):%s]" <motion> (gOfficeMotionDetector) ["Status", "Presence"] {channel="zwave:device:77c679d29e:node8:alarm_motion"}
 Number FGMS001_008_Batt "Livello batteria Motion Studio [%s %%]" <battery> (gOfficeBattery, gBattery) ["Status"] {channel="zwave:device:77c679d29e:node8:battery-level"}
 
-// //FGWP102 Metered Wall Plug Switch
+// //FGWP102 Metered Wall Plug Switch Garage
 Number:Energy FGWP102_009_MeterKwh "Energia consumata presa scrivania [%.1f KWh]" <energy> (gGarageSensor, gInfluxdb) ["Measurement", "Energy"] {channel="zwave:device:77c679d29e:node9:meter_kwh"}
 // Number:Power FGWP102_003_ElectricMeter "Potenza istantanea Electricmeter " <energy> (gPowerOutlet1, gInfluxdb) ["Power"] {channel="zzwave:device:4a707ccc88:node3:meter_watts"}
 Number:Power FGWP102_009_SensorPower "Potenza istantanea presa scrivania [%.1f kW]" <energy> (gGarageSensor,gInfluxdb) ["Measurement", "Power"] {channel="zwave:device:77c679d29e:node9:sensor_power"}
@@ -42,7 +42,7 @@ Switch FGWP102_009_ResetEnergy "Reset energia consumata presa scrivania" <switch
 //FGS221 Double relay Switch 2x1.5kW, Cameretta lato porta
 Switch FGS221_010_SwitchBinary "" {channel="zwave:device:77c679d29e:node10:switch_binary"}
 Switch FGS221_010_SwitchBinary1 "Luce centrale Cameretta" <light> (gBedroom2Light) ["Switch", "Light"] {ga="Light" [roomHint="Cameretta"], channel="zwave:device:77c679d29e:node10:switch_binary1"}
-Switch FGS221_010_SwitchBinary2 "Lumetti Cameretta" <light> (gBedroom2Light) ["Switch", "Light"] { ga="Light" [roomHint="Cameretta"],channel="zwave:device:77c679d29e:node10 :switch_binary2"}
+Switch FGS221_010_SwitchBinary2 "Lumetti Cameretta" <light> (gBedroom2Light) ["Switch", "Light"] { ga="Light" [roomHint="Cameretta"],channel="zwave:device:77c679d29e:node10:switch_binary2"}
 
 //FGS221 Double relay Switch 2x1.5kW Cameretta lato letti
 Switch FGS221_011_SwitchBinary "" {channel="zwave:device:77c679d29e:node15:switch_binary"}
@@ -65,7 +65,7 @@ Switch FGBS222_013_Input1 "IR Tamper [MAP(tamper.map):%s]" <shield> {channel="zw
 Switch FGBS222_013_Input2 "IR Corridoio [MAP(ir.map):%s]" <motion> (gCorridorMotionDetector) ["Status", "Presence"] {channel="zwave:device:77c679d29e:node13:alarm_burglar2"}
 
 //FGR223 Roller Shutter, Pergotenda
-Rollershutter FGR223_014_BlindsControl "Pergotenda [%d %%]" <rollershutter> { ga="Pergola" [roomHint="Giardino"],channel="zwave:device:77c679d29e:node14:blinds_control1"}
+Rollershutter FGR223_014_BlindsControl "Pergotenda [%d %%]" <rollershutter> (gGarden) ["OpenState", "Opening"] {channel="zwave:device:77c679d29e:node14:blinds_control1"}
 Number:Power FGR223_014_MeterWatts  "Potenza istantanea"{channel="zwave:device:77c679d29e:node14:meter_watts1"}
 Number:Energy FGR223_014_MeterKwh  "Energia consumata"  {channel="zwave:device:77c679d29e:node14:meter_kwh1"}
 

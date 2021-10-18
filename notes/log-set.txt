@@ -1,8 +1,8 @@
 Disabilitazione:
-log:set OFF smarthome.event
+log:set OFF openhab.event
 
 Abilitazione
-log:set INFO smarthome.event
+log:set INFO openhab.event
 
 Stato log
 log:get

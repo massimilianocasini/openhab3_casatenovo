@@ -20,4 +20,8 @@ then
     gPresence_Sensors.sendCommand(OFF)
     Presence_Auto.sendCommand(OFF)
     Presence_Timer.sendCommand(OFF)
+    DaikinACUnit_SetPoint_Studio.sendCommand(20)
+    DaikinACUnit_SetPoint_Soggiorno.sendCommand(20)
+    DaikinACUnit_SetPoint_Cameretta.sendCommand(20)
+    DaikinACUnit_SetPoint_Letto.sendCommand(20)
 end

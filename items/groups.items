@@ -1,8 +1,11 @@
 Group:Number:AVG gAvgTemperatura "Temperatura media interna [%.1f °C]" <temperature> 
+Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temperature> (gIndoor) ["Measurement", "Temperature"]
 Group:Number:AVG gAvgUmidita "Umidità media interna [%.1f %%]" <humidity>
+Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> (gIndoor) ["Measurement", "Humidity"]
 Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch> 
-Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> 
-Group:Number:EQUALITY gEqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature>
+Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings>
+Group:Number:EQUALITY gEqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb)
+Number:Temperature EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb) ["Measurement", "Temperature"]
 Group:Number:AVG gAvgCondTemp "Temperatura media Daikin [%.1f °C]" <temperature>
 
 Group gInfluxdb
@@ -30,6 +33,8 @@ Group gIndoor "Indoor" ["Indoor"]
             Group:Number:EQUALITY gIkeaEqualityCorridorCT "Ingresso Temperatura [%.0f K]" <light> (gCorridor2) ["Lightbulb"]
         Group gBedroom1 "Camera da letto" <bedroom> (gGroundFloor) ["Bedroom"]
             Group gBedroom1Condizionamento "Controllo condizionamento Camera da Letto" (gBedroom1) ["HVAC"]
+            Group gBedroom1Sensor "Sensori Camera da Letto"  (gBedroom1) ["Sensor"]
+            Group gBedroom1Battery "Livello batterie Camera da Letto" (gBedroom1) 
         Group gBedroom2 "Cameretta" (gGroundFloor) ["Bedroom"] { synonyms="Oli's Room" }
             Group gBedroom2Sensor "Sensori Cameretta"  (gBedroom2) ["Sensor"]
             Group gBedroom2Condizionamento "Controllo condizionamento Cameretta" <climate> (gBedroom2) ["HVAC"]
@@ -66,4 +71,7 @@ Group gBuilding "Building" ["Building"]
     Group gPortone "Portone" (gBuilding) ["Entry"]
         Group gPortoneLight "Luce Portone" <lightbulb> (gPortone) ["Lightbulb"]
         Group gPortoneLock "Apriportoni" <keyring> (gPortone) ["Lock"]
-    Group gAlarmSystem "Antintrusione" (gBuilding) ["AlarmSystem"]
+Group gAlarmSystem "Antintrusione" ["AlarmSystem"]
+ 
+Group gOutdoor "Outdoor" ["Outdoor"]
+    Group gGarden "Giardino" (gOutdoor) ["Garden"]
