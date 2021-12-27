@@ -1,9 +1,11 @@
 rule "Dash button pressed"
     when
-        Channel "amazondashbutton:dashbutton:34-d2-70-af-18-10:press" triggered
+        Channel "amazondashbutton:dashbutton:finish:press" triggered
     then
-    if(FGS222_18_switch_binary.state==OFF)
-        FGS222_18_switch_binary.sendCommand(ON)
-    else
-        FGS222_18_switch_binary.sendCommand(OFF)
+    if (FGD211_003_SwitchDimmer.state == 40 ) {
+        FGD211_003_SwitchDimmer.sendCommand(5)
+    }
+    else { FGD211_003_SwitchDimmer.sendCommand(40)
+       // logInfo("amazondashbutton", "My Dash Button finish has been pressed")
+    }
 end

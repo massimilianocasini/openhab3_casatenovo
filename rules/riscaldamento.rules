@@ -6,6 +6,7 @@ rule "invia a telegram lo stato caldaia ON"
 when
     Item FGS221_002_SwitchBinary2 changed from OFF to ON
 then
+    FGS221_002_SwitchBinary2_N.postUpdate(1)
     var riscaldamentomodo = Riscaldamento_Modo.state as Number
     var tempint = Lumi1T.state as Number
     var setpointauto = Riscaldamento_Auto_SP.state as Number
@@ -18,6 +19,7 @@ rule "invia a telegram lo stato caldaia OFF"
 when
     Item FGS221_002_SwitchBinary2 changed from ON to OFF
 then
+    FGS221_002_SwitchBinary2_N.postUpdate(0)
     var riscaldamentomodo = Riscaldamento_Modo.state as Number
     var tempint = Lumi1T.state as Number
     var setpointauto = Riscaldamento_Auto_SP.state as Number

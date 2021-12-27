@@ -5,6 +5,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Text item=OneCallAPIweatherandforecast_Current_Temperature
 		Switch item=Scena mappings=["0"="NOTTE", "1"="PRESENZA", "2"="USCITA"]
 	//	Switch item=Modalita mappings=["0"="INVERNO", "1"="ESTATE"]
+		Default item=SunElevation
 		Text item=ContatoreAcqua
 		Switch item=ResetContatoreAcqua mappings=[ON="RESET"]
 		// Text item=Counter
@@ -138,8 +139,8 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Text label="Cameretta" icon="bedroom" {
 			//Switch item=FGS221_010_SwitchBinary1 mappings=[ON="Premi"]
 			Switch item=FGS221_010_SwitchBinary1 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_010_SwitchBinary1 == OFF]
-			Switch item=FGS221_010_SwitchBinary1 icon=switch mappings=[ON="SPEGNI"] visibility=[FGS221_010_SwitchBinary1 == ON]
-			Switch item=FGS221_010_SwitchBinary2 icon=switch mappings=[OFF="ACCENDI"] visibility=[FGS221_010_SwitchBinary2 == OFF]
+			Switch item=FGS221_010_SwitchBinary1 icon=switch mappings=[OFF="SPEGNI"] visibility=[FGS221_010_SwitchBinary1 == ON]
+			Switch item=FGS221_010_SwitchBinary2 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_010_SwitchBinary2 == OFF]
 			Switch item=FGS221_010_SwitchBinary2 icon=switch mappings=[OFF="SPEGNI"] visibility=[FGS221_010_SwitchBinary2 == ON]
 			Text item=FGBS001_012_SensorBinary1
 			Text item=FGBS001_012_SensorBinary2
@@ -147,20 +148,18 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Default item=Aqara1T icon="temperature"
 		}
 		Text label="Soggiorno" icon="player" {
-			Switch item=FGS221_016_SwitchBinary2 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_016_SwitchBinary2 == OFF]
-			Switch item=FGS221_016_SwitchBinary2 icon=switch mappings=[OFF="SPEGNI"]  visibility=[FGS221_016_SwitchBinary2 == ON]
-			Switch item=FGS221_016_SwitchBinary1 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_016_SwitchBinary1 == OFF]
-			Switch item=FGS221_016_SwitchBinary1 icon=switch mappings=[OFF="SPEGNI"] visibility=[FGS221_016_SwitchBinary1 == ON]
+			Switch item=FGS221_016_SwitchBinary1 mappings=[ON="ACCENDI"] visibility=[FGS221_016_SwitchBinary1 == OFF]
+			Switch item=FGS221_016_SwitchBinary1 mappings=[OFF="SPEGNI"] visibility=[FGS221_016_SwitchBinary1 == ON]
+			Switch item=FGS221_016_SwitchBinary2 mappings=[ON="ACCENDI"] visibility=[FGS221_016_SwitchBinary2 == OFF]
+			Switch item=FGS221_016_SwitchBinary2 mappings=[OFF="SPEGNI"]  visibility=[FGS221_016_SwitchBinary2 == ON]
 			Default item=Prodino_temp
 			Default item=Prodino_umid
 			Default item=Aqara2T
-			Default item=Osram01S
-			Default item=IkeaLed1B
-			
 		}
 		Text label="Ingresso" icon="corridor" {
 			Switch item=gIkeaEqualityCorridorB mappings=[0="0", 20="20", 50="50", 100="100"]
-			Switch item=gIkeaEqualityCorridorCT mappings=[2202="CALDA", 3003="TIEPIDA", 4000="FREDDA"]
+			Switch item=gIkeaEqualityCorridorCT mappings=[2202="CALDA", 2702="TIEPIDA", 4000="FREDDA"]
+			Default item=Osram01S
 			//Switch item=IkeaIngressoB mappings=[0="0", 20="20", 50="50", 100="100"]
 			//Switch item=IkeaIngressoCT mappings=[2202="CALDA", 3003="TIEPIDA", 4000="FREDDA"]
 			//Slider item=IkeaLed1B
@@ -192,14 +191,14 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Switch item=FGR223_014_BlindsControl  mappings=[0="Aperta", 100="Chiusa"]
 		}
 		Text label="Portone" icon="cellar" {
-			Switch item=FGS222_004_Switch_binary1_Luce_Portone mappings=[ON=ACCESO, OFF=SPENTO]
-			Switch item=FGS222_004_Switch_binary2_Apriporta mappings=[ON="Premi"]
+			Switch item=FGS222_004_SwitchBinary1 mappings=[ON=ACCESO, OFF=SPENTO]
+			Switch item=FGS222_004_SwitchBinary2 mappings=[ON="Premi"]
 		}	
 		Text label="Garage" icon="garage" {
-			Switch item=FGS222_006_Switch_binary1_Serranda_Garage mappings=[ON="APRI"]
-			Switch item=FGS222_006_Switch_binary2_Luce_Garage mappings=[ON="Premi"]
-			Text item=FGS222_004_SwitchBinary1 
-			Text  item=FGS222_004_SwitchBinary2
+			Switch item=FGS222_006_SwitchBinary1 mappings=[ON="APRI"]
+			Switch item=FGS222_006_SwitchBinary2 mappings=[ON="Premi"]
+			Text item=FGBS001_007_SensorBinary1 
+			Text  item=FGBS001_007_SensorBinary2
 			Text item=FGBS001_007_SensorTemperature3 
 		}
 	}
@@ -327,13 +326,11 @@ sitemap Casatenovo label="Benvenuto a Casa"
 				Text item=Aqara2P
 				Text item=Aqara2H
 				Text item=Aqara2B
-
 			}
 			Text label="Lumi1 Corridoio" icon="cellar" {
 				Text item=Lumi1T
 				Text item=Lumi1H
 				Text item=Lumi1B
-
 			}
 		}
 	}
@@ -363,13 +360,14 @@ sitemap Casatenovo label="Benvenuto a Casa"
 					Text item=SpeedtestResultDown
 					Text item=SpeedtestResultUp
 					Text item=SpeedtestResultPing
+					Text item=SpeedtestResultJitter
 				}
 				Frame label="Controllo"
 				{
 					Text item=SpeedtestResultDate
 					Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
 					Text item=SpeedtestResultError visibility=[SpeedtestRunning == "Errore"]
-					Switch item=SpeedtestRerun mappings=[ON="Start"]
+					Switch item=SpeedtestRerun mappings=[ON="Start"] visibility=[SpeedtestRunning == "Misurazione terminata."	]
 				}
 				Frame label="Statistiche"
 				{
@@ -381,13 +379,13 @@ sitemap Casatenovo label="Benvenuto a Casa"
 	Frame label="TVCC"
 		{
 			Text label="Camera1" icon=camera {
-			Video url="http://192.168.178.58:8081"  encoding="mjpeg"
-			//Text label="HLS Video Stream" icon="camera"{Video url="http://192.168.178.2:6554/ipcamera.m3u8" encoding="hls"}
-
+			Video url="http://cm3home.local/ipcamera/a58f9a2282/snapshots.mjpeg"  encoding="mjpeg"
+		//	Video url="http://cm3home.local/ipcamera/a58f9a2282/autofps.mjpeg"  encoding="mjpeg"
+			
 			}
 		
 			Text label="Camera2" icon=camera {
-			Video url="http://192.168.178.58:8082"  encoding="mjpeg"
+			Video url="http://cm3home.local/ipcamera/3e80d95c1f/snapshots.mjpeg"  encoding="mjpeg"
 			}	
 
 		// 	Text label="BabyMonitor" icon="camera"{

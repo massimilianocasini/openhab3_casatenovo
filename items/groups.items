@@ -1,7 +1,7 @@
 Group:Number:AVG gAvgTemperatura "Temperatura media interna [%.1f °C]" <temperature> 
-Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temperature> (gIndoor) ["Measurement", "Temperature"]
+Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temperature> ["Measurement", "Temperature"]
 Group:Number:AVG gAvgUmidita "Umidità media interna [%.1f %%]" <humidity>
-Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> (gIndoor) ["Measurement", "Humidity"]
+Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> ["Measurement", "Humidity"]
 Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch> 
 Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
 Group:Number:EQUALITY gEqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb)
@@ -28,6 +28,7 @@ Group gIndoor "Indoor" ["Indoor"]
             Group gCorridorLight "Luce Corridoio" <lightbulb> (gCorridor)  ["Lightbulb"]
             Group gCorridorMotionDetector "IR Corridoio" (gCorridor) ["MotionDetector"]
             Group gCorridorBattery "Livello batterie Corridio" (gCorridor)
+            Group gCorridorCaldaia "Stato caldaia" (gCorridor) ["HVAC"]
         Group gCorridor2 "Ingresso" (gGroundFloor) ["Corridor"]
             Group:Dimmer:EQUALITY gIkeaEqualityCorridorB "Ingresso Intesità [%d %%]" <light> (gCorridor2) ["Lightbulb"]
             Group:Number:EQUALITY gIkeaEqualityCorridorCT "Ingresso Temperatura [%.0f K]" <light> (gCorridor2) ["Lightbulb"]
@@ -52,7 +53,7 @@ Group gIndoor "Indoor" ["Indoor"]
         Group gBagnoDoccia "Bagno doccia" (gGroundFloor) ["Bathroom"]
         Group gLivingroom "Soggiorno" (gGroundFloor) ["LivingRoom"]
             Group gLivingroomSensor "Sensori Soggiorno"  (gLivingroom) ["Sensor"]
-            Group gLivingroomPowerOutlet "Prese Soggiorno" <poweroutlet> (gLivingroom)  ["PowerOutlet"]
+            Group gLivingroomPowerOutlet "Prese Soggiorno" (gLivingroom)  ["PowerOutlet"]
             Group gLivingroomCondizionamento "Controllo condizionamento Soggiorno"  <climate> (gLivingroom) ["HVAC"]
             Group gLivingroomBattery "Livello batterie Soggiorno" (gLivingroom) 
         Group gKitchen "Cucina" (gGroundFloor) ["Kitchen"]

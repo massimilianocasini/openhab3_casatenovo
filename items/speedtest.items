@@ -4,6 +4,7 @@ String SpeedtestCharts
 
 String      SpeedtestSummary        "Speedtest [%s]"                                            <speedtest_summary>   (gSpeedtest)
 Number      SpeedtestResultPing     "Ping [%.3f ms]"                                            <speedtest_ping>      (gSpeedtest, gSpeedChart)
+Number      SpeedtestResultJitter   "Jitter [%.3f ms]"                                          <speedtest_ping>      (gSpeedtest, gSpeedChart)  
 Number      SpeedtestResultDown     "Download [%.2f Mbit/s]"                                    <speedtest_download>  (gSpeedtest, gSpeedChart)
 Number      SpeedtestResultUp       "Upload [%.2f Mbit/s]"                                      <speedtest_upload>    (gSpeedtest, gSpeedChart)
 String      SpeedtestRunning        "Speedtest running ... [%s]"                                <speedtest_run>       (gSpeedtest)

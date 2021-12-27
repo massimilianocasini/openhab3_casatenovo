@@ -2,14 +2,34 @@ rule "Antifurto cambio stato"
 when 
     Item Prodino0_in1 changed
 then
-    if(Prodino0_in1.state == "INSERITO") {
+  if(Prodino0_in1.state == "INSERITO") {
       val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-      telegramAction.sendTelegram("Antifurto INSerito!") 
+      telegramAction.sendTelegram("Antifurto INSerito!")
+      if (DaikinACUnit_Mode_Studio.state == "HEAT" && DaikinACUnit_Power_Studio.state == ON)
+      {
+          DaikinACUnit_Power_Studio.sendCommand(OFF)
+          telegramAction.sendTelegram("Condizionatore Studio spento")
+      }
+      if (DaikinACUnit_Mode_Soggiorno.state == "HEAT" && DaikinACUnit_Power_Soggiorno.state == ON)
+      {
+          DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
+          telegramAction.sendTelegram("Condizionatore Soggiorno spento")
+      }
+      if (DaikinACUnit_Mode_Cameretta.state == "HEAT" && DaikinACUnit_Power_Cameretta.state == ON)
+      {
+          DaikinACUnit_Power_Cameretta.sendCommand(OFF)
+          telegramAction.sendTelegram("Condizionatore Cameretta spento")
+      }
+      if (DaikinACUnit_Mode_Letto.state == "HEAT" && DaikinACUnit_Power_Letto.state == ON)
+      {
+          DaikinACUnit_Power_Letto.sendCommand(OFF)
+          telegramAction.sendTelegram("Condizionatore Letto spento")
+      } 
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
-    }
-    if(Prodino0_in1.state == "DISINSERITO") {
-      val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-      telegramAction.sendTelegram("Antifurto DIsInserito!")
-     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
-    }
+  }
+  if(Prodino0_in1.state == "DISINSERITO") {
+    val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramAction.sendTelegram("Antifurto DIsInserito!")
+    // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
+  }
 end

@@ -2,7 +2,9 @@
 //FGS221 Double Relay Switch 2x1.5kW, Caldaia consenso zwave:device:77c679d29e:node2
 Switch FGS221_002_SwitchBinary ""  {channel="zwave:device:77c679d29e:node2:switch_binary"}
 Switch FGS221_002_SwitchBinary1 "Libero" <climate> {channel="zwave:device:77c679d29e:node2:switch_binary1"}
-Switch FGS221_002_SwitchBinary2 "Caldaia [MAP(caldaia.map):%s]" <fire>  { ga="Outlet" [roomHint="Caldaia"], channel="zwave:device:77c679d29e:node2:switch_binary2"}
+Switch FGS221_002_SwitchBinary2 "Caldaia [MAP(caldaia.map):%s]" <fire> (gCorridorCaldaia) ["Switch"] { ga="Outlet" [roomHint="Caldaia"], channel="zwave:device:77c679d29e:node2:switch_binary2"}
+Number FGS221_002_SwitchBinary2_N "Item virtuale stato caldaia" (gInfluxdb) 
+
 
 //FGD211 Universal Dimmer 500W, Corridoio
 Dimmer FGD211_003_SwitchDimmer "Luce Corridoio [%d %%]" <light> (gCorridorLight) ["Switch", "Light"] {ga="Light" [roomHint="Corridoio"], channel="zwave:device:77c679d29e:node3:switch_dimmer"}
@@ -83,5 +85,5 @@ String WPS104_015_tensione_potenza "Temp Aussen [%s]"
 
 //FGS221 Double Relay Switch 2x1.5kW, Soggiorno
 Switch FGS221_016_SwitchBinary ""  {channel="zwave:device:77c679d29e:node16:switch_binary"}
-Switch FGS221_016_SwitchBinary1 "TV, Ampli" (gLivingroomPowerOutlet) ["Switch"] { ga="Outlet" [roomHint="Soggiorno"], channel="zwave:device:77c679d29e:node16:switch_binary1"}
-Switch FGS221_016_SwitchBinary2 "Ciabatta" <cinema> (gLivingroomPowerOutlet) ["Switch"] { ga="Outlet",channel="zwave:device:77c679d29e:node16:switch_binary2"}
+Switch FGS221_016_SwitchBinary1 "TV, Ampli" <cinema> (gLivingroomPowerOutlet) ["Switch"] { ga="Outlet" [roomHint="Soggiorno"], channel="zwave:device:77c679d29e:node16:switch_binary1"}
+Switch FGS221_016_SwitchBinary2 "Ciabatta" <cinema> (gLivingroomPowerOutlet) ["Switch"] { ga="Outlet" [roomHint="Soggiorno"], channel="zwave:device:77c679d29e:node16:switch_binary2"}

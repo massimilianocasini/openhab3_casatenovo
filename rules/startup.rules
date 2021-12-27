@@ -14,8 +14,8 @@ rule "reset Variabili riscaldamento alla partenza "
 when
     System started
 then
-   // Riscaldamento_Modo.sendCommand(1) //[0="Manuale", 1="Automatico", 2="Disattivato"]
-   // Riscaldamento_Man_SP.postUpdate(21.5)
+    Riscaldamento_Modo.sendCommand(1) //[0="Manuale", 1="Automatico", 2="Disattivato"]
+    Riscaldamento_Man_SP.postUpdate(21.5)
     Presence.sendCommand(OFF)
     gPresence_Sensors.sendCommand(OFF)
     Presence_Auto.sendCommand(OFF)

@@ -76,22 +76,31 @@ end
 //          }
 // end
 
-
-
-rule "Accendi luce corridoio "
+rule "Accendi luce corridoio"
 when
         
         Item FGBS222_013_Input2 changed
 then
        // val FGD211_003_SwitchDimmer_state = FGD211_003_SwitchDimmer.state as Number
-        if (FGD211_003_SwitchDimmer.state==0 && FGBS222_013_Input2.state==ON) {
+        if (FGD211_003_SwitchDimmer.state==0 && FGBS222_013_Input2.state==ON && now.getHour > 12 && SunElevation.state < 10) {
             flag = 1
             FGD211_003_SwitchDimmer.sendCommand(15)
          }
-         else if (FGD211_003_SwitchDimmer.state==15 && FGBS222_013_Input2.state==OFF && flag==1) {
+        if (FGD211_003_SwitchDimmer.state==0 && FGBS222_013_Input2.state==ON && now.getHour > 12 && SunElevation.state < -30) {
+            flag = 2
+            FGD211_003_SwitchDimmer.sendCommand(45)
+         }
+        if (FGD211_003_SwitchDimmer.state==15 && FGBS222_013_Input2.state==OFF && flag==1) {
              flag = 0
              Thread::sleep(20000)
              if (FGD211_003_SwitchDimmer.state==15) {
+             FGD211_003_SwitchDimmer.sendCommand(0)
+             }
+        }
+        if (FGD211_003_SwitchDimmer.state==45 && FGBS222_013_Input2.state==OFF && flag==2) {
+             flag = 0
+             Thread::sleep(50000)
+             if (FGD211_003_SwitchDimmer.state==45) {
              FGD211_003_SwitchDimmer.sendCommand(0)
              }
          }

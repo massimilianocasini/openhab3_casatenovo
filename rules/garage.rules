@@ -5,12 +5,24 @@ then
     if(FGBS001_007_SensorBinary1.state == ON) {
     val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
     telegramAction.sendTelegram("Garage Serranda Aperta") 
+  //  playSound("chromecast:audiogroup:e62520b9-9160-4e00-bc71-ea1683e24e54","doorbell.mp3")
     }
 else {
     val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
     telegramAction.sendTelegram("Garage Serranda Chiusa") 
     }
 end
+
+
+rule "test play"
+when
+ Item FGS222_004_SwitchBinary1 changed 
+
+then
+    playSound("chromecast:audiogroup:e62520b9-9160-4e00-bc71-ea1683e24e54","doorbell.mp3")
+end
+
+
 
 // rule "Accensione luce Garage"
 // when 

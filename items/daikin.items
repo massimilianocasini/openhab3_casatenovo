@@ -17,7 +17,7 @@ String DaikinACUnit_Fan_Movement_Soggiorno "Swing ventilazione Condizionatore So
 // Number:Temperature DaikinACUnit_OutdoorTemperature_Soggiorno "Temp. Esterna" <temperature> { channel="daikin:ac_unit:Soggiorno:outdoortemp" }
 Number DaikinACUnit_CompressorFrequency_Soggiorno "Frequenza compressore" { channel="daikin:ac_unit:Soggiorno:cmpfrequency"}
 
-Switch DaikinACUnit_Power_Cameretta "ON/OFF Condizionatore Cameretta" <switch> (gBedroom2Condizionamento, gSwCondPower) ["Control", "Switch"] { ga="Switch" [roomHint="Cameretta"], channel="daikin:ac_unit:Cameretta:power" }
+Switch DaikinACUnit_Power_Cameretta "ON/OFF Condizionatore Cameretta" <switch> (gBedroom2Condizionamento, gSwCondPower) ["Switch"] { ga="Switch" [roomHint="Cameretta"], channel="daikin:ac_unit:Cameretta:power" }
 Number:Temperature DaikinACUnit_SetPoint_Cameretta "SetPoint Condizionatore Cameretta" <temperature>  (gBedroom2Condizionamento, gEqCondSetPoint) ["Setpoint", "Temperature"]{ channel="daikin:ac_unit:Cameretta:settemp", stateDescription="" [pattern="%.1f °C"], listWidget="oh-stepper-item" [step="0.5", min="20", max="25"], widget="oh-stepper-card" [step="0.5", min="20", max="25"]}
 String DaikinACUnit_Mode_Cameretta "Modalità Condizionatore Cameretta" <settings> (gBedroom2Condizionamento, gEqCondMode) ["Control"]{ channel="daikin:ac_unit:Cameretta:mode" }
 String DaikinACUnit_Fan_Cameretta "Velocità ventilazione Condizionatore Cameretta" <fan> (gBedroom2Condizionamento) ["Control"] { channel="daikin:ac_unit:Cameretta:fanspeed" }

@@ -1,5 +1,5 @@
 network:pingdevice:GoogleIP [ hostname="8.8.8.8", retry=3, timeout=1000, refreshInterval=60000 ]
-network:pingdevice:Prodino [ hostname="192.168.178.3", retry=3, timeout=1000, refreshInterval=60000 ]
+network:pingdevice:Prodino [ hostname="192.168.188.33", retry=3, timeout=1000, refreshInterval=60000 ]
 network:pingdevice:CondSalottoIP [ hostname="192.168.188.38", retry=3, timeout=1000, refreshInterval=60000 ]
 network:pingdevice:CondCamerettaIP [ hostname="192.168.188.29", retry=3, timeout=1000, refreshInterval=60000 ]
 network:pingdevice:CondStudioIP [ hostname="192.168.188.31", retry=3, timeout=1000, refreshInterval=60000 ]
@@ -7,4 +7,5 @@ network:pingdevice:CondLettoIP [ hostname="192.168.188.30", retry=3, timeout=100
 network:pingdevice:repeater1750E [ hostname="192.168.188.35", retry=3, timeout=1000, refreshInterval=60000 ]
 network:pingdevice:repeater1160 [ hostname="192.168.188.36", retry=3, timeout=1000, refreshInterval=60000 ]
 network:pingdevice:solaredgeinverter [ hostname="192.168.188.6", retry=3, timeout=1000, refreshInterval=60000 ]
-network:pingdevice:cm3panel [ hostname="192.168.188.4", retry=3, timeout=1000, refreshInterval=60000 ]
+network:pingdevice:cm3panel [ hostname="192.168.188.51", retry=3, timeout=1000, refreshInterval=60000 ]
+network:pingdevice:tasmota_acqua [ hostname="192.168.188.33", retry=3, timeout=1000, refreshInterval=60000 ]
