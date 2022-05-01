@@ -10,7 +10,7 @@ then
 
     // execute the script, you may have to change the path depending on your system
     // Please use -f json and not -f json-pretty
-    var speedtestCliOutput = executeCommandLine(Duration.ofSeconds(120),"sudo","-u","openhabian","/usr/bin/speedtest","-s", "3243", "-f","json")
+    var speedtestCliOutput = executeCommandLine(Duration.ofSeconds(120),"sudo","-u","openhabian","/usr/bin/speedtest","--accept-gdpr","-s", "3243", "-f","json")
     logInfo("speedtest", "--> speedtest output:\n" + speedtestCliOutput)
     SpeedtestRunning.postUpdate("Analisi dei risultati ...")
     // starts off with a fairly simple error check, should be enough to catch all problems I can think of
