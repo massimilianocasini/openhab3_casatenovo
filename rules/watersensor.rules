@@ -10,15 +10,15 @@ rule "Chiusura Acqua in caso di allagamento"
 when 
     Member of gWaterSensors changed
 then
-    val actions = getActions("pushover", "pushover:pushover-account:account")
+    val pushoverActions = getActions("pushover", "pushover:pushover-account:account")
     logInfo("WaterSensor", "Cambio rilevato sul gruppo gWaterSensor")
     val host = triggeringItem 
     logInfo("WaterSensor", host.name + " " + host.state + " Cambio rilevato sul gruppo gWaterSensor")
 if (host.state==ON) {
-        var receipt = actions.sendPriorityMessage("Rilevato allagamento dal sensore "+ host.name, "openhab3", 2)
+        var receipt = pushoverActions.sendPriorityMessage("Rilevato allagamento dal sensore "+ host.name, "openhab3", 2)
         // wait for your cancel condition
         if( receipt !== null ) {
-            actions.cancelPriorityMessage(receipt)
+            pushoverActions.cancelPriorityMessage(receipt)
             receipt = null
         }
         val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
@@ -27,7 +27,7 @@ if (host.state==ON) {
         logInfo("WaterSensor", "Elettrovalvola ON")
     }
 else if (host.state==OFF) {
-        actions.sendMessage("Allagamento risolto "+ host.name , "openHAB3")
+        pushoverActions.sendMessage("Allagamento risolto "+ host.name , "openhab3")
     }
 end
 

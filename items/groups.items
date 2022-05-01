@@ -2,6 +2,7 @@ Group:Number:AVG gAvgTemperatura "Temperatura media interna [%.1f °C]" <tempera
 Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temperature> ["Measurement", "Temperature"]
 Group:Number:AVG gAvgUmidita "Umidità media interna [%.1f %%]" <humidity>
 Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> ["Measurement", "Humidity"]
+Number gAvgPressione "Pressione media [%.1f mbar]" ["Measurement", "Pressure"]
 Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch> 
 Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
 Group:Number:EQUALITY gEqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb)
@@ -17,49 +18,58 @@ Group gSystemInfo
 Group gGroundFloorSpeaker "Sonoro" ["Speaker"]
 Group gInverter "Inverter" ["Inverter"]
 Group gMeter "Meter" ["Inverter"]
-Group gBattery "Batterie" ["Battery"]
+Group gBattery "Batterie" 
 Group gCleaningRobot "Roomba" ["CleaningRobot"] 
 
 
 Group gIndoor "Indoor" ["Indoor"]
     Group gGroundFloor "Piano terra" (gIndoor) ["GroundFloor"]
+        
         Group gCorridor "Corridoio" (gGroundFloor) ["Corridor"]
             Group gCorridorSensor "Sensori Corridoio" (gCorridor) ["Sensor"]
             Group gCorridorLight "Luce Corridoio" <lightbulb> (gCorridor)  ["Lightbulb"]
             Group gCorridorMotionDetector "IR Corridoio" (gCorridor) ["MotionDetector"]
-            Group gCorridorBattery "Livello batterie Corridio" (gCorridor)
+            Group gCorridorBattery "Livello batterie Corridio" (gCorridor) ["Battery"]
             Group gCorridorCaldaia "Stato caldaia" (gCorridor) ["HVAC"]
+        
         Group gCorridor2 "Ingresso" (gGroundFloor) ["Corridor"]
             Group:Dimmer:EQUALITY gIkeaEqualityCorridorB "Ingresso Intesità [%d %%]" <light> (gCorridor2) ["Lightbulb"]
             Group:Number:EQUALITY gIkeaEqualityCorridorCT "Ingresso Temperatura [%.0f K]" <light> (gCorridor2) ["Lightbulb"]
+        
         Group gBedroom1 "Camera da letto" <bedroom> (gGroundFloor) ["Bedroom"]
             Group gBedroom1Condizionamento "Controllo condizionamento Camera da Letto" (gBedroom1) ["HVAC"]
             Group gBedroom1Sensor "Sensori Camera da Letto"  (gBedroom1) ["Sensor"]
-            Group gBedroom1Battery "Livello batterie Camera da Letto" (gBedroom1) 
+            Group gBedroom1Battery "Livello batterie Camera da Letto" (gBedroom1) ["Battery"]
+
         Group gBedroom2 "Cameretta" (gGroundFloor) ["Bedroom"] { synonyms="Oli's Room" }
             Group gBedroom2Sensor "Sensori Cameretta"  (gBedroom2) ["Sensor"]
             Group gBedroom2Condizionamento "Controllo condizionamento Cameretta" <climate> (gBedroom2) ["HVAC"]
             Group gBedroom2Light "Luce Cameretta" <lightbulb> (gBedroom2) ["Lightbulb"]
             Group gBedroom2MotionDetector "IR Cameretta" (gBedroom2) ["MotionDetector"]
-            Group gBedroom2Battery "Livello batterie Cameretta" (gBedroom2) 
+            Group gBedroom2Battery "Livello batterie Cameretta" (gBedroom2) ["Battery"]
             Group gBedroom2Speaker "Speaker Cameretta" (gBedroom2) ["Speaker"]
+
         Group gOffice "Studio" (gGroundFloor) ["Office"]
             Group gOfficeSensor "Sensori Studio"  (gOffice) ["Sensor"]
             Group gOfficeCondizionamento "Controllo condizionamento Studio" <climate> (gOffice) ["HVAC"]
             Group gOfficeMotionDetector "IR Studio" (gOffice) ["MotionDetector"]
-            Group gOfficeBattery "Livello batterie Studio" (gOffice) 
+            Group gOfficeBattery "Livello batterie Studio" (gOffice) ["Battery"]
             Group gOfficeSpeaker "Speaker Studio" (gOffice) ["Speaker"]
+        
         Group gBagnoVasca "Bagno" (gGroundFloor) ["Bathroom"]
+        
         Group gBagnoDoccia "Bagno doccia" (gGroundFloor) ["Bathroom"]
+        
         Group gLivingroom "Soggiorno" (gGroundFloor) ["LivingRoom"]
             Group gLivingroomSensor "Sensori Soggiorno"  (gLivingroom) ["Sensor"]
             Group gLivingroomPowerOutlet "Prese Soggiorno" (gLivingroom)  ["PowerOutlet"]
             Group gLivingroomCondizionamento "Controllo condizionamento Soggiorno"  <climate> (gLivingroom) ["HVAC"]
-            Group gLivingroomBattery "Livello batterie Soggiorno" (gLivingroom) 
+            Group gLivingroomBattery "Livello batterie Soggiorno" (gLivingroom) ["Battery"]
+       
         Group gKitchen "Cucina" (gGroundFloor) ["Kitchen"]
             Group gKitchenSpeaker "Speaker Cucina" (gKitchen) ["Speaker"]
             Group gKitchenSensor "Sensori Cucina" (gKitchen) ["Sensor"]
-            Group gKitchenBattery "Livello batterie Cucina" (gKitchen)
+            Group gKitchenBattery "Livello batterie Cucina" (gKitchen) ["Battery"]
 
 Group gBuilding "Building" ["Building"]
     Group gGarage "Garage" (gBuilding) ["Garage"]
@@ -68,7 +78,7 @@ Group gBuilding "Building" ["Building"]
         Group gGarageSensor "Sensori Garage" (gGarage) ["Sensor"]
         Group gGarageGarageDoor "Serranda Garage" (gGarage) ["GarageDoor"]
         Group gGarageMotionDetector "IR Garage" (gGarage) ["MotionDetector"]
-        Group gGarageBattery "Livello batterie Garage" (gGarage)
+        Group gGarageBattery "Livello batterie Garage" (gGarage) ["Battery"]
     Group gPortone "Portone" (gBuilding) ["Entry"]
         Group gPortoneLight "Luce Portone" <lightbulb> (gPortone) ["Lightbulb"]
         Group gPortoneLock "Apriportoni" <keyring> (gPortone) ["Lock"]

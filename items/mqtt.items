@@ -1,6 +1,6 @@
 // Prodino
-String  Prodino0_in1 "Stato Antifurto [%s]" <alarm> (gAlarmSystem) ["Lock", "Status"]  {channel="mqtt:topic:mosquitto:prodino:alarmIn1"}
-//Switch prodino0_in2 "In 2 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-1.*]"}
+String  Prodino0_in1 "Stato Antifurto [%s]" <alarm>         (gAlarmSystem)      ["Lock", "Status"]      {channel="mqtt:topic:mosquitto:prodino:alarmIn1"}
+String  Prodino0_in2 "Allarme [%s]"         <alarm>         (gAlarmSystem)      ["Lock", "Alarm"]       {channel="mqtt:topic:mosquitto:prodino:alarmIn2"}
 //Switch prodino0_in3 "In 3 Status [%s]" 	 (gAll, gAntifurto)   {mqtt="<[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-2.*]"}
 //String Flusso "In 4 Status [%.0f]"  	{channel="mqtt:topic:mosquitto:prodino:flusso1"}
 //Number prodino0_out1 "Key gAntifurto"    <switch>  {mqtt=">[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:ON:rel-0-1], >[myUnsecureBroker:/KMP/ProDinoWiFi/Cmd:command:OFF:rel-0-0], <[myUnsecureBroker:/KMP/ProDinoWiFi/nInfo:state:MAP(prodino.map):optoIn-0.*]"}
@@ -15,7 +15,7 @@ Switch  Prodino0_out1  "Chiave" <switch> (gAlarmSystem) ["Switch"] {channel="mqt
 //Switch  StudioLuce  "Luce Studio"   <light> (gAll, gStudio) {ga="Light" [roomHint="Studio"]}
 
 //Cm3Panel 
-String  Cm3panel    "CM3Panel"  <settings>  {channel="mqtt:topic:mosquitto:cm3panel:cm3panelStartx"}
+String  Cm3panel    "CM3Panel"  <settings>  {channel="mqtt:topic:mosquitto:cm3panel:system"}
 
 // Tasmota Garage
 Number ContatoreAcqua "Contatore acqua [%.0f]" (gInfluxdb) ["Measurement"] {channel="mqtt:topic:mosquitto:flussometro:flusso"}

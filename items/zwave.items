@@ -26,7 +26,7 @@ Switch  FGBS001_007_SensorBinary1 "Stato Serranda Garage[MAP(serrande.map):%s]" 
 Switch  FGBS001_007_AlarmGeneral1 "Alarm1" {channel="zwave:device:77c679d29e:node7:alarm_general1"}
 Switch  FGBS001_007_SensorBinary2  "IR Garage [MAP(ir.map):%s]" <motion> (gGarageMotionDetector) ["Status", "Presence"] {channel="zwave:device:77c679d29e:node7:sensor_binary2"}
 Switch  FGBS001_007_AlarmGeneral2 "Alarm2" {channel="zwave:device:77c679d29e:node7:alarm_general2"}
-Number:Temperature  FGBS001_007_SensorTemperature3  "Temperatura Universal Bynary Garage[%.1f °C]" <temperature> (gGarageSensor, gInfluxdb) ["Measurement", "Temperature"] {channel="zwave:device:77c679d29e:node7:sensor_temperature3"} 
+//Number:Temperature  FGBS001_007_SensorTemperature3_DS1820  "Temperatura Universal Bynary Garage[%.1f °C]" <temperature> (gGarageSensor, gInfluxdb) ["Measurement", "Temperature"] {channel="zwave:device:77c679d29e:node7:sensor_temperature3"} 
 
 //FGMS001 Motion Sensor, Studio
 Number:Temperature FGMS001_008_Temp "Temperatura Studio [%.1f °C]" <temperature> (gOfficeSensor, gAvgTemperatura) ["Measurement", "Temperature"] {channel="zwave:device:77c679d29e:node8:sensor_temperature"}

@@ -3,33 +3,53 @@ when
     Item Prodino0_in1 changed
 then
   if(Prodino0_in1.state == "INSERITO") {
-      val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-      telegramAction.sendTelegram("Antifurto INSerito!")
+      val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+      telegramActions.sendTelegram("Antifurto INSerito!")
       if (DaikinACUnit_Mode_Studio.state == "HEAT" && DaikinACUnit_Power_Studio.state == ON)
       {
           DaikinACUnit_Power_Studio.sendCommand(OFF)
-          telegramAction.sendTelegram("Condizionatore Studio spento")
+          telegramActions.sendTelegram("Condizionatore Studio spento")
       }
       if (DaikinACUnit_Mode_Soggiorno.state == "HEAT" && DaikinACUnit_Power_Soggiorno.state == ON)
       {
           DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
-          telegramAction.sendTelegram("Condizionatore Soggiorno spento")
+          telegramActions.sendTelegram("Condizionatore Soggiorno spento")
       }
       if (DaikinACUnit_Mode_Cameretta.state == "HEAT" && DaikinACUnit_Power_Cameretta.state == ON)
       {
           DaikinACUnit_Power_Cameretta.sendCommand(OFF)
-          telegramAction.sendTelegram("Condizionatore Cameretta spento")
+          telegramActions.sendTelegram("Condizionatore Cameretta spento")
       }
       if (DaikinACUnit_Mode_Letto.state == "HEAT" && DaikinACUnit_Power_Letto.state == ON)
       {
           DaikinACUnit_Power_Letto.sendCommand(OFF)
-          telegramAction.sendTelegram("Condizionatore Letto spento")
+          telegramActions.sendTelegram("Condizionatore Letto spento")
       } 
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
   }
   if(Prodino0_in1.state == "DISINSERITO") {
-    val telegramAction = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-    telegramAction.sendTelegram("Antifurto DIsInserito!")
+    val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramActions.sendTelegram("Antifurto DIsInserito!")
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
+  }
+end
+rule "Allarme antifurto"
+when
+    Item Prodino0_in2 changed
+then
+  val pushoverActions = getActions("pushover", "pushover:pushover-account:account")
+  val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+  if(Prodino0_in2.state == "ALLARME") {
+    var receipt = pushoverActions.sendPriorityMessage("Allarme antifurto", "openhab3", 2)
+    telegramActions.sendTelegram("Allarme antifurto")
+    // wait for your cancel condition
+        if( receipt !== null ) {
+            pushoverActions.cancelPriorityMessage(receipt)
+            receipt = null
+        }
+  }
+  else if (Prodino0_in2.state == "RIPOSO") {
+      pushoverActions.sendMessage("FINE Allarme antifurto", "openhab3")
+      telegramActions.sendTelegram("FINE Allarme antifurto")
   }
 end

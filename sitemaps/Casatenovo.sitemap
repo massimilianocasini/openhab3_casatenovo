@@ -418,4 +418,5 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Default item=Roomba_Rssi label="RSSI WIFI"
 		Default item=Roomba_snr label="SNR WIFI"
 	}
+
 }

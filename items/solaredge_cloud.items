@@ -17,7 +17,7 @@ String          SE5000_Live_GridStatus "Stato attuale rete"      (gInfluxdb)    
 Number:Energy   SE5000_AggregateDayProduction    "Produzione odierna [%.0f kWh]" <solarplant> (gInfluxdb)     {channel="solaredge:generic:se5000private:aggregate_day#production"}
 Number:Energy   SE5000_AggregateDayConsumption    "Consumo odierno [%.0f kWh]" <fan>  (gInfluxdb)     {channel="solaredge:generic:se5000private:aggregate_day#consumption"}
 Number:Energy   SE5000_AggregateDayPerAutoconsumo    "Autoconsumo odierno [%.1f kWh]" <price> (gInfluxdb)     {channel="solaredge:generic:se5000private:aggregate_day#selfConsumptionForConsumption"}
-Number:Dimensionless   SE5000_AggregateDayAutoconsumo    "Autoconsumo odierno [%.0f]" <price> (gInfluxdb) {channel="solaredge:generic:se5000private:aggregate_day#selfConsumptionCoverage"}
+Number:Dimensionless          SE5000_AggregateDayAutoconsumo    "Autoconsumo odierno [%.0f]" <price> (gInfluxdb)              {channel="solaredge:generic:se5000private:aggregate_day#selfConsumptionCoverage"}
 Number:Energy   SE5000_AggregateDayImport    "Prelievo odierno da rete [%.0f kWh]" <energy> (gInfluxdb)     {channel="solaredge:generic:se5000private:aggregate_day#import"}
 Number:Energy   SE5000_AggregateDayExport    "Immissione in rete odierna [%.0f kWh]" <price> (gInfluxdb)     {channel="solaredge:generic:se5000private:aggregate_day#export"}
 
