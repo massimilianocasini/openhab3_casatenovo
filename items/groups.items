@@ -5,8 +5,8 @@ Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> ["Measurement", 
 Number gAvgPressione "Pressione media [%.1f mbar]" ["Measurement", "Pressure"]
 Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch> 
 Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
-Group:Number:EQUALITY gEqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb)
-Number:Temperature EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb) ["Measurement", "Temperature"]
+Group:Number:EQUALITY gEqCondSetPoint "SetPoint All [%.1f °C]" <temperature> (gMapDb)
+Number EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb) ["Measurement", "Temperature"]
 Group:Number:AVG gAvgCondTemp "Temperatura media Daikin [%.1f °C]" <temperature>
 
 Group gInfluxdb
@@ -72,6 +72,8 @@ Group gIndoor "Indoor" ["Indoor"]
             Group gKitchenBattery "Livello batterie Cucina" (gKitchen) ["Battery"]
 
 Group gBuilding "Building" ["Building"]
+    Group gScale "Scale" (gBuilding) ["Corridor"]
+        Group gScaleSensor "Sensori Scale"  (gScale) ["Sensor"]
     Group gGarage "Garage" (gBuilding) ["Garage"]
         Group gGarageOutlet "Prese Garage" (gGarage) ["PowerOutlet"]
         Group gGarageLight "Luce Garage" <lightbulb> (gGarage) ["Lightbulb"]
@@ -83,6 +85,5 @@ Group gBuilding "Building" ["Building"]
         Group gPortoneLight "Luce Portone" <lightbulb> (gPortone) ["Lightbulb"]
         Group gPortoneLock "Apriportoni" <keyring> (gPortone) ["Lock"]
 Group gAlarmSystem "Antintrusione" ["AlarmSystem"]
- 
 Group gOutdoor "Outdoor" ["Outdoor"]
     Group gGarden "Giardino" (gOutdoor) ["Garden"]

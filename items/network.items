@@ -15,3 +15,4 @@ Switch         Prodino              "Prodino [%s]"                    <qualityof
 Switch         SolarEdgeInverter    "Inverter [%s]"                   <qualityofservice>    (gIP)          {channel="network:pingdevice:solaredgeinverter:online"}
 Switch         Cm3Panel             "CM3Panel [%s]"                   <qualityofservice>    (gIP)          {channel="network:pingdevice:cm3panel:online"}
 Switch         TasmotaAcqua             "Elettrovalvola Acqua [%s]"                   <qualityofservice>    (gIP)          {channel="network:pingdevice:tasmota_acqua:online"}
+Switch         Ngnix_443             "Servizio Openhab misipino.duckdns.org:443"                   <qualityofservice>    (gIP)      {channel="network:servicedevice:ngnix_443:online"}

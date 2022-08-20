@@ -1,0 +1,15 @@
+rule "Check presenza hosts su IP"
+when
+    Member of gIP changed
+then
+    val host = triggeringItem 
+
+    if (host.state==ON) {
+    val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramActions.sendTelegram("Host " + host.name + " connesso in rete")
+    }
+else {
+    val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+    telegramActions.sendTelegram("Host " + host.name + " perso dalla rete!!!!")
+    }
+end

@@ -80,7 +80,8 @@ Number WPS104_015_MeterPowerFactor "Sfasamento rete [%.0f φ]" <energy> (gInflux
 Number:ElectricCurrent WPS104_015_MeterCurrent "Corrente assorbita [%.1f A]" <energy> (gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_current"}
 Number:Power WPS104_015_MeterWatts "Assorbita [%.0f W]" <fan> ( gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_watts"}
 Number:Energy WPS104_015_MeterKwh "Energia consumata [%.1f kWh]" <fan> (gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_kwh"}
-String WPS104_015_tensione_potenza "Temp Aussen [%s]" 
+String WPS104_015_tensione_potenza "Temp Aussen [%s]"
+Switch  WPS104_015_ResetMeter "Reset contatori"  {channel="zwave:device:77c679d29e:node15:meter_reset"}
 
 
 //FGS221 Double Relay Switch 2x1.5kW, Soggiorno

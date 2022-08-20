@@ -24,20 +24,5 @@ then
         AvgUmidita.postUpdate(gAvgUmidita.state)
 end
 
-rule "Update item SetPoint Condizionamento EqCondSetPoint quando gqCondSetPoint cambia"
-when
-     Member of gEqCondSetPoint changed
-then
-        EqCondSetPoint.postUpdate(gEqCondSetPoint.state)
-end
 
-rule "Update item SetPoint Condizionamento EqCondSetPoint quando CondSetPoint cambia"
-when
-     Item EqCondSetPoint changed
-then
-        var vEqCondSetPoint = EqCondSetPoint.state as Number
-        DaikinACUnit_SetPoint_Studio.postUpdate(vEqCondSetPoint)
-        DaikinACUnit_SetPoint_Soggiorno.postUpdate(vEqCondSetPoint)
-        DaikinACUnit_SetPoint_Cameretta.postUpdate(vEqCondSetPoint)
-        DaikinACUnit_SetPoint_Letto.postUpdate(vEqCondSetPoint)
-end
+

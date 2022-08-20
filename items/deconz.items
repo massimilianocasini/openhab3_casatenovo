@@ -49,3 +49,9 @@ Switch WaterSensorCucinaAcqua "Rilevazione acqua" (gKitchenSensor, gWaterSensors
 Number:Temperature WaterSensorCucinaTemp "Temperatura Water Sensor [%.1f °C]" (gKitchenSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:temperature"}
 Number:Dimensionless WaterSensorCucinaBatt "Livello batteria WS Cucina [%d %%]" <batterylevel> (gKitchenBattery, gBattery) ["Status","Power"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:battery_level"}
 DateTime WaterSensorCucinaLastUpdate "Ultimo invio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gKitchenSensor) ["Status", "Timestamp"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:last_updated"}
+
+Number:Temperature Aqara4T "Temperatura Scale Aqara4T [%.1f °C]" <temperature>  (gScaleSensor, gInfluxdb) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:temperature"}
+Number:Dimensionless Aqara4B "Livello batteria Scale Aqara4T [%d %%]" <batterylevel>  (gScaleSensor, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:battery_level"}
+Number:Pressure Aqara4P "Pressione Scale Aqara4T [%.1f mbar]"  <pressure>  (gScaleSensor, gAvgPressione, gInfluxdb) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d00053f62da010403:pressure"}
+Number Aqara4H "Umidità Scale Aqara4T [%.0f %%]"  <humidity>  (gScaleSensor, gInfluxdb) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d00053f62da010405:humidity"}
+DateTime Aqara4LastUpdate "Ultimo invio Lumi Scale [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gScaleSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:last_updated"}
