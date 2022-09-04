@@ -14,7 +14,7 @@ Group gAstroRadation "Astro"
 Group gWeather "Che tempo che fa" ["WeatherService"]
 Group gMapDb
 Group gSystemInfo
-//Group gWaterSensors "Sensori acqua" ["Sensor"]
+Group gWaterSensors "Sensori acqua" ["Sensor"]
 Group gGroundFloorSpeaker "Sonoro" ["Speaker"]
 Group gInverter "Inverter" ["Inverter"]
 Group gMeter "Meter" ["Inverter"]
@@ -65,11 +65,14 @@ Group gIndoor "Indoor" ["Indoor"]
             Group gLivingroomPowerOutlet "Prese Soggiorno" (gLivingroom)  ["PowerOutlet"]
             Group gLivingroomCondizionamento "Controllo condizionamento Soggiorno"  <climate> (gLivingroom) ["HVAC"]
             Group gLivingroomBattery "Livello batterie Soggiorno" (gLivingroom) ["Battery"]
+            Group gAlarmSystem "Antintrusione"(gLivingroom) ["AlarmSystem"]
+            Group gQuadroElettrico "Quadro Elettrico" (gLivingroom) ["Sensor"]
        
         Group gKitchen "Cucina" (gGroundFloor) ["Kitchen"]
             Group gKitchenSpeaker "Speaker Cucina" (gKitchen) ["Speaker"]
             Group gKitchenSensor "Sensori Cucina" (gKitchen) ["Sensor"]
             Group gKitchenBattery "Livello batterie Cucina" (gKitchen) ["Battery"]
+            Group gKitchenPowerOutlet "Prese Cucina" (gKitchen)  ["PowerOutlet"]
 
 Group gBuilding "Building" ["Building"]
     Group gScale "Scale" (gBuilding) ["Corridor"]
@@ -84,6 +87,6 @@ Group gBuilding "Building" ["Building"]
     Group gPortone "Portone" (gBuilding) ["Entry"]
         Group gPortoneLight "Luce Portone" <lightbulb> (gPortone) ["Lightbulb"]
         Group gPortoneLock "Apriportoni" <keyring> (gPortone) ["Lock"]
-Group gAlarmSystem "Antintrusione" ["AlarmSystem"]
+
 Group gOutdoor "Outdoor" ["Outdoor"]
     Group gGarden "Giardino" (gOutdoor) ["Garden"]

@@ -1,10 +1,10 @@
 rule "Mette tutto su una riga"
         when
-              Item  MeterVoltage_R220P_QE_ZW11 changed or
-              Item  MeterWatts_R220P_QE_ZW11 changed 
+              Item  WPS104_015_MeterVoltage changed or
+              Item  WPS104_015_MeterWatts changed 
         then
-               val voltage = MeterVoltage_R220P_QE_ZW11.state
-               val potenza = MeterWatts_R220P_QE_ZW11.state
+               val voltage = WPS104_015_MeterVoltage.state
+               val potenza = WPS104_015_MeterWatts.state
                val stato_ant = Prodino0_in1.state
-               WPS104_tensione_potenza.postUpdate("Antifurto:" + stato_ant + " - Tensione:" + voltage + " - Potenza:" + potenza )
+               WPS104_015_tensione_potenza.postUpdate("Antifurto:" + stato_ant + " - Tensione:" + voltage + " - Potenza:" + potenza )
 end

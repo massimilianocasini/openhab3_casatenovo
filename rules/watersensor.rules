@@ -31,10 +31,10 @@ else if (host.state==OFF) {
     }
 end
 
-rule "resetCounter"
-when
-    Item ResetCounter changed
-then
-    counter = 0
-    Counter.postUpdate(counter)
-end
+// rule "resetCounter"
+// when
+//     Item ResetCounter changed
+// then
+//     counter = 0
+//     Counter.postUpdate(counter)
+// end

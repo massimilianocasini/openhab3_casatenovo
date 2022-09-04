@@ -34,12 +34,12 @@ Number:Illuminance FGMS001_008_Lum "Luminosità Studio [%.1f Lx]" <rgb> (gOffice
 Switch FGMS001_008_All "IR Studio [MAP(ir.map):%s]" <motion> (gOfficeMotionDetector) ["Status", "Presence"] {channel="zwave:device:77c679d29e:node8:alarm_motion"}
 Number FGMS001_008_Batt "Livello batteria Motion Studio [%s %%]" <battery> (gOfficeBattery, gBattery) ["Status"] {channel="zwave:device:77c679d29e:node8:battery-level"}
 
-// //FGWP102 Metered Wall Plug Switch Garage
-Number:Energy FGWP102_009_MeterKwh "Energia consumata presa scrivania [%.1f KWh]" <energy> (gGarageSensor, gInfluxdb) ["Measurement", "Energy"] {channel="zwave:device:77c679d29e:node9:meter_kwh"}
+// //FGWP102 Metered Wall Plug Switch
+Number:Energy FGWP102_009_MeterKwh "Energia consumata presa Fibaro[%.1f KWh]" <energy> (gKitchenSensor, gInfluxdb) ["Measurement", "Energy"] {channel="zwave:device:77c679d29e:node9:meter_kwh"}
 // Number:Power FGWP102_003_ElectricMeter "Potenza istantanea Electricmeter " <energy> (gPowerOutlet1, gInfluxdb) ["Power"] {channel="zzwave:device:4a707ccc88:node3:meter_watts"}
-Number:Power FGWP102_009_SensorPower "Potenza istantanea presa scrivania [%.1f kW]" <energy> (gGarageSensor,gInfluxdb) ["Measurement", "Power"] {channel="zwave:device:77c679d29e:node9:sensor_power"}
-Switch FGWP102_009_SwitchBinary "Wall Plug Stato presa scrivania" <switch>  (gGarageOutlet)  ["Switch"] {channel="zwave:device:77c679d29e:node9:switch_binary"}
-Switch FGWP102_009_ResetEnergy "Reset energia consumata presa scrivania" <switch> (gGarageOutlet) ["Switch"] {channel="zwave:device:77c679d29e:node9:meter_reset"}
+Number:Power FGWP102_009_SensorPower "Potenza istantanea presa Fibaro [%.1f W]" <energy> (gKitchenSensor,gInfluxdb) ["Measurement", "Power"] {channel="zwave:device:77c679d29e:node9:sensor_power"}
+Switch FGWP102_009_SwitchBinary "Wall Plug Stato presa Fibaro" <switch>  (gKitchenPowerOutlet)  ["Switch"] {channel="zwave:device:77c679d29e:node9:switch_binary"}
+Switch FGWP102_009_ResetEnergy "Reset energia consumata presa Fibaro" <switch> (gKitchenPowerOutlet) ["Switch"] {channel="zwave:device:77c679d29e:node9:meter_reset"}
 
 //FGS221 Double relay Switch 2x1.5kW, Cameretta lato porta
 Switch FGS221_010_SwitchBinary "" {channel="zwave:device:77c679d29e:node10:switch_binary"}
@@ -72,16 +72,16 @@ Number:Power FGR223_014_MeterWatts  "Potenza istantanea"{channel="zwave:device:7
 Number:Energy FGR223_014_MeterKwh  "Energia consumata"  {channel="zwave:device:77c679d29e:node14:meter_kwh1"}
 
 
-//WPS104 Energy Driven Switch C, Condizionamento
+//WPS104 Energy Driven Switch C, Scaldabagno
 Switch WPS104_015_SwitchBinary "Switch esterno"  {channel="zwave:device:77c679d29e:node15:switch_binary"}
 Number WPS104_015_SensorPower  "Sensore di potenza [%.0f]" <energy> {channel="zwave:device:77c679d29e:node15:sensor_power"}
-Number:ElectricPotential WPS104_015_MeterVoltage "Tensione rete [%.1f V]" <energy> (gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_voltage"}
-Number WPS104_015_MeterPowerFactor "Sfasamento rete [%.0f φ]" <energy> (gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_powerfactor"}
-Number:ElectricCurrent WPS104_015_MeterCurrent "Corrente assorbita [%.1f A]" <energy> (gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_current"}
-Number:Power WPS104_015_MeterWatts "Assorbita [%.0f W]" <fan> ( gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_watts"}
-Number:Energy WPS104_015_MeterKwh "Energia consumata [%.1f kWh]" <fan> (gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_kwh"}
+Number:ElectricPotential WPS104_015_MeterVoltage "Tensione rete [%.1f V]" <energy> (gQuadroElettrico,gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_voltage"}
+Number WPS104_015_MeterPowerFactor "Sfasamento rete [%.0f φ]" <energy> (gQuadroElettrico,gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_powerfactor"}
+Number:ElectricCurrent WPS104_015_MeterCurrent "Corrente assorbita [%.1f A]" <energy> (gQuadroElettrico,gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_current"}
+Number:Power WPS104_015_MeterWatts "Assorbita [%.0f W]" <fan> (gQuadroElettrico, gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_watts"}
+Number:Energy WPS104_015_MeterKwh "Energia consumata [%.1f kWh]" <fan> (gQuadroElettrico,gInfluxdb) {channel="zwave:device:77c679d29e:node15:meter_kwh"}
 String WPS104_015_tensione_potenza "Temp Aussen [%s]"
-Switch  WPS104_015_ResetMeter "Reset contatori"  {channel="zwave:device:77c679d29e:node15:meter_reset"}
+Switch  WPS104_015_ResetMeter "Reset contatori" (gQuadroElettrico) {channel="zwave:device:77c679d29e:node15:meter_reset"}
 
 
 //FGS221 Double Relay Switch 2x1.5kW, Soggiorno
