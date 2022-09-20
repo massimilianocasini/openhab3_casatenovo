@@ -40,13 +40,13 @@ Number IkeaLed1CT "Temperatura colore Led1 Ingresso [%.0f K]" <colorlight> (gIke
 Dimmer IkeaLed2B "Intensità luminosa Led2 Ingresso [%d %%]" <light> (gIkeaEqualityCorridorB, gIkeaLedIngresso) ["Switch","Light"] {ga="lightBrightness", channel="deconz:colortemperaturelight:00212E065BD2:588e81fffe7882ee01:brightness", stateDescription="" [options="0=0, 20=20, 50=50, 100=100"]}
 Number IkeaLed2CT "Temperatura colore Led2 Ingresso [%.0f K]" <colorlight> (gIkeaEqualityCorridorCT, gIkeaLedIngresso) ["Switch","ColorTemperature"] {ga="lightColorTemperature", channel="deconz:colortemperaturelight:00212E065BD2:588e81fffe7882ee01:color_temperature", stateDescription="" [options="2202=CALDA, 2702=TIEPIDA, 4000=FREDDA"]}
 
-Switch WaterSensorGarageAcqua "Rilevazione acqua" (gGarageSensor, gWaterSensors) ["Status", "Water"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:waterleakage", stateDescription="" [options="OFF=ASCIUTTO, ON=BAGNATO"]}
-Number:Temperature WaterSensorGarageTemp "Temperatura Water Sensor [%.1f °C]" (gGarageSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:temperature"}
+Switch WaterSensorGarageAcqua "Rilevazione acqua Garage" (gGarageSensor, gWaterSensors) ["Status", "Water"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:waterleakage", stateDescription="" [options="OFF=ASCIUTTO, ON=BAGNATO"]}
+Number:Temperature WaterSensorGarageTemp "Temperatura Water Sensor Garage [%.1f °C]" (gGarageSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:temperature"}
 Number:Dimensionless WaterSensorGarageBatt "Livello batteria WS Garage [%d %%]" <batterylevel> (gGarageBattery, gBattery) ["Status", "Power"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:battery_level"}
 DateTime WaterSensorGarageLastUpdate "Ultimo invio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gGarageSensor) ["Status", "Timestamp"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0eb2010500:last_updated"}
 
-Switch WaterSensorCucinaAcqua "Rilevazione acqua" (gKitchenSensor, gWaterSensors) ["Status", "Water"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:waterleakage", stateDescription="" [options="OFF=ASCIUTTO, ON=BAGNATO"]}
-Number:Temperature WaterSensorCucinaTemp "Temperatura Water Sensor [%.1f °C]" (gKitchenSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:temperature"}
+Switch WaterSensorCucinaAcqua "Rilevazione acqua Cucina" (gKitchenSensor, gWaterSensors) ["Status", "Water"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:waterleakage", stateDescription="" [options="OFF=ASCIUTTO, ON=BAGNATO"]}
+Number:Temperature WaterSensorCucinaTemp "Temperatura Water Sensor Cucina [%.1f °C]" (gKitchenSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:temperature"}
 Number:Dimensionless WaterSensorCucinaBatt "Livello batteria WS Cucina [%d %%]" <batterylevel> (gKitchenBattery, gBattery) ["Status","Power"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:battery_level"}
 DateTime WaterSensorCucinaLastUpdate "Ultimo invio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gKitchenSensor) ["Status", "Timestamp"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:last_updated"}
 

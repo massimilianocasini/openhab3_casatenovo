@@ -5,6 +5,6 @@ rule "Mette tutto su una riga"
         then
                val voltage = WPS104_015_MeterVoltage.state
                val potenza = WPS104_015_MeterWatts.state
-               val stato_ant = Prodino0_in1.state
+               val stato_ant = Prodino0_optoIn0.state
                WPS104_015_tensione_potenza.postUpdate("Antifurto:" + stato_ant + " - Tensione:" + voltage + " - Potenza:" + potenza )
 end

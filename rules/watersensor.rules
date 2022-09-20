@@ -8,7 +8,7 @@ end
 
 rule "Chiusura Acqua in caso di allagamento"
 when 
-    Member of gWaterSensors changed
+    Member of gWaterSensors changed from OFF to ON
 then
     val pushoverActions = getActions("pushover", "pushover:pushover-account:account")
     logInfo("WaterSensor", "Cambio rilevato sul gruppo gWaterSensor")
@@ -26,9 +26,22 @@ if (host.state==ON) {
         ElettrovalvolaAcqua.sendCommand(ON)
         logInfo("WaterSensor", "Elettrovalvola ON")
     }
-else if (host.state==OFF) {
-        pushoverActions.sendMessage("Allagamento risolto "+ host.name , "openhab3")
-    }
+//else if (host.state==OFF) {
+//        pushoverActions.sendMessage("Allagamento risolto "+ host.name , "openhab3")
+//    }
+end
+
+rule "Fine allagamento"
+when 
+    Member of gWaterSensors changed from ON to OFF
+then
+    val pushoverActions = getActions("pushover", "pushover:pushover-account:account")
+    logInfo("WaterSensor", "Cambio rilevato sul gruppo gWaterSensor")
+    val host = triggeringItem 
+    logInfo("WaterSensor", host.name + " " + host.state + " Cambio rilevato sul gruppo gWaterSensor")
+if (host.state==OFF) {
+      pushoverActions.sendMessage("Allagamento risolto "+ host.name , "openhab3")
+   }
 end
 
 // rule "resetCounter"

@@ -61,7 +61,7 @@ Switch FGBS001_012_AlarmGeneral2 "" {channel="zwave:device:77c679d29e:node12:ala
 Number:Temperature SensorTemperature3_DS1820 "Temperatura Cameretta [%.1f °C]" <temperature> {channel="zwave:device:77c679d29e:node12:sensor_temperature3"}
 Number:Temperature OffSetTemperature3_DS1820 "Temperatura Cameretta [%.1f °C]" <temperature> 
 
-//FGS222 FGBS222 Smart Implant, IR Corridoio
+//FGBS222 Smart Implant, IR Corridoio
 Number FGBS222_013_SensorTemperature "Temperatura corridoio [%.1f °C]" <temperature> {channel="zwave:device:77c679d29e:node13:sensor_temperature"}
 Switch FGBS222_013_Input1 "IR Tamper [MAP(tamper.map):%s]" <shield> {channel="zwave:device:77c679d29e:node13:alarm_burglar1"}
 Switch FGBS222_013_Input2 "IR Corridoio [MAP(ir.map):%s]" <motion> (gCorridorMotionDetector) ["Status", "Presence"] {channel="zwave:device:77c679d29e:node13:alarm_burglar2"}

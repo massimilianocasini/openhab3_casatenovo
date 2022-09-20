@@ -1,8 +1,8 @@
 rule "Antifurto cambio stato"
 when 
-    Item Prodino0_in1 changed
+    Item Prodino0_optoIn0 changed
 then
-  if(Prodino0_in1.state == "INSERITO") {
+  if(Prodino0_optoIn0.state == "INSERITO") {
       val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
       telegramActions.sendTelegram("Antifurto INSerito!")
       if (DaikinACUnit_Mode_Studio.state == "HEAT" && DaikinACUnit_Power_Studio.state == ON)
@@ -27,7 +27,7 @@ then
       } 
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
   }
-  if(Prodino0_in1.state == "DISINSERITO") {
+  if(Prodino0_optoIn0.state == "DISINSERITO") {
     val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
     telegramActions.sendTelegram("Antifurto DIsInserito!")
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
@@ -35,11 +35,11 @@ then
 end
 rule "Allarme antifurto"
 when
-    Item Prodino0_in2 changed
+    Item Prodino0_optoIn1 changed
 then
   val pushoverActions = getActions("pushover", "pushover:pushover-account:account")
   val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-  if(Prodino0_in2.state == "ALLARME") {
+  if(Prodino0_optoIn1.state == "ALLARME") {
     var receipt = pushoverActions.sendPriorityMessage("Allarme antifurto", "openhab3", 2)
     telegramActions.sendTelegram("Allarme antifurto")
     // wait for your cancel condition
@@ -48,7 +48,7 @@ then
             receipt = null
         }
   }
-  else if (Prodino0_in2.state == "RIPOSO") {
+  else if (Prodino0_optoIn1.state == "RIPOSO") {
       pushoverActions.sendMessage("FINE Allarme antifurto", "openhab3")
       telegramActions.sendTelegram("FINE Allarme antifurto")
   }

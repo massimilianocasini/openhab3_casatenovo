@@ -218,8 +218,11 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Text item=Owcm3home icon=temperature
 		}
 		Text label="Antifurto" icon="siren" {
-			Default item=Prodino0_in1
-			Switch item=Prodino0_out1
+			Default item=Prodino0_optoIn0
+			Switch item=Prodino0_ReleOut1
+			Default item=Prodino0_optoIn1
+			Default item=Prodino0_optoIn2
+			Default item=Prodino0_optoIn3
 		}
 		Text label="Controllo acqua" icon="water" {
 			Switch item=ElettrovalvolaAcqua mappings=[OFF="APERTA", ON="CHIUSA"]
