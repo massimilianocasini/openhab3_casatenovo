@@ -38,9 +38,9 @@ then
     FGD211_003_SwitchDimmer.sendCommand(10)
 end
 
-rule "Luce corridoio 07:00 OFF "
+rule "Luce corridoio 09:00 OFF "
 when
-    Time cron "0 0 7 1/1 * ? *"
+    Time cron "0 0 9 1/1 * ? *"
 then
     FGD211_003_SwitchDimmer.sendCommand(0)
     IkeaLed1B.sendCommand(0)

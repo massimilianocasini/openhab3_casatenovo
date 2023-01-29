@@ -1,15 +1,31 @@
+var Number counter
+var Number check
 rule "Check presenza hosts su IP"
 when
     Member of gIP changed
 then
-    val host = triggeringItem 
-
+    val host = triggeringItem
+    val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot") 
     if (host.state==ON) {
-    val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-    telegramActions.sendTelegram("Host " + host.name + " connesso in rete")
+        if (host.name=="Ngnix_443") {
+            counter = 0
+            if (check==1) {
+                telegramActions.sendTelegram("Host " + host.name + " connesso in rete < 3")
+            }
+        }
+    else 
+        telegramActions.sendTelegram("Host " + host.name + " connesso in rete")
     }
 else {
     val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-    telegramActions.sendTelegram("Host " + host.name + " perso dalla rete!!!!")
+    if (host.name=="Ngnix_443"){
+        counter=counter + 1
+        if (counter > 3) {
+            check = 1
+            telegramActions.sendTelegram("Host " + host.name + " perso dalla rete > 3 !!!!")  
+        }
+    }
+    else
+        telegramActions.sendTelegram("Host " + host.name + " perso dalla rete!!!!")
     }
 end

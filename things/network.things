@@ -9,4 +9,4 @@ network:pingdevice:repeater1160 [ hostname="fritzrepeater1160", retry=3, timeout
 network:pingdevice:solaredgeinverter [ hostname="192.168.188.6", retry=3, timeout=1000, refreshInterval=60000 ]
 network:pingdevice:cm3panel [ hostname="192.168.188.51", retry=3, timeout=1000, refreshInterval=60000 ]
 network:pingdevice:tasmota_acqua [ hostname="192.168.188.33", retry=3, timeout=1000, refreshInterval=60000 ]
-network:servicedevice:ngnix_443 [ hostname="misipino.duckdns.org", port=443]
+network:servicedevice:nginx_443 [ hostname="misipino.duckdns.org", port=444]

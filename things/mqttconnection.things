@@ -1,5 +1,6 @@
 Bridge mqtt:broker:mosquitto [ host="localhost", secure=false ]{
-    Thing topic prodino "Prodino" @ "Soggiorno" {
+    Thing topic prodino "Prodino" @ "Soggiorno" { 
+
       Channels:
       //  Type number : temp_prodino "Temperatura prodino" [ stateTopic="/KMP/ProDinoWiFi/dhtt"]
       //  Type number : umid_prodino "Umidità prodino" [ stateTopic="/KMP/ProDinoWiFi/dhth"]
@@ -10,7 +11,6 @@ Bridge mqtt:broker:mosquitto [ host="localhost", secure=false ]{
         Type string : optoIn3 "Anomalia" [ stateTopic = "kmp/prodinowifi/info", transformationPattern = "REGEX:(.*in-3.*)∩MAP:prodino.map" ]
         Type switch : ReleOut1 "Alarm system key" [commandTopic = "kmp/prodinowifi/cmd", on = "rel-0-1", off = "rel-0-0"]
     }
-    
     Thing topic cm3panel "CM3PANEL" @ "Cucina" {
       Channels:
         Type string : system "Cm3Panel System" [ stateTopic = "cm3panel/system", commandTopic = "cm3panel/system"]

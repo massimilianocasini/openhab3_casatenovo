@@ -1,11 +1,23 @@
-rule "Dash button pressed"
+// rule "Dash button pressed accendi luce corridoio"
+//     when
+//         Channel "amazondashbutton:dashbutton:finish:press" triggered
+//     then
+//     if (FGD211_003_SwitchDimmer.state == 40 ) {
+//         FGD211_003_SwitchDimmer.sendCommand(5)
+//     }
+//     else { FGD211_003_SwitchDimmer.sendCommand(40)
+//        // logInfo("amazondashbutton", "My Dash Button finish has been pressed")
+//     }
+// end
+rule "Dash button pressed chiudi serrande"
     when
         Channel "amazondashbutton:dashbutton:finish:press" triggered
     then
-    if (FGD211_003_SwitchDimmer.state == 40 ) {
-        FGD211_003_SwitchDimmer.sendCommand(5)
-    }
-    else { FGD211_003_SwitchDimmer.sendCommand(40)
-       // logInfo("amazondashbutton", "My Dash Button finish has been pressed")
-    }
+        if (TapparellaLettoPosition.state > 0) {
+                TapparellaLettoPosition.sendCommand(0)
+        }
+        else 
+        {
+                TapparellaLettoPosition.sendCommand(100)
+        }
 end

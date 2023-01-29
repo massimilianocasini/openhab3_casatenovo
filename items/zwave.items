@@ -62,12 +62,12 @@ Number:Temperature SensorTemperature3_DS1820 "Temperatura Cameretta [%.1f °C]" 
 Number:Temperature OffSetTemperature3_DS1820 "Temperatura Cameretta [%.1f °C]" <temperature> 
 
 //FGBS222 Smart Implant, IR Corridoio
-Number FGBS222_013_SensorTemperature "Temperatura corridoio [%.1f °C]" <temperature> {channel="zwave:device:77c679d29e:node13:sensor_temperature"}
+Number FGBS222_013_SensorTemperature "IR Temperatura corridoio [%.1f °C]" <temperature> {channel="zwave:device:77c679d29e:node13:sensor_temperature"}
 Switch FGBS222_013_Input1 "IR Tamper [MAP(tamper.map):%s]" <shield> {channel="zwave:device:77c679d29e:node13:alarm_burglar1"}
 Switch FGBS222_013_Input2 "IR Corridoio [MAP(ir.map):%s]" <motion> (gCorridorMotionDetector) ["Status", "Presence"] {channel="zwave:device:77c679d29e:node13:alarm_burglar2"}
 
 //FGR223 Roller Shutter, Pergotenda
-Rollershutter FGR223_014_BlindsControl "Pergotenda [%d %%]" <rollershutter> (gGarden) ["OpenState", "Opening"] {channel="zwave:device:77c679d29e:node14:blinds_control1"}
+Rollershutter FGR223_014_BlindsControl "Pergotenda [%d %%]" <rollershutter> (gGardenBlind) ["Blinds", "OpenLevel"] {channel="zwave:device:77c679d29e:node14:blinds_control1"}
 Number:Power FGR223_014_MeterWatts  "Potenza istantanea"{channel="zwave:device:77c679d29e:node14:meter_watts1"}
 Number:Energy FGR223_014_MeterKwh  "Energia consumata"  {channel="zwave:device:77c679d29e:node14:meter_kwh1"}
 
@@ -86,5 +86,5 @@ Switch  WPS104_015_ResetMeter "Reset contatori" (gQuadroElettrico) {channel="zwa
 
 //FGS221 Double Relay Switch 2x1.5kW, Soggiorno
 Switch FGS221_016_SwitchBinary ""  {channel="zwave:device:77c679d29e:node16:switch_binary"}
-Switch FGS221_016_SwitchBinary1 "TV, Ampli" <cinema> (gLivingroomPowerOutlet) ["Switch"] { ga="Outlet" [roomHint="Soggiorno"], channel="zwave:device:77c679d29e:node16:switch_binary1"}
+Switch FGS221_016_SwitchBinary1 "TV" <cinema> (gLivingroomPowerOutlet) ["Switch"] { ga="Outlet" [roomHint="Soggiorno"], channel="zwave:device:77c679d29e:node16:switch_binary1"}
 Switch FGS221_016_SwitchBinary2 "Ciabatta" <cinema> (gLivingroomPowerOutlet) ["Switch"] { ga="Outlet" [roomHint="Soggiorno"], channel="zwave:device:77c679d29e:node16:switch_binary2"}

@@ -25,8 +25,8 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Default item=Aqara1P
 			Default item=Aqara3P
 		}
-		Text item=Prodino0_in1  labelcolor=[DISINSERITO="green", INSERITO="red"] valuecolor=[DISINSERITO="green", INSERITO="red"]
-		Switch item=Prodino0_out1 label="Antifurto INS/DIS[]" mappings=[ON="Premi"]
+		Text item=Prodino0_optoIn0  labelcolor=[DISINSERITO="green", INSERITO="red"] valuecolor=[DISINSERITO="green", INSERITO="red"]
+		Switch item=Prodino0_ReleOut1 label="Antifurto INS/DIS[]" mappings=[ON="Premi"]
 	} 
 	Frame label="Fotovoltaico"	{
 		Default item=Total_Radiation visibility=[Total_Radiation > 0]
@@ -142,6 +142,8 @@ sitemap Casatenovo label="Benvenuto a Casa"
 			Switch item=FGS221_010_SwitchBinary1 icon=switch mappings=[OFF="SPEGNI"] visibility=[FGS221_010_SwitchBinary1 == ON]
 			Switch item=FGS221_010_SwitchBinary2 icon=switch mappings=[ON="ACCENDI"] visibility=[FGS221_010_SwitchBinary2 == OFF]
 			Switch item=FGS221_010_SwitchBinary2 icon=switch mappings=[OFF="SPEGNI"] visibility=[FGS221_010_SwitchBinary2 == ON]
+			// Default item=CameraDelSoleColor
+			// Switch item=CameraDelSoleTemp mappings=[1000="CALDA", 2702="TIEPIDA", 6000="FREDDA"]
 			Text item=FGBS001_012_SensorBinary1
 			Text item=FGBS001_012_SensorBinary2
 			//Text item=FGBS001_17_sensor_temperature3 icon="temperature"
@@ -305,11 +307,11 @@ sitemap Casatenovo label="Benvenuto a Casa"
 				Default item=FGBS222_013_SensorTemperature
 			}
 			Text label="Prodino WIFI MQTT, Sala da pranzo" icon="cellar" {
-				Switch item=Prodino0_in1
+				Switch item=Prodino0_optoIn0
 				// Switch item=prodino0_in2
 				// Switch item=prodino0_in3
 				// Switch item=prodino0_in4
-				Switch item=Prodino0_out1
+				Switch item=Prodino0_ReleOut1
 				// Switch item=prodino0_out2
 				// Switch item=prodino0_out3
 				// Switch item=prodino0_out4

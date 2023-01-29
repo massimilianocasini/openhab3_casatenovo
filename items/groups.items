@@ -1,12 +1,12 @@
 Group:Number:AVG gAvgTemperatura "Temperatura media interna [%.1f °C]" <temperature> 
-Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temperature> ["Measurement", "Temperature"]
+Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temperature> (gGroundFloor) 
 Group:Number:AVG gAvgUmidita "Umidità media interna [%.1f %%]" <humidity>
-Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> ["Measurement", "Humidity"]
-Number gAvgPressione "Pressione media [%.1f mbar]" ["Measurement", "Pressure"]
+Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> (gGroundFloor) 
+Number gAvgPressione "Pressione media [%.1f mbar]" (gGroundFloor) 
 Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch> 
 Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
 Group:Number:EQUALITY gEqCondSetPoint "SetPoint All [%.1f °C]" <temperature> (gMapDb)
-Number EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gMapDb) ["Measurement", "Temperature"]
+Number EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gGroundFloor, gMapDb) 
 Group:Number:AVG gAvgCondTemp "Temperatura media Daikin [%.1f °C]" <temperature>
 
 Group gInfluxdb
@@ -40,6 +40,7 @@ Group gIndoor "Indoor" ["Indoor"]
             Group gBedroom1Condizionamento "Controllo condizionamento Camera da Letto" (gBedroom1) ["HVAC"]
             Group gBedroom1Sensor "Sensori Camera da Letto"  (gBedroom1) ["Sensor"]
             Group gBedroom1Battery "Livello batterie Camera da Letto" (gBedroom1) ["Battery"]
+            Group gBedroom1Blind "Tapparelle" (gBedroom1) ["Blinds"]
 
         Group gBedroom2 "Cameretta" (gGroundFloor) ["Bedroom"] { synonyms="Oli's Room" }
             Group gBedroom2Sensor "Sensori Cameretta"  (gBedroom2) ["Sensor"]
@@ -77,6 +78,7 @@ Group gIndoor "Indoor" ["Indoor"]
 Group gBuilding "Building" ["Building"]
     Group gScale "Scale" (gBuilding) ["Corridor"]
         Group gScaleSensor "Sensori Scale"  (gScale) ["Sensor"]
+        Group gScaleBattery "Livelllo batterie Scale" ["Battery"]
     Group gGarage "Garage" (gBuilding) ["Garage"]
         //Group gGarageOutlet "Prese Garage" (gGarage) ["PowerOutlet"]
         Group gGarageLight "Luce Garage" <lightbulb> (gGarage) ["Lightbulb"]
@@ -91,3 +93,4 @@ Group gBuilding "Building" ["Building"]
 
 Group gOutdoor "Outdoor" ["Outdoor"]
     Group gGarden "Giardino" (gOutdoor) ["Garden"]
+    Group gGardenBlind "Pergotenda" (gGarden) ["Blinds"]

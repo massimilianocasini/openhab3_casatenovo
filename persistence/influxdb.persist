@@ -23,7 +23,6 @@ Items
 	gAvgTemperatura : strategy = everyMinute, restoreOnStartup
 	gAvgUmidita : strategy = everyMinute, restoreOnStartup
 	gAvgPressione : strategy = everyMinute, restoreOnStartup
-	gAVGDaikinTemp : strategy = everyMinute, restoreOnStartup
+	//gAVGDaikinTemp : strategy = everyMinute, restoreOnStartup
 	gSpeedtest* : strategy = everyChange, restoreOnStartup
-	Lumi1T : strategy = everyMinute
 }

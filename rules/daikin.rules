@@ -63,3 +63,21 @@ rule "Timer Condizionamento DaikinACUnit_Power_Studio"
      else
         DaikinACUnit_ac_timer_Studio.postUpdate(0)
 end
+
+rule "Spegni condizionamento la notte se in HEAT"
+when 
+Time cron "0 30 23 ? * * *"
+then
+ if (DaikinACUnit_Mode_Studio.state=="HEAT"){
+     DaikinACUnit_Power_Studio.sendCommand(OFF)
+ }
+  if (DaikinACUnit_Mode_Soggiorno.state=="HEAT"){
+     DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
+ }
+  if (DaikinACUnit_Mode_Cameretta.state=="HEAT"){
+     DaikinACUnit_Power_Cameretta.sendCommand(OFF)
+ }
+  if (DaikinACUnit_Mode_Letto.state=="HEAT"){
+     DaikinACUnit_Power_Letto.sendCommand(OFF)
+ }
+end

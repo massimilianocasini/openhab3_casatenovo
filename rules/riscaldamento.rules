@@ -8,7 +8,7 @@ when
 then
     FGS221_002_SwitchBinary2_N.postUpdate(1)
     var riscaldamentomodo = Riscaldamento_Modo.state
-    var tempint = Lumi1T.state as Number
+    var tempint = Aqara4T.state as Number
     var setpointauto = Riscaldamento_Auto_SP.state
     var setpointmanu = Riscaldamento_Man_SP.state
     val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
@@ -23,7 +23,7 @@ when
 then
     FGS221_002_SwitchBinary2_N.postUpdate(0)
     var riscaldamentomodo = Riscaldamento_Modo.state
-    var tempint = Lumi1T.state as Number
+    var tempint = Aqara4T.state as Number
     var setpointauto = Riscaldamento_Auto_SP.state
     var setpointmanu = Riscaldamento_Man_SP.state
     val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
@@ -32,29 +32,12 @@ then
     lgwebosActions.showToast("Caldaia OFF")
 end 
 
-// rule "imposta il riscaldamento in auto"
-//  when
-//      Time cron "0	30	23	?	*	*	*"
-//  then
-//      Riscaldamento_Modo.sendCommand(1)
-//  end
-
-rule "Spegni condizionamento la notte se in HEAT"
+rule "Manda in automatico (1) il cronotermostato alle 00:00"
 when 
-Time cron "0 30 23 ? * * *"
+Time cron "0 00 00 ? * * *"
 then
- if (DaikinACUnit_Mode_Studio.state=="HEAT"){
-     DaikinACUnit_Power_Studio.sendCommand(OFF)
- }
-  if (DaikinACUnit_Mode_Soggiorno.state=="HEAT"){
-     DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
- }
-  if (DaikinACUnit_Mode_Cameretta.state=="HEAT"){
-     DaikinACUnit_Power_Cameretta.sendCommand(OFF)
- }
-  if (DaikinACUnit_Mode_Letto.state=="HEAT"){
-     DaikinACUnit_Power_Letto.sendCommand(OFF)
- }
+      Riscaldamento_Modo.sendCommand(1)
+
 end
 
 

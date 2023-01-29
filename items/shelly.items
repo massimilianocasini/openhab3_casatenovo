@@ -1,0 +1,6 @@
+Rollershutter TapparellaLetto     "Tapparella Letto"     (gBedroom1Blind)  ["Blinds", "OpenLevel"]            {channel="shelly:shelly25-roller:Letto:roller#control"}
+Number:Power TapparellaLettoPower "Tapparella Letto Potenza"  (gBedroom1Blind)  ["Blinds", "Power"]            {channel="shelly:shelly25-roller:Letto:meter#currentWatts"}
+Number TapparellaLettoSignal "Tapparella Letto Segnale" (gBedroom1Blind)  ["Blinds", "Status"]                  {channel="shelly:shelly25-roller:Letto:device#wifiSignal"}
+Dimmer TapparellaLettoPosition "Tapparella Letto Posizione" (gBedroom1Blind)  ["Blinds", "Status"]            {channel="shelly:shelly25-roller:Letto:roller#rollerpos"}
+String TapparellaLettoStatus "Tapparella Letto Stato" (gBedroom1Blind)  ["Blinds"]                                {channel="shelly:shelly25-roller:Letto:roller#state"}
+Number:Energy TapparellaEnergy "Tapparella Letto Energia" (gBedroom1Blind)  ["Blinds"]                                {channel="shelly:shelly25-roller:Letto:meter#totalKWH"}

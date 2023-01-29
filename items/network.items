@@ -13,6 +13,6 @@ Switch         Repeater1160         "repeater1160 Corridoio [%s]"     <qualityof
 //Switch         Repeater310          "repeater310 Giardino [%s]"       <qualityofservice>    (gIP)          {channel="network:pingdevice:repeater310:online"}
 Switch         Prodino              "Prodino [%s]"                    <qualityofservice>    (gIP)          {channel="network:pingdevice:Prodino:online"}
 Switch         SolarEdgeInverter    "Inverter [%s]"                   <qualityofservice>    (gIP)          {channel="network:pingdevice:solaredgeinverter:online"}
-Switch         Cm3Panel             "CM3Panel [%s]"                   <qualityofservice>    (gIP)          {channel="network:pingdevice:cm3panel:online"}
-Switch         TasmotaAcqua             "Elettrovalvola Acqua [%s]"                   <qualityofservice>    (gIP)          {channel="network:pingdevice:tasmota_acqua:online"}
-Switch         Ngnix_443             "Servizio Openhab misipino.duckdns.org:443"                   <qualityofservice>    (gIP)      {channel="network:servicedevice:ngnix_443:online"}
+Switch         Cm3PanelNetwork      "CM3Panel Network [%s]"           <qualityofservice>    (gIP)          {channel="network:pingdevice:cm3panel:online"}
+Switch         TasmotaAcqua         "Elettrovalvola Acqua [%s]"       <qualityofservice>    (gIP)          {channel="network:pingdevice:tasmota_acqua:online"}
+Switch         Nginx_443            "Servizio Openhab misipino.duckdns.org:443"   <qualityofservice>    (gIP)      {channel="network:servicedevice:nginx_443:online"}

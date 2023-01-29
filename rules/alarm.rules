@@ -24,6 +24,10 @@ then
       {
           DaikinACUnit_Power_Letto.sendCommand(OFF)
           telegramActions.sendTelegram("Condizionatore Letto spento")
+      }
+      if (TapparellaLettoPosition.state > 0)
+      {
+        TapparellaLettoPosition.sendCommand(0)
       } 
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
   }
@@ -52,4 +56,11 @@ then
       pushoverActions.sendMessage("FINE Allarme antifurto", "openhab3")
       telegramActions.sendTelegram("FINE Allarme antifurto")
   }
+end
+
+rule "Chudi tapparelle prima di inserimento automatico"
+when
+Time cron "0 00 00 ? * * *"
+then
+      TapparellaLettoPosition.sendCommand(0)
 end
