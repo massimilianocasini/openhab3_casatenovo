@@ -28,13 +28,21 @@ then
       if (TapparellaLettoPosition.state > 0)
       {
         TapparellaLettoPosition.sendCommand(0)
-      } 
+      }
+      if (TapparellaStudioPosition.state > 0)
+      {
+        TapparellaStudioPosition.sendCommand(0)
+      }  
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
   }
-  if(Prodino0_optoIn0.state == "DISINSERITO") {
-    val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-    telegramActions.sendTelegram("Antifurto DIsInserito!")
+  else if(Prodino0_optoIn0.state == "DISINSERITO") {
+      val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+      telegramActions.sendTelegram("Antifurto DIsInserito!")
     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
+        if (SunElevation.state > -3 && now.getHour > 8) {
+          TapparellaLettoPosition.sendCommand(100)
+          TapparellaStudioPosition.sendCommand(100)
+        }
   }
 end
 rule "Allarme antifurto"
@@ -63,4 +71,5 @@ when
 Time cron "0 00 00 ? * * *"
 then
       TapparellaLettoPosition.sendCommand(0)
+      TapparellaStudioPosition.sendCommand(0)
 end

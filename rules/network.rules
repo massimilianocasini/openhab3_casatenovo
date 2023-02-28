@@ -13,19 +13,24 @@ then
                 telegramActions.sendTelegram("Host " + host.name + " connesso in rete < 3")
             }
         }
-    else 
-        telegramActions.sendTelegram("Host " + host.name + " connesso in rete")
+        else 
+            if (host.name != "Alice" && host.name != "Graziella" && host.name != "Massimiliano" ) {
+                telegramActions.sendTelegram("Host " + host.name + " connesso in rete")
+            }
     }
-else {
-    val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-    if (host.name=="Ngnix_443"){
-        counter=counter + 1
-        if (counter > 3) {
-            check = 1
-            telegramActions.sendTelegram("Host " + host.name + " perso dalla rete > 3 !!!!")  
+    else {
+        val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+        if (host.name=="Ngnix_443"){
+            counter = counter + 1
+            if (counter > 3) {
+                check = 1
+                telegramActions.sendTelegram("Host " + host.name + " perso dalla rete > 3 !!!!")  
+            }
         }
-    }
-    else
-        telegramActions.sendTelegram("Host " + host.name + " perso dalla rete!!!!")
+        else {
+            if (host.name != "Alice" && host.name != "Graziella" && host.name != "Massimiliano" ) {
+                telegramActions.sendTelegram("Host " + host.name + " perso dalla rete!!!!")
+            }
+        }
     }
 end

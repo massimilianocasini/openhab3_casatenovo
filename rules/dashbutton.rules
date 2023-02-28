@@ -9,15 +9,41 @@
 //        // logInfo("amazondashbutton", "My Dash Button finish has been pressed")
 //     }
 // end
-rule "Dash button pressed chiudi serrande"
+rule "Dash button pressed chiudi/apri/ferma tapparelle"
     when
         Channel "amazondashbutton:dashbutton:finish:press" triggered
     then
-        if (TapparellaLettoPosition.state > 0) {
-                TapparellaLettoPosition.sendCommand(0)
-        }
-        else 
+         var status = TapparellaLettoStatus.state
+         var position = TapparellaLettoPosition.state
+         logInfo("amazondashbutton", "Stato tapparella " + status + " " + position)
+        if (TapparellaLettoStatus.state == "close" || TapparellaLettoStatus.state == "open")
         {
-                TapparellaLettoPosition.sendCommand(100)
+                TapparellaLetto.sendCommand(STOP)
+                logInfo("amazondashbutton", "STOP command")
+        }
+        else if (TapparellaLettoStatus.state == "stop" && TapparellaLettoPosition.state == 0) 
+        {
+                TapparellaLetto.sendCommand(UP)
+                logInfo("amazondashbutton", "UP command")
+        }
+        else if (TapparellaLettoStatus.state == "stop" && TapparellaLettoPosition.state > 0)   
+        {
+                TapparellaLetto.sendCommand(DOWN)
+                logInfo("amazondashbutton", "CLOSE command")
+        }
+        if (TapparellaStudioStatus.state == "close" || TapparellaStudioStatus.state == "open")
+        {
+                TapparellaStudio.sendCommand(STOP)
+                logInfo("amazondashbutton", "STOP command")
+        }
+        else if (TapparellaStudioStatus.state == "stop" && TapparellaStudioPosition.state == 0) 
+        {
+                TapparellaStudio.sendCommand(UP)
+                logInfo("amazondashbutton", "UP command")
+        }
+        else if (TapparellaStudioStatus.state == "stop" && TapparellaStudioPosition.state > 0)   
+        {
+                TapparellaStudio.sendCommand(DOWN)
+                logInfo("amazondashbutton", "CLOSE command")
         }
 end

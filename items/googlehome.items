@@ -4,6 +4,7 @@ Dimmer MiniStudioVolume "Volume Mini Studio" (gOfficeSpeaker) ["Control", "Sound
 String MiniStudioTitle "Titolo Mini Studio" (gOfficeSpeaker) ["Status"] {channel="chromecast:chromecast:cc25fe1915b7c21d6172f95b88e8a10f:title"}
 String MiniStudioArtist "Artista Mini Studio" (gOfficeSpeaker) ["Status"] {channel="chromecast:chromecast:cc25fe1915b7c21d6172f95b88e8a10f:artist"}
 Switch MiniStudioMute "Mute Mini Studio" (gOfficeSpeaker) ["Status"] {channel="chromecast:chromecast:cc25fe1915b7c21d6172f95b88e8a10f:mute"}
+Location MiniStudioLocation "Posizione" (gOfficeSpeaker) ["Status"] {channel="chromecast:chromecast:cc25fe1915b7c21d6172f95b88e8a10f:location"}
 
 Player MiniKitchenControl "Control Mini Cucina" (gKitchenSpeaker) ["Status"] {channel="chromecast:chromecast:787ead6c61b2b7b065a993a4805dabec:control"}
 Dimmer MiniKitchenVolume "Volume Mini Cucina" (gKitchenSpeaker) ["Control", "SoundVolume"] {channel="chromecast:chromecast:787ead6c61b2b7b065a993a4805dabec:volume"}

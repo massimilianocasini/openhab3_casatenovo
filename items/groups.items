@@ -8,6 +8,8 @@ Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
 Group:Number:EQUALITY gEqCondSetPoint "SetPoint All [%.1f °C]" <temperature> (gMapDb)
 Number EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gGroundFloor, gMapDb) 
 Group:Number:AVG gAvgCondTemp "Temperatura media Daikin [%.1f °C]" <temperature>
+Group:Switch:OR(ON,OFF)   gPresence     "gPresence" <icon_presence>
+//Group:Number EQUALITY gBlinds "Chiudi/Apri Tapperelle" <rollershutter>
 
 Group gInfluxdb
 Group gAstroRadation "Astro" 
@@ -19,7 +21,9 @@ Group gGroundFloorSpeaker "Sonoro" ["Speaker"]
 Group gInverter "Inverter" ["Inverter"]
 Group gMeter "Meter" ["Inverter"]
 Group gBattery "Batterie" 
-Group gCleaningRobot "Roomba" ["CleaningRobot"] 
+Group gCleaningRobot "Roomba" ["CleaningRobot"]
+
+
 
 
 Group gIndoor "Indoor" ["Indoor"]
@@ -56,6 +60,7 @@ Group gIndoor "Indoor" ["Indoor"]
             Group gOfficeMotionDetector "IR Studio" (gOffice) ["MotionDetector"]
             Group gOfficeBattery "Livello batterie Studio" (gOffice) ["Battery"]
             Group gOfficeSpeaker "Speaker Studio" (gOffice) ["Speaker"]
+            Group gOfficeBlind "Tapparelle" (gOffice) ["Blinds"]
         
         Group gBagnoVasca "Bagno" (gGroundFloor) ["Bathroom"]
         

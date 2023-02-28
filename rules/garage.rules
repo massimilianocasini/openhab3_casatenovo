@@ -6,7 +6,9 @@ then
     val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
     val lgwebosActions = getActions("lgwebos","lgwebos:WebOSTV:d19b82c8-a123-40fe-c940-70169a605dc6")
     telegramActions.sendTelegram("Garage Serranda Aperta")
-    lgwebosActions.showToast("Garage Serranda Aperta") 
+    lgwebosActions.showToast("Garage Serranda Aperta")
+    Sonos_Volume.sendCommand(30)
+	playSound("sonos:Beam:RINCON_542A1BD8C3C601400","doorbell.mp3") 
   //  playSound("chromecast:audiogroup:e62520b9-9160-4e00-bc71-ea1683e24e54","doorbell.mp3")
     }
 else {
@@ -16,17 +18,6 @@ else {
     lgwebosActions.showToast("Garage Serranda Chiusa")  
     }
 end
-
-
-rule "test play"
-when
- Item FGS222_004_SwitchBinary1 changed 
-
-then
-    playSound("chromecast:audiogroup:e62520b9-9160-4e00-bc71-ea1683e24e54","doorbell.mp3")
-end
-
-
 
 // rule "Accensione luce Garage"
 // when 

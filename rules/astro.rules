@@ -30,3 +30,84 @@ then
        FGS222_006_SwitchBinary2.sendCommand(ON)
     }
 end 
+
+
+// rule "Apri serranda al sorgere del sole"
+// when
+//     Item SunElevation changed
+// then
+//     val sunelevation = SunElevation.state
+//     val tapparellaLettoPosition = TapparellaLettoPosition.state
+//             if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop") 
+//             // logInfo("Astro", "Antifurto Disinserito")
+//             {
+//                 if(SunElevation.state > 0 && SunElevation.state < 10 && now.getHour < 12 && tapparellaLettoPosition == 0)
+//                 {
+//                     TapparellaLettoPosition.sendCommand(30)
+//                     logInfo("Astro", "Alzo tapparella a 30 perchè SunElevation=" + sunelevation)
+//                 }
+//                 if(SunElevation.state > 10 && SunElevation.state < 20 && now.getHour < 12 && tapparellaLettoPosition == 30)
+//                 {
+//                     TapparellaLettoPosition.sendCommand(60)
+//                     logInfo("Astro", "Alzo tapparella a 60 perchè SunElevation=" + sunelevation)
+//                 }
+//                 if(SunElevation.state > 20 && now.getHour < 12 && tapparellaLettoPosition == 60)
+//                 {
+//                     TapparellaLettoPosition.sendCommand(100)
+//                     logInfo("Astro", "Alzo tapparella a 100 perchè SunElevation=" + sunelevation)
+//                 }
+//             }
+// end
+rule "Apri tapparelle ad orario 1"
+when
+    Time cron "0 30 7 ? * MON,TUE,WED,THU,FRI *"
+then
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop") 
+    {
+       if(tapparellaLettoPosition == 0)
+       {
+        TapparellaLettoPosition.sendCommand(10)
+        TapprellaStudioPosition.sendCommand(10)
+       }
+    }
+end
+
+rule "Apri tapparelle ad orario 2"
+when
+    Time cron "0 45 7 ? * MON,TUE,WED,THU,FRI *"
+then
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop") 
+    {
+       if(tapparellaLettoPosition == 10)
+       {
+        TapparellaLettoPosition.sendCommand(30)
+        TapprellaStudioPosition.sendCommand(30)
+       }
+    }
+end
+rule "Apri tapparelle ad orario 3"
+when
+    Time cron "0 00 8 ? * MON,TUE,WED,THU,FRI *"
+then
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop") 
+    {
+       if(tapparellaLettoPosition == 30)
+       {
+        TapparellaLettoPosition.sendCommand(60)
+        TapprellaStudioPosition.sendCommand(60)
+       }
+    }
+end
+rule "Apri tapparelle ad orario 4"
+when
+    Time cron "0 15 8 ? * MON,TUE,WED,THU,FRI *"
+then
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop") 
+    {
+       if(tapparellaLettoPosition == 60)
+       {
+        TapparellaLettoPosition.sendCommand(100)
+        TapprellaStudioPosition.sendCommand(100)
+       }
+    }
+end
