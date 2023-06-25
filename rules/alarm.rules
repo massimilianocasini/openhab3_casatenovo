@@ -1,50 +1,91 @@
-rule "Antifurto cambio stato"
+rule "Antifurto cambio stato swicth case"
 when 
     Item Prodino0_optoIn0 changed
 then
-  if(Prodino0_optoIn0.state == "INSERITO") {
-      val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-      telegramActions.sendTelegram("Antifurto INSerito!")
-      if (DaikinACUnit_Mode_Studio.state == "HEAT" && DaikinACUnit_Power_Studio.state == ON)
-      {
-          DaikinACUnit_Power_Studio.sendCommand(OFF)
-          telegramActions.sendTelegram("Condizionatore Studio spento")
-      }
-      if (DaikinACUnit_Mode_Soggiorno.state == "HEAT" && DaikinACUnit_Power_Soggiorno.state == ON)
-      {
-          DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
-          telegramActions.sendTelegram("Condizionatore Soggiorno spento")
-      }
-      if (DaikinACUnit_Mode_Cameretta.state == "HEAT" && DaikinACUnit_Power_Cameretta.state == ON)
-      {
-          DaikinACUnit_Power_Cameretta.sendCommand(OFF)
-          telegramActions.sendTelegram("Condizionatore Cameretta spento")
-      }
-      if (DaikinACUnit_Mode_Letto.state == "HEAT" && DaikinACUnit_Power_Letto.state == ON)
-      {
-          DaikinACUnit_Power_Letto.sendCommand(OFF)
-          telegramActions.sendTelegram("Condizionatore Letto spento")
-      }
-      if (TapparellaLettoPosition.state > 0)
-      {
-        TapparellaLettoPosition.sendCommand(0)
-      }
-      if (TapparellaStudioPosition.state > 0)
-      {
-        TapparellaStudioPosition.sendCommand(0)
-      }  
-    // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
+val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+//var String Prodino0_optoIn0_state = Prodino0_optoIn0.state
+
+// switch(Prodino0_optoIn0_state) {
+//   case "INSERITO" : {
+//     telegramActions.sendTelegram("Antifurto INSerito!Segnalazione da swicth case!")
+//   }
+//   case "DISINSERITO": {
+//     telegramActions.sendTelegram("Antifurto Disisnserito!Segnalazione da swicth case!")
+//   }
+// }
+switch(Prodino0_optoIn0) {
+  case Prodino0_optoIn0.state == "INSERITO" : {
+    telegramActions.sendTelegram("Antifurto INSerito!Segnalazione da swicth case!")
   }
-  else if(Prodino0_optoIn0.state == "DISINSERITO") {
-      val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
-      telegramActions.sendTelegram("Antifurto DIsInserito!")
-    // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
-        if (SunElevation.state > -3 && now.getHour > 8) {
-          TapparellaLettoPosition.sendCommand(100)
-          TapparellaStudioPosition.sendCommand(100)
-        }
+  case Prodino0_optoIn0.state == "INSERITO" &&
+   (DaikinACUnit_Power_Studio.state == ON || 
+    DaikinACUnit_Power_Soggiorno.state == ON || 
+    DaikinACUnit_Power_Cameretta.state == ON || 
+    DaikinACUnit_Power_Letto.state == ON
+    ) : {
+        DaikinACUnit_Power_Studio.sendCommand(OFF)
+        DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
+        DaikinACUnit_Power_Cameretta.sendCommand(OFF)
+        DaikinACUnit_Power_Letto.sendCommand(OFF)
+    }
+  case Prodino0_optoIn0.state == "INSERITO" && 
+  (TapparellaLettoPosition.state > 0 ||
+   TapparellaStudioPosition.state > 0 
+   ) : { 
+       TapparellaLettoPosition.sendCommand(0)
+       TapparellaStudioPosition.sendCommand(0)
+      } 
+  case Prodino0_optoIn0.state == "DISINSERITO": { 
+    telegramActions.sendTelegram("Antifurto Disisnserito!Segnalazione da swicth case!")
   }
+  case Prodino0_optoIn0.state == "DISINSERITO" && SunElevation.state > -3 && now.getHour > 8 : { 
+    TapparellaLettoPosition.sendCommand(100)
+    TapparellaStudioPosition.sendCommand(100)
+  }
+}
 end
+
+// rule "Antifurto cambio stato"
+// when 
+//     Item Prodino0_optoIn0 changed
+// then
+//   if(Prodino0_optoIn0.state == "INSERITO") {
+//       val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+//       telegramActions.sendTelegram("Antifurto INSerito!")
+//       if (DaikinACUnit_Mode_Studio.state == "HEAT" && DaikinACUnit_Power_Studio.state == ON) {
+//           DaikinACUnit_Power_Studio.sendCommand(OFF)
+//           telegramActions.sendTelegram("Condizionatore Studio spento")
+//       }
+//       if (DaikinACUnit_Mode_Soggiorno.state == "HEAT" && DaikinACUnit_Power_Soggiorno.state == ON) {
+//           DaikinACUnit_Power_Soggiorno.sendCommand(OFF)
+//           telegramActions.sendTelegram("Condizionatore Soggiorno spento")
+//       }
+//       if (DaikinACUnit_Mode_Cameretta.state == "HEAT" && DaikinACUnit_Power_Cameretta.state == ON) {
+//           DaikinACUnit_Power_Cameretta.sendCommand(OFF)
+//           telegramActions.sendTelegram("Condizionatore Cameretta spento")
+//       }
+//       if (DaikinACUnit_Mode_Letto.state == "HEAT" && DaikinACUnit_Power_Letto.state == ON) {
+//           DaikinACUnit_Power_Letto.sendCommand(OFF)
+//           telegramActions.sendTelegram("Condizionatore Letto spento")
+//       }
+//       if (TapparellaLettoPosition.state > 0) {
+//         TapparellaLettoPosition.sendCommand(0)
+//       }
+//       if (TapparellaStudioPosition.state > 0) {
+//         TapparellaStudioPosition.sendCommand(0)
+//       }  
+//     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto INSERITO")
+//   }
+//   else if(Prodino0_optoIn0.state == "DISINSERITO") {
+//       val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+//       telegramActions.sendTelegram("Antifurto DIsInserito!")
+//     // mailActions.sendMail("massimiliano.casini@gmail.com","Antifurto", "Antifurto DISINSERITO")
+//         if (SunElevation.state > -3 && now.getHour > 8) {
+//           TapparellaLettoPosition.sendCommand(100)
+//           TapparellaStudioPosition.sendCommand(100)
+//         }
+//   }
+// end
 rule "Allarme antifurto"
 when
     Item Prodino0_optoIn1 changed
@@ -55,21 +96,43 @@ then
     var receipt = pushoverActions.sendPriorityMessage("Allarme antifurto", "openhab3", 2)
     telegramActions.sendTelegram("Allarme antifurto")
     // wait for your cancel condition
-        if( receipt !== null ) {
-            pushoverActions.cancelPriorityMessage(receipt)
-            receipt = null
-        }
+      if( receipt !== null ) {
+        pushoverActions.cancelPriorityMessage(receipt)
+        receipt = null
+      }
   }
   else if (Prodino0_optoIn1.state == "RIPOSO") {
-      pushoverActions.sendMessage("FINE Allarme antifurto", "openhab3")
-      telegramActions.sendTelegram("FINE Allarme antifurto")
+    pushoverActions.sendMessage("FINE Allarme antifurto", "openhab3")
+    telegramActions.sendTelegram("FINE Allarme antifurto")
+    // wait for your cancel condition
+    if( receipt !== null ) {
+      pushoverActions.cancelPriorityMessage(receipt)
+      receipt = null
+    }
   }
 end
-
-rule "Chudi tapparelle prima di inserimento automatico"
+rule "Mancanza rete"
 when
-Time cron "0 00 00 ? * * *"
+    Item Prodino0_optoIn2 changed
 then
-      TapparellaLettoPosition.sendCommand(0)
-      TapparellaStudioPosition.sendCommand(0)
+  val pushoverActions = getActions("pushover", "pushover:pushover-account:account")
+  val telegramActions = getActions("telegram","telegram:telegramBot:Telegram_Bot")
+  if(Prodino0_optoIn2.state == "220VOK") {
+    var receipt = pushoverActions.sendPriorityMessage("Ripristino 220V", "openhab3", 2)
+    telegramActions.sendTelegram("Ripristino 220V")
+    // wait for your cancel condition
+    if( receipt !== null ) {
+      pushoverActions.cancelPriorityMessage(receipt)
+      receipt = null
+        }
+  }
+  else if (Prodino0_optoIn2.state == "NO220V") {
+    var receipt = pushoverActions.sendPriorityMessage("Mancanza 220V", "openhab3", 2)
+    telegramActions.sendTelegram("Mancanza 220V")
+    // wait for your cancel condition
+    if( receipt !== null ) {
+      pushoverActions.cancelPriorityMessage(receipt)
+      receipt = null
+        }
+  }
 end

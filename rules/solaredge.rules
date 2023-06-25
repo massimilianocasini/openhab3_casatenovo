@@ -46,8 +46,9 @@ rule "Calcolo potenza assorbita da rete e immessa in rete con avviso di superame
 when
     Item M_Total_Real_Power_Value changed
 then
-    val realPower = M_Total_Real_Power_Value.state as Number
+    val realPower = M_Total_Real_Power_Value.state as Number //Assorbimento, se negativo assorbimento da rete
     if  (realPower < 0) {
+                      //  val realPowerAbs = Math::abs(realPower)
                         val realPowerAbs = Math::abs((M_Total_Real_Power_Value.state as Number).floatValue)
                         PotenzaAssorbitaDaRete.postUpdate(realPowerAbs)
                         PotenzaImmessaInRete.postUpdate(0)
@@ -56,7 +57,7 @@ then
                                                       logInfo("rules solaredge", "Timer allarme assorbimento rescheduled " + realPowerAbs)
                                                       // myTimer.reschedule(now.plusMinutes(1))
                                 }
-                                else { //se il time non è partito lo fai partire
+                                else { //se il timer non è partito lo fai partire
                                                       myTimer = createTimer(now.plusMinutes(3), [ |
                                                         logInfo("rules solaredge", "Timer invio allarme assorbimento " + realPowerAbs)
                                                         Sonos_Volume.sendCommand(100)
@@ -76,7 +77,6 @@ then
                                 if (myTimer !== null) {
                                                        logInfo("rules solaredge", "Timer allarme assorbimento canceled " + realPowerAbs)
                                                         myTimer?.cancel()
-                                                        myTimer2 = null
                                                         myTimer = null
                                 } 
                         }
@@ -84,5 +84,5 @@ then
     else {
                                                         PotenzaAssorbitaDaRete.postUpdate(0)
                                                         PotenzaImmessaInRete.postUpdate(realPower)
-           }
+    }
 end

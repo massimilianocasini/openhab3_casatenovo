@@ -1,36 +1,47 @@
-String Aqara1M "Term. Mode [%s]" (gMapDb) {ga="thermostatMode"}
-Number Aqara1S "SetPoint [%.1f °C]" (gMapDb) {ga="thermostatTemperatureSetpoint"}
+String Lumi1M "Term. Mode [%s]" (gMapDb) {ga="thermostatMode"}
+Number Lumi1S "SetPoint [%.1f °C]" (gMapDb) {ga="thermostatTemperatureSetpoint"}
 
-String Aqara2M  "Term. Mode [%s]" (gMapDb) {ga="thermostatMode"}
-Number Aqara2S  "SetPoint [%.1f °C]" (gMapDb) {ga="thermostatTemperatureSetpoint"}
+String Lumi3M  "Term. Mode [%s]" (gMapDb) {ga="thermostatMode"}
+Number Lumi3S  "SetPoint [%.1f °C]" (gMapDb) {ga="thermostatTemperatureSetpoint"}
 
-String Lumi1M  "Term. Mode [%s]" (gMapDb) {ga="thermostatMode"}
-Number Lumi1S  "SetPoint [%.1f °C]" (gMapDb) {ga="thermostatTemperatureSetpoint"}
+String Lumi4M  "Term. Mode [%s]" (gMapDb) {ga="thermostatMode"}
+Number Lumi4S  "SetPoint [%.1f °C]" (gMapDb) {ga="thermostatTemperatureSetpoint"}
+
+String Lumi5M  "Term. Mode [%s]" (gMapDb) {ga="thermostatMode"}
+Number Lumi5S  "SetPoint [%.1f °C]" (gMapDb) {ga="thermostatTemperatureSetpoint"}
 
 Switch Osram01S "Presa" <switch> (gMapDb) {channel="deconz:onofflight:00212E065BD2:7cb03eaa0a0859f203:switch"}
 
-Number:Temperature Aqara1T "Temperatura Cameretta Aqara1T [%.1f °C]" <temperature>  (gBedroom2Sensor, gAvgTemperatura, gInfluxdb) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d000418a54c010402:temperature"}
-Number:Dimensionless Aqara1B "Livello batteria Cameretta Aqara1B [%d %%]" <batterylevel>  (gBedroom2Battery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000418a54c010402:battery_level"}
-Number:Pressure Aqara1P "Pressione Cameretta Aqara1P [%.1f mbar]"  <pressure>  (gBedroom2Sensor, gAvgPressione, gInfluxdb) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d000418a54c010403:pressure"}
-Number Aqara1H "Umidità Cameretta Aqara1H [%.0f %%]"  <humidity>  (gBedroom2Sensor, gAvgUmidita) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d000418a54c010405:humidity"}
-DateTime Aqara1LastUpdate "Ultimo invio Lumi Cameretta [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gBedroom2Sensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000418a54c010402:last_updated"}
+Number:Temperature Lumi1T "Temperatura Cameretta Lumi1T [%.1f °C]" <temperature>  (gBedroom2Sensor, gAvgTemperatura) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d000418a54c010402:temperature"}
+Number:Dimensionless Lumi1B "Livello batteria Cameretta Lumi1B [%d %%]" <batterylevel>  (gBedroom2Battery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000418a54c010402:battery_level"}
+Number:Pressure Lumi1P "Pressione Cameretta Lumi1P [%.1f mbar]"  <pressure>  (gBedroom2Sensor, gAvgPressione) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d000418a54c010403:pressure"}
+Number Lumi1H "Umidità Cameretta Lumi1H [%.0f %%]"  <humidity>  (gBedroom2Sensor, gAvgUmidita) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d000418a54c010405:humidity"}
+DateTime Lumi1LastUpdate "Ultimo invio Lumi1 Cameretta [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gBedroom2Sensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000418a54c010402:last_updated"}
+DateTime Lumi1LastSeen "Ultima volta visto Lumi1 Cameretta [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gBedroom2Sensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000418a54c010402:last_seen"}
 
-Number:Temperature Lumi1T "Temperatura Scale Lumi1T [%.1f °C]" <temperature> (gScaleSensor, gInfluxdb)["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d0003cc6a12010402:temperature"}
-Number:Dimensionless Lumi1B "Livello batteria Scale Lumi1B [%d %%]" <batterylevel> (gScaleBattery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0003cc6a12010402:battery_level"}
-Number Lumi1H "Umidità Corridoio Lumi1H [%.0f %%]" <humidity> (gScaleSensor, gAvgUmidita)["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d0003cc6a12010405:humidity"}
-DateTime Lumi1LastUpdate "Ultimo invio Lumi Scale [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gScaleSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0003cc6a12010402:last_updated"}
+Number:Temperature Lumi2T "Temperatura Scale Lumi2T [%.1f °C]" <temperature> (gScaleSensor, gInfluxdb)["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d0003cc6a12010402:temperature"}
+Number:Dimensionless Lumi2B "Livello batteria Scale Lumi2B [%d %%]" <batterylevel> (gScaleBattery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0003cc6a12010402:battery_level"}
+Number Lumi2H "Umidità Corridoio Lumi2H [%.0f %%]" <humidity> (gScaleSensor, gAvgUmidita)["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d0003cc6a12010405:humidity"}
+DateTime Lumi2LastUpdate "Ultimo invio Lumi2 Scale [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gScaleSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0003cc6a12010402:last_updated"}
 
-Number:Temperature Aqara2T "Temperatura Soggiorno Aqara2T [%.1f °C]" <temperature> (gLivingroomSensor, gAvgTemperatura, gInfluxdb) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d000488a24e010402:temperature"}
-Number:Dimensionless Aqara2B "Livello batteria Soggiorno Aqara2B [%d %%]" <batterylevel> (gLivingroomBattery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000488a24e010402:battery_level"}
-Number:Pressure Aqara2P "Pressione Soggiorno Aqara2P [%.1f mbar]" <pressure> (gLivingroomSensor, gAvgPressione, gInfluxdb) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d000488a24e010403:pressure"}
-Number Aqara2H "Umidità Soggiorno Aqara2H [%.0f %%]" <humidity> (gLivingroomSensor, gAvgUmidita) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d000488a24e010405:humidity"}
-DateTime Aquara2LastUpdate "Ultimo invio Aquara Soggiorno [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gLivingroomSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000488a24e010402:last_updated"}
+Number:Temperature Lumi3T "Temperatura Soggiorno Lumi3T [%.1f °C]" <temperature> (gLivingroomSensor, gAvgTemperatura) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d000488a24e010402:temperature"}
+Number:Dimensionless Lumi3B "Livello batteria Soggiorno Lumi3B [%d %%]" <batterylevel> (gLivingroomBattery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000488a24e010402:battery_level"}
+Number:Pressure Lumi3P "Pressione Soggiorno Lumi3P [%.1f mbar]" <pressure> (gLivingroomSensor, gAvgPressione) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d000488a24e010403:pressure"}
+Number Lumi3H "Umidità Soggiorno Lumi3H [%.0f %%]" <humidity> (gLivingroomSensor, gAvgUmidita) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d000488a24e010405:humidity"}
+DateTime Lumi3LastUpdate "Ultimo invio Lumi3 Soggiorno [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gLivingroomSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d000488a24e010402:last_updated"}
 
-Number:Temperature Aqara3T "Temperatura Letto Aqara3T [%.1f °C]" <temperature> (gBedroom1Sensor, gAvgTemperatura, gInfluxdb) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d0005426c62010402:temperature"}
-Number:Dimensionless Aqara3B "Livello batteria Letto Aqara3B [%d %%]" <batterylevel> (gBedroom1Battery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0005426c62010402:battery_level"}
-Number:Pressure Aqara3P "Pressione Letto Aqara3P [%.1f mbar]" <pressure> (gBedroom1Sensor, gAvgPressione) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d0005426c62010403:pressure"}
-Number Aqara3H "Umidità Letto Aqara3H [%.0f %%]" <humidity> (gBedroom1Sensor, gAvgUmidita) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d0005426c62010405:humidity"}
-DateTime Aquara3LastUpdate "Ultimo invio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gBedroom1Sensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0005426c62010402:last_updated"}
+Number:Temperature Lumi4T "Temperatura Corridoio Lumi4 [%.1f °C]" <temperature>  (gCorridorSensor, gAvgTemperatura) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:temperature"}
+Number:Dimensionless Lumi4B "Livello batteria Corridoio Lumi4 [%d %%]" <batterylevel>  (gCorridorBattery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:battery_level"}
+Number:Pressure Lumi4P "Pressione Corridoio Lumi4 [%.1f mbar]"  <pressure>  (gCorridorSensor, gAvgPressione) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d00053f62da010403:pressure"}
+Number Lumi4H "Umidità Corridoio Lumi4 [%.0f %%]"  <humidity>  (gCorridorSensor, gAvgUmidita) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d00053f62da010405:humidity"}
+DateTime Lumi4LastUpdate "Ultimo invio Lumi4 Corridoio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gCorridorSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:last_updated"}
+DateTime Lumi4LastSeen "Ultima volta visto Lumi4 Corridoio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gCorridorSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:last_seen"}
+
+Number:Temperature Lumi5T "Temperatura Letto Lumi5T [%.1f °C]" <temperature> (gBedroom1Sensor, gAvgTemperatura) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d0005426c62010402:temperature"}
+Number:Dimensionless Lumi5B "Livello batteria Letto Lumi5B [%d %%]" <batterylevel> (gBedroom1Battery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0005426c62010402:battery_level"}
+Number:Pressure Lumi5P "Pressione Letto Lumi5P [%.1f mbar]" <pressure> (gBedroom1Sensor, gAvgPressione) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d0005426c62010403:pressure"}
+Number Lumi5H "Umidità Letto Lumi5H [%.0f %%]" <humidity> (gBedroom1Sensor, gAvgUmidita) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d0005426c62010405:humidity"}
+DateTime Lumi5LastUpdate "Ultimo invio Lumi5 [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gBedroom1Sensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d0005426c62010402:last_updated"}
 
 //Dimmer IkeaIngressoB "Ingresso Intesità [%d %%]" <light> (gMapDb)
 //Number IkeaIngressoCT "Ingresso Temperatura [%d %%]" <colorlight> (gMapDb)
@@ -49,13 +60,6 @@ Switch WaterSensorCucinaAcqua "Rilevazione acqua Cucina" (gKitchenSensor, gWater
 Number:Temperature WaterSensorCucinaTemp "Temperatura Water Sensor Cucina [%.1f °C]" (gKitchenSensor) ["Measurement", "Temperature"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:temperature"}
 Number:Dimensionless WaterSensorCucinaBatt "Livello batteria WS Cucina [%d %%]" <batterylevel> (gKitchenBattery, gBattery) ["Status","Power"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:battery_level"}
 DateTime WaterSensorCucinaLastUpdate "Ultimo invio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gKitchenSensor) ["Status", "Timestamp"] {channel="deconz:waterleakagesensor:00212E065BD2:00158d0005cf0f0d010500:last_updated"}
-
-Number:Temperature Aqara4T "Temperatura Corridoio Aqara4T [%.1f °C]" <temperature>  (gCorridorSensor, gAvgTemperatura,gInfluxdb) ["Measurement", "Temperature"] {ga="thermostatTemperatureAmbient", channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:temperature"}
-Number:Dimensionless Aqara4B "Livello batteria Corridoio Aqara4T [%d %%]" <batterylevel>  (gCorridorBattery, gBattery) ["Status", "Power"] {channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:battery_level"}
-Number:Pressure Aqara4P "Pressione Corridoio Aqara4T [%.1f mbar]"  <pressure>  (gCorridorSensor, gAvgPressione, gInfluxdb) ["Measurement", "Pressure"] {channel="deconz:pressuresensor:00212E065BD2:00158d00053f62da010403:pressure"}
-Number Aqara4H "Umidità Corridoio Aqara4T [%.0f %%]"  <humidity>  (gCorridorSensor, gAvgUmidita, gInfluxdb) ["Measurement", "Humidity"] {ga="thermostatHumidityAmbient", channel="deconz:humiditysensor:00212E065BD2:00158d00053f62da010405:humidity"}
-DateTime Aqara4LastUpdate "Ultimo invio Lumi Corridoio [%1$td.%1$tm.%1$tY, %1$tH:%1$tM]" (gCorridorSensor) ["Status", "Timestamp"] {channel="deconz:temperaturesensor:00212E065BD2:00158d00053f62da010402:last_updated"}
-
 // Color CameraDelSoleColor "Colore" <colorlight> (gBedroom2Light)  ["Lightbulb", "Setpoint"] {channel="deconz:lightgroup:00212E065BD2:5:color"}
 // Number CameraDelSoleTemp "Temperatura [%.0f K]"  <light>  (gBedroom2Light) ["Lightbulb", "Setpoint", "ColorTemperature"] {channel="deconz:lightgroup:00212E065BD2:5:color_temperature", stateDescription="" [options="1000=CALDA, 2702=TIEPIDA, 6000=FREDDA"]}
 //Switch CameraDelSoleSwitch "Accendi/Spegni tutto nella camera del sole" (gBedroom2Light) ["Lightbulb", "Switch", "Light"] {channel="deconz:lightgroup:00212E065BD2:5:all_on"}

@@ -20,9 +20,10 @@ Strategies
 Items
 {
 	gInfluxdb* : strategy =  everyChange, everyHour, restoreOnStartup
-	gAvgTemperatura : strategy = everyMinute, restoreOnStartup
-	gAvgUmidita : strategy = everyMinute, restoreOnStartup
-	gAvgPressione : strategy = everyMinute, restoreOnStartup
+	//gInfluxdb1* : strategy =  everyMinute, restoreOnStartup
+	gAvgTemperatura, gAvgPressione, gAvgUmidita, gInfluxdb1*, gAvgUmidita*, gAvgPressione*, gBattery*  : strategy = everyMinute, restoreOnStartup
+	//gAvgUmidita* : strategy = everyMinute, restoreOnStartup
+	//gAvgPressione : strategy = everyMinute, restoreOnStartup
 	//gAVGDaikinTemp : strategy = everyMinute, restoreOnStartup
 	gSpeedtest* : strategy = everyChange, restoreOnStartup
 }

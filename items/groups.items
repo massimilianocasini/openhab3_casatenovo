@@ -1,17 +1,6 @@
-Group:Number:AVG gAvgTemperatura "Temperatura media interna [%.1f °C]" <temperature> 
-Number:Temperature AvgTemperature "Temperatura media interna [%.1f °C]" <temperature> (gGroundFloor) 
-Group:Number:AVG gAvgUmidita "Umidità media interna [%.1f %%]" <humidity>
-Number AvgUmidita "Umidità media interna [%.0f %%]" <humidity> (gGroundFloor) 
-Number gAvgPressione "Pressione media [%.1f mbar]" (gGroundFloor) 
-Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch> 
-Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
-Group:Number:EQUALITY gEqCondSetPoint "SetPoint All [%.1f °C]" <temperature> (gMapDb)
-Number EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gGroundFloor, gMapDb) 
-Group:Number:AVG gAvgCondTemp "Temperatura media Daikin [%.1f °C]" <temperature>
-Group:Switch:OR(ON,OFF)   gPresence     "gPresence" <icon_presence>
-//Group:Number EQUALITY gBlinds "Chiudi/Apri Tapperelle" <rollershutter>
-
 Group gInfluxdb
+Group gInfluxdb1
+Group:Number:AVG gAvgTemperatura "Temperatura media interna [%.1f °C]" <temperature> (gGroundFloor)
 Group gAstroRadation "Astro" 
 Group gWeather "Che tempo che fa" ["WeatherService"]
 Group gMapDb
@@ -23,7 +12,16 @@ Group gMeter "Meter" ["Inverter"]
 Group gBattery "Batterie" 
 Group gCleaningRobot "Roomba" ["CleaningRobot"]
 
+Group:Number:AVG gAvgUmidita "Umidità media interna [%.0f %%]" <humidity> (gGroundFloor)
 
+Group:Number:AVG gAvgPressione "Pressione media [%.1f mbar]" (gGroundFloor) 
+Group:Switch:OR(ON,OFF) gSwCondPower "Power condizionatori [%d]" <switch>
+Group:String:EQUALITY gEqCondMode "Modo Lavoro ALL" <settings> (gMapDb)
+Group:Number:EQUALITY gEqCondSetPoint "SetPoint All [%.1f °C]" <temperature> (gMapDb)
+Number EqCondSetPoint "SetPoint ALL [%.1f °C]" <temperature> (gGroundFloor, gMapDb) 
+Group:Number:AVG gAvgCondTemp "Temperatura media Daikin [%.1f °C]" <temperature>
+Group:Switch:OR(ON,OFF)   gPresence     "gPresence" <icon_presence>
+//Group:Number EQUALITY gBlinds "Chiudi/Apri Tapperelle" <rollershutter>
 
 
 Group gIndoor "Indoor" ["Indoor"]

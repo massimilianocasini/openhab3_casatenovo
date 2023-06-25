@@ -9,41 +9,58 @@
 //        // logInfo("amazondashbutton", "My Dash Button finish has been pressed")
 //     }
 // end
-rule "Dash button pressed chiudi/apri/ferma tapparelle"
-    when
-        Channel "amazondashbutton:dashbutton:finish:press" triggered
-    then
-         var status = TapparellaLettoStatus.state
-         var position = TapparellaLettoPosition.state
-         logInfo("amazondashbutton", "Stato tapparella " + status + " " + position)
-        if (TapparellaLettoStatus.state == "close" || TapparellaLettoStatus.state == "open")
-        {
-                TapparellaLetto.sendCommand(STOP)
-                logInfo("amazondashbutton", "STOP command")
-        }
-        else if (TapparellaLettoStatus.state == "stop" && TapparellaLettoPosition.state == 0) 
-        {
-                TapparellaLetto.sendCommand(UP)
-                logInfo("amazondashbutton", "UP command")
-        }
-        else if (TapparellaLettoStatus.state == "stop" && TapparellaLettoPosition.state > 0)   
-        {
-                TapparellaLetto.sendCommand(DOWN)
-                logInfo("amazondashbutton", "CLOSE command")
-        }
-        if (TapparellaStudioStatus.state == "close" || TapparellaStudioStatus.state == "open")
-        {
-                TapparellaStudio.sendCommand(STOP)
-                logInfo("amazondashbutton", "STOP command")
-        }
-        else if (TapparellaStudioStatus.state == "stop" && TapparellaStudioPosition.state == 0) 
-        {
-                TapparellaStudio.sendCommand(UP)
-                logInfo("amazondashbutton", "UP command")
-        }
-        else if (TapparellaStudioStatus.state == "stop" && TapparellaStudioPosition.state > 0)   
-        {
-                TapparellaStudio.sendCommand(DOWN)
-                logInfo("amazondashbutton", "CLOSE command")
-        }
+var Number aprichiudi = 0
+// rule "Dash button pressed chiudi/apri/ferma tapparelle"
+//     when
+//         Channel "amazondashbutton:dashbutton:finish:press" triggered
+//     then
+//          var status = TapparellaLettoStatus.state
+//          var position = TapparellaLettoPosition.state
+//          logInfo("amazondashbutton", "Stato tapparella " + status + " " + position)
+//         if (TapparellaLettoStatus.state == "close" || TapparellaLettoStatus.state == "open") {
+//                 TapparellaLetto.sendCommand(STOP)
+//                 logInfo("amazondashbutton", "STOP command")
+//         }
+//         else if (TapparellaLettoStatus.state == "stop" && TapparellaLettoPosition.state == 0) {
+//                 TapparellaLetto.sendCommand(UP)
+//                 logInfo("amazondashbutton", "UP command")
+//         }
+//         else if (TapparellaLettoStatus.state == "stop" && TapparellaLettoPosition.state > 0) {
+//                 TapparellaLetto.sendCommand(DOWN)
+//                 logInfo("amazondashbutton", "CLOSE command")
+//         }
+//         if (TapparellaStudioStatus.state == "close" || TapparellaStudioStatus.state == "open") {
+//                 TapparellaStudio.sendCommand(STOP)
+//                 logInfo("amazondashbutton", "STOP command")
+//         }
+//         else if (TapparellaStudioStatus.state == "stop" && TapparellaStudioPosition.state == 0) {
+//                 TapparellaStudio.sendCommand(UP)
+//                 logInfo("amazondashbutton", "UP command")
+//         }
+//         else if (TapparellaStudioStatus.state == "stop" && TapparellaStudioPosition.state > 0) {
+//                 TapparellaStudio.sendCommand(DOWN)
+//                 logInfo("amazondashbutton", "CLOSE command")
+//         }
+// end
+rule "Apri/Chiudi Tapparelle"
+        when
+                Channel "amazondashbutton:dashbutton:finish:press" triggered
+        then
+                if (TapparellaLettoStatus.state == "close" || TapparellaLettoStatus.state == "open" || TapparellaStudioStatus.state == "close" || TapparellaStudioStatus.state == "open") {
+                 TapparellaLetto.sendCommand(STOP)
+                 TapparellaStudio.sendCommand(STOP)
+                 logInfo("amazondashbutton", "STOP command")
+                }
+                else if (aprichiudi == 0) {
+                        TapparellaLetto.sendCommand(UP)
+                        TapparellaStudio.sendCommand(UP)
+                        aprichiudi = 1
+                        logInfo("amazondashbutton", "UP command")
+                }
+                else if (aprichiudi == 1) {
+                        TapparellaLetto.sendCommand(DOWN)
+                        TapparellaStudio.sendCommand(DOWN)
+                        aprichiudi = 0
+                        logInfo("amazondashbutton", "DOWN command")
+                }
 end

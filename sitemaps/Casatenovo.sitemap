@@ -360,29 +360,31 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Selection item=Cm3panel mappings=["sudo /bin/systemctl restart chromium.service"=RestartX, "sudo /sbin/reboot"= Reboot]
 		//Selection item=cm3home label="CM3-Home" mappings=[PowerOff="Shut down", Reboot="Reboot"]
 		}
-		Text item=SpeedtestSummary icon="speedtest"
+		Text item=Speedtest_Server icon="speedtest"
 			{
 				Frame label="Risultati"
 				{
-					Text item=SpeedtestResultDown
-					Text item=SpeedtestResultUp
-					Text item=SpeedtestResultPing
-					Text item=SpeedtestResultJitter
+					Text item=Speedtest_Download_Bandwith
+					Text item=Speedtest_Upload_Bandwith
+					Text item=Speedtest_Ping_Jitter
+					Text item=Speedtest_Ping_Latency
 				}
 				Frame label="Controllo"
 				{
-					Text item=SpeedtestResultDate
-					Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
-					Text item=SpeedtestResultError visibility=[SpeedtestRunning == "Errore"]
-					Switch item=SpeedtestRerun mappings=[ON="Start"] visibility=[SpeedtestRunning == "Misurazione terminata."	]
+					Text item=Speedtest_Interface_ExternalIP
+				//	Text item=SpeedtestRunning label="Speedtest [%s]" visibility=[SpeedtestRunning != "-"]
+				//	Text item=SpeedtestResultError visibility=[SpeedtestRunning == "Errore"]
+				//	Switch item=SpeedtestRerun mappings=[ON="Start"] visibility=[SpeedtestRunning == "Misurazione terminata."	]
 				}
 				Frame label="Statistiche"
 				{
-					Image label="Ultima misurazione" item=SpeedtestResultImage
-				   // Webview url="/static/index.html" height=12 icon="speedtest_summary"
+					Text item=Speedtest_ResultURL
+					Image label="Letzte Messung" item=Speedtest_ResultURL
+                    Webview url="/static/chart.html" height=12 icon="speedtest_summary"
 				}
 			}
 	}
+
 	Frame label="TVCC"
 		{
 			Text label="Camera1" icon=camera {

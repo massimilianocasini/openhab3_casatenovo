@@ -10,19 +10,19 @@
 //         Lumi1S.postUpdate(Riscaldamento_Auto_SP.state)
 // end
 
-rule "Update item AVGTemperature"
-when
-     Member of gAvgTemperatura changed
-then
-        AvgTemperature.postUpdate(gAvgTemperatura.state)
-end
+// rule "Update item AVGTemperature"
+// when
+//      Member of gAvgTemperatura changed
+// then
+//         AvgTemperature.postUpdate(gAvgTemperatura.state)
+// end
 
-rule "Update item AVGUmidità"
-when
-     Member of gAvgUmidita changed
-then
-        AvgUmidita.postUpdate(gAvgUmidita.state)
-end
+// rule "Update item AVGUmidità"
+// when
+//      Member of gAvgUmidita changed
+// then
+//         AvgUmidita.postUpdate(gAvgUmidita.state)
+// end
 
 
 
