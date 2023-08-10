@@ -8,7 +8,7 @@ sitemap Casatenovo label="Benvenuto a Casa"
 		Default item=SunElevation
 		Text item=ContatoreAcqua
 		Switch item=ResetContatoreAcqua mappings=[ON="RESET"]
-		// Text item=Counter
+		Default item=Test
 		//Switch item=ResetCounter
 	}
 	Frame label="Stato generale" {

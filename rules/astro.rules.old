@@ -71,7 +71,7 @@ rule "Apri tapparelle ad orario 1"
 when
     Time cron "0 45 6 ? * MON,TUE,WED,THU,FRI *"
 then
-    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop")  {
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop" && VoglioDormire == "OFF")  {
         logInfo("Astro", "PrimoIF orario1" )
        if(TapparellaLettoPosition.state == 0) {
             TapparellaLettoPosition.sendCommand(10)
@@ -88,7 +88,7 @@ rule "Apri tapparelle ad orario 2"
 when
     Time cron "0 30 7 ? * MON,TUE,WED,THU,FRI *"
 then
-    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop")   {
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop" && VoglioDormire == "OFF")   {
         logInfo("Astro", "PrimoIF orario2" )
        if(TapparellaLettoPosition.state == 10) {
             TapparellaLettoPosition.sendCommand(30)
@@ -104,7 +104,7 @@ rule "Apri tapparelle ad orario 3"
 when
     Time cron "0 00 8 ? * MON,TUE,WED,THU,FRI *"
 then
-    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop")   {
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop" && VoglioDormire == "OFF")   {
         logInfo("Astro", "PrimoIF orario3" )
        if(TapparellaLettoPosition.state == 30) {
             TapparellaLettoPosition.sendCommand(60)
@@ -121,7 +121,7 @@ when
     Time cron "0 15 8 ? * MON,TUE,WED,THU,FRI *"
 then
     logInfo("Astro", "Start CRON" )
-    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop") {
+    if(Prodino0_optoIn0.state == "DISINSERITO" && isBankHoliday == false && isWeekend == false && TapparellaLettoStatus.state == "stop" && TapparellaStudioStatus.state == "stop" && VoglioDormire == "OFF") {
         logInfo("Astro", "PrimoIF orario4" )
        if(TapparellaLettoPosition.state == 60){
             TapparellaLettoPosition.sendCommand(100)
